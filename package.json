@@ -1,0 +1,30 @@
+{
+  "name": "databasteknik",
+  "version": "1.0.0",
+  "description": "databasmortfors",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandermasud/Databasteknik.git"
+  },
+  "author": "Alexander Masud",
+  "license": "ISC",
+    "dependencies": {
+        
+        "body-parser": "*",
+        "consolidate": "*",
+        "dust": "*",
+        "dustjs-helpers": "*",
+        "dustjs-linkedin": "*",
+        "express": "*",
+        "pg": "*"
+    },
+  "bugs": {
+    "url": "https://github.com/alexandermasud/Databasteknik/issues"
+  },
+  "homepage": "https://github.com/alexandermasud/Databasteknik#readme"
+}
+ 
