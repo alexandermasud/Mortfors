@@ -78,8 +78,9 @@
 
 
 <h2>Kundregister</h2>
-             
+         
   <table class="table">
+      
     <thead>
       <tr>
         <th>KundID</th>
@@ -90,10 +91,11 @@
         <th>Email</th>
         <th>Telefon</th>
       </tr>
+        
     </thead>
-    {#kund}
+  
     <tbody>
-     
+     {#kund} 
       <tr>
         <td>{kundid}</td>
         <td>{fornamn}</td>
@@ -103,10 +105,11 @@
         <td>{epost}</td>
         <td>{telefon}</td>
       </tr>
-    
-      
+    {/kund}
+      </tbody> 
+</table>
 
-{/kund}
+
     
 
     <!-- Page Content -->
