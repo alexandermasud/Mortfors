@@ -48,16 +48,17 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                 <ul class="nav navbar-nav">
                   <li>
                         <a href="resor.html">Resor</a>
                     </li>
                     <li>
                         <a href="kunder.html">Kundregister</a>
                     </li>
-                    <li>
-                      <a href="kontakt.html">Kontakta oss</a>
+                     <li>
+                        <a href="chauffor.html">Chaufförregister</a>
                     </li>
+                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -66,57 +67,136 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>A Bootstrap Starter Template</h1>
-                <p class="lead">Complete with pre-defined file paths that you won't have to change!!</p>
-                <ul class="list-unstyled">
-                    <li>Bootstrap v3.3.7</li>
-                    <li>jQuery v1.11.1</li>
-                </ul>
-            </div>
-        </div>
+       <div class="container">
+           
+           
+             <div class="row">
+           
+                 <img src="img/drivers/driver1.jpg"> 
         <!-- /.row -->
         
         
         
-        <div class="container">
-  <h2>Basic Table</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+
+  <h2>Registrera ny chaufför</h2>
+       
+   
+  <form>
+    <div class="col-lg-4">
+  <div class="form-group" >
+    <label for="chaufforPersonnummer">Personnummer</label>
+    <input type="text" class="form-control" id="chaufforPersonnummer" placeholder="ex 550607-1122">
+  </div>
+      </div>
+      
+        <div class="col-lg-4">
+  <div class="form-group" >
+    <label for="fornamn">Förnamn</label>
+    <input type="text" class="form-control" id="fornamn" placeholder="ex Johan">
+  </div>
+      </div>
+      <div class="col-lg-4">
+  <div class="form-group" >
+    <label for="efternamn">Efternamn</label>
+    <input type="text" class="form-control" id="efternamn" placeholder="ex Persson">
+  </div>
+      </div>
+      
+    <div class="form-group">
+        <div class="col-lg-4">
+    <label for="adress">Adress</label>
+    <input type="text" class="form-control" id="adress" placeholder="ex Storgatan 15">
+  </div>
+      </div>
+      <div class="col-lg-4">
+      <div class="form-group">
+    <label for="stad">Stad</label>
+    <input type="text" class="form-control" id="stad" placeholder="ex Stockholm">
+  </div>
+      </div>
+      
+      <div class="col-lg-4">
+    <div class="form-group">
+    <label for="hemtelefon">Hemtelefon</label>
+    <input type="text" class="form-control" id="hemtelefon" placeholder="ex 040123456">
+  </div>
+      </div>
+</form>
+            
+            <button type="button" class="btn btn-success" style="float:right;">Registrera</button>
+
+            
+            
+        </div> 
+           
+
+        <div class="row">
+           
+
+        <!-- /.row -->
+        
+        
+        
+
+  <h2>Chaufförregister</h2>
+             
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Personnummer</th>
+        <th>Förnamn</th>
+        <th>Efternamn</th>
+        <th>Adress</th>
+        <th>Stad</th>
+        <th>Hemtelefon</th>
       </tr>
     </thead>
     <tbody>
+     
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>910328-2387</td>
+        <td>Kevin</td>
+        <td>Persson</td>
+        <td>Genvägen 18</td>
+        <td>Dalby</td>
+        <td>043145324</td>
       </tr>
       <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
+        <td>789322-2893</td>
+        <td>Per</td>
+        <td>Hansson</td>
+        <td>Ormvägen 88</td>
+        <td>Lund</td>
+        <td>045238495</td>
       </tr>
       <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+        <td>689238-4877</td>
+        <td>Bengt-Åke</td>
+        <td>Johansson</td>
+        <td>Harpungatan 12</td>
+        <td>Åkarp</td>
+        <td>040378948</td>
       </tr>
     </tbody>
   </table>
             
-            <button type="button" class="btn btn-success" style="float:right;">Update</button>
-</div>
-        
+           
+
+            
+            
+        </div> 
+           
+           
+   
+           
+    
+           
+           
+    
 
     </div>
+
+   
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
