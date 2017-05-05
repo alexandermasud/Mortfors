@@ -52,6 +52,33 @@ app.get('/resor', function(req, res){
             
 });
 
+
+
+app.post('/regchauffor', function(req,res) {
+    
+      pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+          
+        
+       client.query('INSERT INTO chauffor (chaufforid, fornamn, efternamn, adress, stad, hemtelefon) values($1, $2, $3, $4, $5, $6)',[
+          
+           req.body.chaufforid, 
+           req.body.fornamn, 
+           req.body.efternamn, 
+           req.body.adress, 
+           req.body.stad, 
+           req.body.hemtelefon
+           
+       ]); 
+          done();
+          res.redirect('/chauffor'); 
+    });	
+    
+});
+
 app.get('/chauffor', function(req, res){
         pg.connect(connect, function(err, client, done){
         
@@ -69,6 +96,31 @@ app.get('/chauffor', function(req, res){
     });   
 });
  
+
+app.post('/regkund', function(req,res) {
+    
+      pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+          
+        
+       client.query('INSERT INTO kund (fornamn, efternamn, adress, stad, epost, telefon) values($1, $2, $3, $4, $5, $6)',[
+           
+           req.body.fornamn, 
+           req.body.efternamn, 
+           req.body.adress, 
+           req.body.stad, 
+           req.body.epost, 
+           req.body.telefon
+           
+       ]); 
+          done();
+          res.redirect('/kunder'); 
+    });	
+    
+});
 
 app.get('/kunder', function(req, res){
     pg.connect(connect, function(err, client, done){
@@ -88,20 +140,7 @@ app.get('/kunder', function(req, res){
 });
    
 
-app.post('/add', function(req,res) {
-    
-      pg.connect(connect, function(err, client, done){
-        
-        if(err) {
-            return console.error('error while fetching client from pool', err);
-        }
-       client.query('INSERT INTO kund(kundid, fornamn, efternamn, adress, stad, epost, telefon) VALUES($1, $2, $3, $4, $5, $6, $7)',
-                   [req.body.kundid, req.body.fornamn, req.body.efternamn, req.body.adress, req.body.stad, req.body.epost, req.body.telefon]); 
-          done();
-          res.redirect('/'); 
-    });	
-    
-});
+
 
 // Server
 app.listen(3000, function(){

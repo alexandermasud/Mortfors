@@ -6,7 +6,7 @@ drop table if exists rutt;
 create table kund (
 
 	
-	kundID int not null,
+	kundid serial unique,
 	fornamn text not null,
 	efternamn text not null,
 	adress text not null,
@@ -14,15 +14,15 @@ create table kund (
 	epost text not null,
 	telefon text not null,
 
+	primary key (kundid)
 	
-	primary key (kundID)
 );
 
 
-insert into kund values
-(1, 'Databas', 'Masud', 'Kompassgatan 40','Malmö', 'alexandermasud@gmail.com', '0730922534'),
-(2, 'Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
-(3, 'Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
+insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values 
+('Alexander', 'Masud', 'Kompassgatan 40','Malmö', 'alexandermasud@gmail.com', '0730922534'),
+('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
+('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
 
 
 create table chauffor (
@@ -41,7 +41,7 @@ create table chauffor (
 
 insert into chauffor values 
 
-('910328-2387', 'Databas', 'Persson', 'Genvägen 18','Dalby','043145324'),
+('910328-2387', 'Arne', 'Persson', 'Genvägen 18','Dalby','043145324'),
 ('789322-2893', 'Per', 'Hansson', 'Ormvägen 88','Lund','045238495'),
 ('689238-4877', 'Bengt-Åke', 'Johansson', 'Rasmusgatan 12','Malmö','040378948');
 

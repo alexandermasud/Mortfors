@@ -40,26 +40,26 @@
 
     <!-- Page Content -->
        <div class="container">
+        <div class="row">
            
-           
-             <div class="row">
-           <img src="/img/customers/kund.jpg">
+            <img src="/img/customers/kund.jpg">
 
         <!-- /.row -->
         
         
     
             
-        </div> 
+        
            
-
-        <div class="row">
            
            <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary btn-block" style="float:right;" data-toggle="modal" data-target="#formModal">Registrera ny kund</button>
+ <button type="button" class="btn btn-primary btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal">Registrera ny kund</button>
         <!-- /.row -->
-        
+           </div>
+            </div>
+<div class="container">
 
+<div class="row">
 
 <h2>Kundregister</h2>
          
@@ -95,10 +95,11 @@
 </table>
 
     </div>
+</div>
 
 
 
-</div> 
+
            
 
      <footer class="footer" style="height:100px; background-color: #222222; margin-top: 50px;">
@@ -112,28 +113,23 @@
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <form method="post" action="/add">
+        <form method="post" action="/regkund">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Registrera ny kund</h4>
       </div>
       <div class="modal-body">
-          <div class="col-lg-12">
-  <div class="form-group" >
-    <label for="kundid">KundID</label>
-    <input type="text" class="form-control" id="kundid" placeholder="ex 5">
-  </div>
-      </div>
+
          <div class="col-lg-6">
   <div class="form-group" >
     <label for="fornamn">Förnamn</label>
-    <input type="text" class="form-control" id="fornamn" placeholder="ex Johan">
+    <input type="text" class="form-control" name="fornamn" placeholder="ex Johan">
   </div>
       </div>
       <div class="col-lg-6">
   <div class="form-group" >
     <label for="efternamn">Efternamn</label>
-    <input type="text" class="form-control" id="efternamn" placeholder="ex Persson">
+    <input type="text" class="form-control" name="efternamn" placeholder="ex Persson">
   </div>
       </div>
       
@@ -141,25 +137,25 @@
     <div class="form-group">
         
     <label for="adress">Adress</label>
-    <input type="text" class="form-control" id="adress" placeholder="ex Storgatan 15">
+    <input type="text" class="form-control" name="adress" placeholder="ex Storgatan 15">
   </div>
       </div>
       <div class="col-lg-6">
       <div class="form-group">
     <label for="stad">Stad</label>
-    <input type="text" class="form-control" id="stad" placeholder="ex Stockholm">
+    <input type="text" class="form-control" name="stad" placeholder="ex Stockholm">
   </div>
       </div>
       <div class="col-lg-6">
    <div class="form-group">
     <label for="epost">E-Post</label>
-    <input type="text" class="form-control" id="epost" placeholder="ex johanpersson@epost.com">
+    <input type="text" class="form-control" name="epost" placeholder="ex johanpersson@epost.com">
   </div>
       </div>
       <div class="col-lg-6">
     <div class="form-group">
     <label for="telefon">Telefon</label>
-    <input type="text" class="form-control" id="telefon" placeholder="ex 0731234567">
+    <input type="text" class="form-control" name="telefon" placeholder="ex 0731234567">
   </div>
       </div>
       </div>
