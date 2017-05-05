@@ -1,0 +1,158 @@
+{>"layout" /}
+
+{<body}
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             <a class="navbar-brand" href="http://localhost:3000/">Mörtfors Buss</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li>
+                        <a href="http://localhost:3000/resor">Resor</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:3000/kunder">Kundregister</a>
+                    </li>
+                     <li>
+                        <a href="http://localhost:3000/chauffor">Chaufförregister</a>
+                    </li>
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+       <div class="container">
+           
+           
+             <div class="row">
+           
+                 <img src="img/drivers/driver1.jpg"> 
+        <!-- /.row -->
+        
+        
+        
+
+  <h2>Registrera ny chaufför</h2>
+       
+   
+  <form>
+    <div class="col-lg-4">
+  <div class="form-group" >
+    <label for="chaufforPersonnummer">Personnummer</label>
+    <input type="text" class="form-control" id="chaufforPersonnummer" placeholder="ex 550607-1122">
+  </div>
+      </div>
+      
+        <div class="col-lg-4">
+  <div class="form-group" >
+    <label for="fornamn">Förnamn</label>
+    <input type="text" class="form-control" id="fornamn" placeholder="ex Johan">
+  </div>
+      </div>
+      <div class="col-lg-4">
+  <div class="form-group" >
+    <label for="efternamn">Efternamn</label>
+    <input type="text" class="form-control" id="efternamn" placeholder="ex Persson">
+  </div>
+      </div>
+      
+    <div class="form-group">
+        <div class="col-lg-4">
+    <label for="adress">Adress</label>
+    <input type="text" class="form-control" id="adress" placeholder="ex Storgatan 15">
+  </div>
+      </div>
+      <div class="col-lg-4">
+      <div class="form-group">
+    <label for="stad">Stad</label>
+    <input type="text" class="form-control" id="stad" placeholder="ex Stockholm">
+  </div>
+      </div>
+      
+      <div class="col-lg-4">
+    <div class="form-group">
+    <label for="hemtelefon">Hemtelefon</label>
+    <input type="text" class="form-control" id="hemtelefon" placeholder="ex 040123456">
+  </div>
+      </div>
+</form>
+            
+            <button type="button" class="btn btn-success" style="float:right;">Registrera</button>
+
+            
+            
+        </div> 
+           
+           <div class="container"> 
+        <div class="row">
+           
+
+    
+        
+        
+        
+
+  <h2>Chaufförregister</h2>
+             
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Personnummer</th>
+        <th>Förnamn</th>
+        <th>Efternamn</th>
+        <th>Adress</th>
+        <th>Stad</th>
+        <th>Hemtelefon</th>
+      </tr>
+    </thead>
+    <tbody>
+       {#chauffor} 
+      <tr>
+        <td>{chaufforid}</td>
+        <td>{fornamn}</td>
+        <td>{efternamn}</td>
+        <td>{adress}</td>
+        <td>{stad}</td>
+        <td>{hemtelefon}</td>
+      </tr>
+    {/chauffor}
+    </tbody>
+  </table>
+            
+           
+
+         </div>   
+            
+        </div> 
+           
+           
+   
+           
+    
+           
+           
+    
+
+    </div>
+ <footer class="footer" style="height:100px; background-color: #222222; margin-top: 50px;">
+      <div class="container">
+         <span class="text-muted" ><p class="text-center" style="padding-top: 40px;">Mörtfors Buss &copy; 2017</p></span>
+      </div>
+    </footer>
+   
+{/body}
