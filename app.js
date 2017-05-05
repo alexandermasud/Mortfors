@@ -86,7 +86,26 @@ app.get('/kunder', function(req, res){
         });
     });
 });
+   
+
+app.post('/add', function(req,res) {
     
+      pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+       client.query("INSERT into kund(kundID, fornamn, efternamn, adress, stad, epost, telefon)VALUES ($1, $2, $3, $4, $5, $6, $7)"
+                   [req.body.kundID, req.body.fornamn, req.body.efternamn, req.body.adress, req.body.stad, req.body.epost, req.body.telefon]); 
+          done();
+          res.redirect('/'); 
+    });
+    
+    
+    
+	
+    
+});
 
 // Server
 app.listen(3000, function(){
