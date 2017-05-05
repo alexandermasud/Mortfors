@@ -50,60 +50,21 @@
         
         
 
-  <h2>Registrera ny kund</h2>
+  
        
-   
-  <form>
-    <div class="col-lg-4">
-  <div class="form-group" >
-    <label for="fornamn">Förnamn</label>
-    <input type="text" class="form-control" id="fornamn" placeholder="ex Johan">
-  </div>
-      </div>
-      <div class="col-lg-4">
-  <div class="form-group" >
-    <label for="efternamn">Efternamn</label>
-    <input type="text" class="form-control" id="efternamn" placeholder="ex Persson">
-  </div>
-      </div>
-      
+  
 
-    <div class="col-lg-4">
-    <div class="form-group">
-        
-    <label for="adress">Adress</label>
-    <input type="text" class="form-control" id="adress" placeholder="ex Storgatan 15">
-  </div>
-      </div>
-      <div class="col-lg-4">
-      <div class="form-group">
-    <label for="stad">Stad</label>
-    <input type="text" class="form-control" id="stad" placeholder="ex Stockholm">
-  </div>
-      </div>
-      <div class="col-lg-4">
-   <div class="form-group">
-    <label for="e-post">E-Post</label>
-    <input type="text" class="form-control" id="e-post" placeholder="ex johanpersson@epost.com">
-  </div>
-      </div>
-      <div class="col-lg-4">
-    <div class="form-group">
-    <label for="telefon">Telefon</label>
-    <input type="text" class="form-control" id="telefon" placeholder="ex 0731234567">
-  </div>
-      </div>
-</form>
             
            
-              <button type="button" class="btn btn-success" style="float:right;">Registrera</button>
+ 
             
         </div> 
            
 
         <div class="row">
            
-
+           <!-- Button trigger modal -->
+ <button type="button" class="btn btn-primary btn-block" style="float:right;" data-toggle="modal" data-target="#formModal">Registrera ny kund</button>
         <!-- /.row -->
         
        
@@ -158,28 +119,66 @@
       </div>
     </footer>        
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+        <form method="post" action="/add">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Registrera ny kund</h4>
       </div>
       <div class="modal-body">
-        ...
+         <div class="col-lg-6">
+  <div class="form-group" >
+    <label for="fornamn">Förnamn</label>
+    <input type="text" class="form-control" id="fornamn" placeholder="ex Johan">
+  </div>
+      </div>
+      <div class="col-lg-6">
+  <div class="form-group" >
+    <label for="efternamn">Efternamn</label>
+    <input type="text" class="form-control" id="efternamn" placeholder="ex Persson">
+  </div>
+      </div>
+      
+
+    <div class="col-lg-6">
+    <div class="form-group">
+        
+    <label for="adress">Adress</label>
+    <input type="text" class="form-control" id="adress" placeholder="ex Storgatan 15">
+  </div>
+      </div>
+      <div class="col-lg-6">
+      <div class="form-group">
+    <label for="stad">Stad</label>
+    <input type="text" class="form-control" id="stad" placeholder="ex Stockholm">
+  </div>
+      </div>
+      <div class="col-lg-6">
+   <div class="form-group">
+    <label for="e-post">E-Post</label>
+    <input type="text" class="form-control" id="e-post" placeholder="ex johanpersson@epost.com">
+  </div>
+      </div>
+      <div class="col-lg-6">
+    <div class="form-group">
+    <label for="telefon">Telefon</label>
+    <input type="text" class="form-control" id="telefon" placeholder="ex 0731234567">
+  </div>
+      </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+        <button type="button" class="btn btn-primary">Spara ny kund</button>
       </div>
+        </form>
     </div>
   </div>
 </div>
+
 
 {/body}
