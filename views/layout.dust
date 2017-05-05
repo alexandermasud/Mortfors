@@ -14,6 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    
 
     <!-- Custom CSS -->
     <style>
@@ -32,15 +33,22 @@
 
 </head>
 <body>
-
+    
     {+body/}
     
- 
- <!-- jQuery Version 1.11.1 -->
-    <script src="../public/js/jquery.js"></script>
+    
+    <!-- jQuery Version 1.11.1 -->
+   
+    <script src="js/jquery.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../public/js/bootstrap.min.js"></script>      
+   
+     <script src="js/bootstrap.min.js"></script>
+ 
+      
 </body>
 
+       
 </html>
+

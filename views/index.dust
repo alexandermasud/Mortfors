@@ -1,3 +1,5 @@
+
+
 {>"layout" /}
 
 {<body}
@@ -124,11 +126,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+   
     
  <footer class="footer" style="height:100px; background-color: #222222; margin-top: 50px;">
       <div class="container">
@@ -136,7 +134,7 @@
       </div>
     </footer>
    
-                
-  
+   
+
         
 {/body}
