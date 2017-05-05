@@ -95,15 +95,11 @@ app.post('/add', function(req,res) {
         if(err) {
             return console.error('error while fetching client from pool', err);
         }
-       client.query("INSERT into kund(kundID, fornamn, efternamn, adress, stad, epost, telefon)VALUES ($1, $2, $3, $4, $5, $6, $7)"
-                   [req.body.kundID, req.body.fornamn, req.body.efternamn, req.body.adress, req.body.stad, req.body.epost, req.body.telefon]); 
+       client.query('INSERT INTO kund(kundid, fornamn, efternamn, adress, stad, epost, telefon) VALUES($1, $2, $3, $4, $5, $6, $7)',
+                   [req.body.kundid, req.body.fornamn, req.body.efternamn, req.body.adress, req.body.stad, req.body.epost, req.body.telefon]); 
           done();
           res.redirect('/'); 
-    });
-    
-    
-    
-	
+    });	
     
 });
 

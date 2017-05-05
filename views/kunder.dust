@@ -48,15 +48,7 @@
         <!-- /.row -->
         
         
-        
-
-  
-       
-  
-
-            
-           
- 
+    
             
         </div> 
            
@@ -67,10 +59,6 @@
  <button type="button" class="btn btn-primary btn-block" style="float:right;" data-toggle="modal" data-target="#formModal">Registrera ny kund</button>
         <!-- /.row -->
         
-       
-
-        
-
 
 
 <h2>Kundregister</h2>
@@ -130,6 +118,12 @@
         <h4 class="modal-title" id="myModalLabel">Registrera ny kund</h4>
       </div>
       <div class="modal-body">
+          <div class="col-lg-12">
+  <div class="form-group" >
+    <label for="kundid">KundID</label>
+    <input type="text" class="form-control" id="kundid" placeholder="ex 5">
+  </div>
+      </div>
          <div class="col-lg-6">
   <div class="form-group" >
     <label for="fornamn">Förnamn</label>
@@ -158,8 +152,8 @@
       </div>
       <div class="col-lg-6">
    <div class="form-group">
-    <label for="e-post">E-Post</label>
-    <input type="text" class="form-control" id="e-post" placeholder="ex johanpersson@epost.com">
+    <label for="epost">E-Post</label>
+    <input type="text" class="form-control" id="epost" placeholder="ex johanpersson@epost.com">
   </div>
       </div>
       <div class="col-lg-6">
@@ -171,7 +165,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
-        <input type="submit" class="btn btn-primary" value="Save" />
+        <input type="submit" class="btn btn-primary" value="Spara" />
       </div>
         </form>
     </div>
