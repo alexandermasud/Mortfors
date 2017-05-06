@@ -34,7 +34,7 @@ app.get('/', function(req, res){
             
 });
 
-app.get('/resor', function(req, res){
+app.get('/resor-sok', function(req, res){
          pg.connect(connect, function(err, client, done){
         
         if(err) {
@@ -45,7 +45,7 @@ app.get('/resor', function(req, res){
             if(err) {
                 return console.error('error running query', err);
             }
-            res.render('resor', {rutt: result.rows});
+            res.render('resor-sok', {rutt: result.rows});
             done();
         });
     });
@@ -230,6 +230,5 @@ app.get('/resor-registrera', function(req, res){
 
 // Server
 app.listen(3000, function(){
-    console.log('Server Started On Port 3000');
-    
+    console.log('Server startad på http://localhost:3000/');
 });
