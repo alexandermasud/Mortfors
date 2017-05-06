@@ -1,7 +1,9 @@
 drop table if exists kund;
 drop table if exists chauffor;
 drop table if exists rutt;
+drop table if exists resa;
 drop table if exists stad;
+
 
 
 create table kund (
@@ -83,5 +85,37 @@ insert into stad values
 ('Danmark', 'Köpenhamn', 'Terminalgade 19'),
 ('Tyskland', 'Berlin', 'Alexanderplatz 3'),
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32');
+
+
+
+
+create table resa (
+
+	avgangsid serial unique,
+	avgangsland text not null,
+	avgangsstad text not null,
+	ankomstland text not null,
+	ankomststad text not null,
+	datum text not null,
+	avgang text not null,
+	ankomst text not null,
+	pris text not null,
+	platser text not null,
+	chaufforid text not null,
+	
+	
+	primary key (avgangsid)
+
+
+);
+
+
+
+
+
+insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) values 
+('Sverige', 'Stockholm', 'Sverige','Malmö', '17-04-13', '13:00', '18:00', '500', '40', '910328-2387'),
+('Sverige', 'Malmö', 'Tyskland','Berlin', '17-04-14', '11:00', '22:00', '1000', '50', '689238-4877');
+
 
 

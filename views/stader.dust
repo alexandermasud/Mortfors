@@ -31,6 +31,9 @@
                     <li>
                         <a href="http://localhost:3000/stader">Stadsregister</a>
                     </li>
+                    <li>
+                        <a href="http://localhost:3000/resor-registrera">Reseregister</a>
+                    </li>
                    
                 </ul>
             </div>

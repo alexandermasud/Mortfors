@@ -179,6 +179,54 @@ app.get('/stader', function(req, res){
     });
 });
 
+app.post('/regresa', function(req,res) {
+    
+      pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+          
+        
+       client.query('INSERT INTO resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',[
+           
+           req.body.avgangsland, 
+           req.body.avgangsstad,
+            req.body.ankomstland, 
+           req.body.ankomststad, 
+            req.body.datum, 
+           req.body.avgang, 
+            req.body.ankomst, 
+           req.body.pris, 
+            req.body.platser, 
+           req.body.chaufforid
+           
+          
+           
+       ]); 
+          done();
+          res.redirect('/resor-registrera'); 
+    });	
+    
+});
+
+app.get('/resor-registrera', function(req, res){
+    pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+        client.query('SELECT * FROM resa', function(err, result) {
+            
+            if(err) {
+                return console.error('error running query', err);
+            }
+            res.render('resor-registrera', {resa: result.rows});
+            done();
+        });
+    });
+});
+
 
 // Server
 app.listen(3000, function(){
