@@ -1,6 +1,5 @@
 drop table if exists kund;
-drop table if exists chauffor;
-drop table if exists rutt;
+drop table if exists chauffor cascade;
 drop table if exists resa;
 drop table if exists stad;
 
@@ -46,26 +45,12 @@ insert into chauffor values
 
 ('910328-2387', 'Arne', 'Persson', 'Genvägen 18','Dalby','043145324'),
 ('789322-2893', 'Per', 'Hansson', 'Ormvägen 88','Lund','045238495'),
+('741122-3319', 'Sven', 'Hammar', 'Östravägen 12','Lund','045225390'),
 ('689238-4877', 'Bengt-Åke', 'Johansson', 'Rasmusgatan 12','Malmö','040378948');
 
 
-create table rutt (
 
-	ruttID text not null,
-	fran text not null,
-	till text not null,
-	
 
-	
-	primary key (ruttID)
-);
-
-insert into rutt values 
-
-('r1', 'Malmö', 'Köpenhamn'),
-('r2', 'Köpenhamn', 'Malmö'),
-('r3', 'Berlin', 'Köpenhamn'),
-('r4', 'Köpenhamn', 'Berlin');
 
 create table stad (
 
@@ -81,9 +66,11 @@ create table stad (
 insert into stad values 
 
 ('Sverige', 'Stockholm', 'Terminalslingan 62'),
+('Sverige', 'Göteborg', 'Drottningtorget 5'),
 ('Sverige', 'Malmö', 'Lokgatan 5'),
-('Danmark', 'Köpenhamn', 'Terminalgade 19'),
+('Finland', 'Helsingfors', 'Järnvägstorget 1'),
 ('Tyskland', 'Berlin', 'Alexanderplatz 3'),
+('Portugal', 'Lissabon', 'Praça dos Restauradores 9'),
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32');
 
 
@@ -104,8 +91,10 @@ create table resa (
 	chaufforid text not null,
 	
 	
-	primary key (avgangsid)
-
+	primary key (avgangsid),
+	foreign key (avgangsland, avgangsstad) references stad (land, stad),
+	foreign key (chaufforid) references chauffor (chaufforid)
+ 	
 
 );
 
@@ -114,8 +103,15 @@ create table resa (
 
 
 insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) values 
-('Sverige', 'Stockholm', 'Sverige','Malmö', '17-04-13', '13:00', '18:00', '500', '40', '910328-2387'),
-('Sverige', 'Malmö', 'Tyskland','Berlin', '17-04-14', '11:00', '22:00', '1000', '50', '689238-4877');
-
+('Sverige', 'Malmö', 'Portugal','Lissabon', '17-04-10', '10:00', '23:00', '1099', '30', '741122-3319'),     
+('Sverige', 'Göteborg', 'Frankrike','Paris', '17-04-11', '09:00', '22:00', '1199', '80', '789322-2893'),
+('Sverige', 'Stockholm', 'Sverige','Malmö', '17-04-13', '13:00', '18:00', '499', '40', '910328-2387'),
+('Sverige', 'Malmö', 'Tyskland','Berlin', '17-04-14', '11:00', '22:00', '999', '50', '689238-4877'),
+('Sverige', 'Malmö', 'Finland','Helsingfors', '17-04-14', '09:00', '15:00', '799', '40', '910328-2387'),
+('Portugal', 'Lissabon', 'Sverige','Malmö', '17-04-16', '04:00', '12:00', '749', '30', '741122-3319'),   
+('Tyskland', 'Berlin', 'Sverige','Malmö', '17-04-16', '11:00', '22:00', '799', '40', '689238-4877'),
+('Finland', 'Helsingfors', 'Sverige','Malmö', '17-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
+('Finland', 'Helsingfors', 'Sverige','Malmö', '17-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
+('Frankrike', 'Paris', 'Sverige','Göteborg', '17-04-19', '10:00', '23:00', '1199', '80', '789322-2893');
 
 

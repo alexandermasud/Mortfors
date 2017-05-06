@@ -16,29 +16,34 @@
             
      <h2>Sökfunktion</h2>
        
-   
-  
-            
+
+        
+        
+       <div class="col-lg-12">
+           
+    <form method="post" action="/soka">
+    
        
         
-        
-        
-        
-        
-<form method="post" action="/soka">
-    
   <div class="form-group">
-    <label for="avgangsstad">Avgångsstad</label>
-    <input type="text" class="form-control" name="avgangsstad" placeholder="ex Malmö">
-  </div>
+    <label>Avgångsstad</label>
+    
 
 
+    <input type="text" id="test" class="form-control" name="" placeholder="ex Malmö">
+        </div>
   <input type="submit" class="btn btn-primary btn-block" value="Sök"/>
 </form>
-        
-        
-        
-        
+           
+           
+    </div>
+     
+  
+   
+      
+
+  
+            
  <h2>Resultat</h2>
              
   <table class="table">

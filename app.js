@@ -40,6 +40,8 @@ app.get('/resor-sok', function(req, res){
         if(err) {
             return console.error('error while fetching client from pool', err);
         }
+             
+        
         client.query('SELECT * FROM resa', function(err, result) {
             
             if(err) {
@@ -52,36 +54,43 @@ app.get('/resor-sok', function(req, res){
             
 });
 
-app.get('/soka', function(req, res){
-        res.render('resor-sok');
-            
-});
-
-
-
-app.post('/regchauffor', function(req,res) {
-    
-      pg.connect(connect, function(err, client, done){
+app.post('/resor-registrera', function(req, res){
+    pg.connect(connect, function(err, client, done){
         
         if(err) {
             return console.error('error while fetching client from pool', err);
         }
-          
+        client.query('SELECT * FROM resa', function(err, result) {
+            
+            if(err) {
+                return console.error('error running query', err);
+            }
+            res.render('resor-registrera', {resa: result.rows});
+            done();
+        });
+    });
+});
+
+
+app.post('/soka', function(req,res) {
+          pg.connect(connect, function(err, client, done){
         
-       client.query('INSERT INTO chauffor (chaufforid, fornamn, efternamn, adress, stad, hemtelefon) values($1, $2, $3, $4, $5, $6)',[
-          
-           req.body.chaufforid, 
-           req.body.fornamn, 
-           req.body.efternamn, 
-           req.body.adress, 
-           req.body.stad, 
-           req.body.hemtelefon
-           
-       ]); 
-          done();
-          res.redirect('/chaufforer'); 
-    });	
-    
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+              
+       
+        
+       
+        client.query("SELECT * FROM resa WHERE avgangsstad = 'Malmö'",function(err, result){
+        
+            if(err) {
+                return console.error('error running query', err);
+            }
+            res.render('resor-sok', {resa: result.rows});
+            done();
+        });
+    });   
 });
 
 app.get('/chaufforer', function(req, res){

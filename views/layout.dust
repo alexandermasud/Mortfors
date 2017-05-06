@@ -59,16 +59,16 @@
                         <a href="http://localhost:3000/resor-sok">Sök Resa</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/kunder">Kundregister</a>
+                        <a href="http://localhost:3000/kunder">Kunder</a>
                     </li>
                      <li>
-                        <a href="http://localhost:3000/chaufforer">Chaufförregister</a>
+                        <a href="http://localhost:3000/chaufforer">Chaufförer</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/stader">Stadsregister</a>
+                        <a href="http://localhost:3000/stader">Städer</a>
                     </li>
                     <li>
-                        <a href="http://localhost:3000/resor-registrera">Reseregister</a>
+                        <a href="http://localhost:3000/resor-registrera">Resor</a>
                     </li>
                    
                 </ul>
@@ -86,14 +86,16 @@
          <span class="text-muted" ><p class="text-center" style="padding-top: 40px;">Mörtfors Buss &copy; 2017</p></span>
       </div>
     </footer>    
-   <!-- jQuery Version 1.11.1 -->
+   
+    <!-- jQuery Version 1.11.1 -->
    
     <script src="js/jquery.js"></script>
-    
-
+   
     <!-- Bootstrap Core JavaScript -->
    
      <script src="js/bootstrap.min.js"></script>
+    
+     <script src="js/script.js"></script>
     
 </body>
 
