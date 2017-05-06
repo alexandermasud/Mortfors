@@ -4,7 +4,7 @@
 
 {<body}
         
-      
+
     
   
  <!-- Navigation -->
@@ -30,7 +30,10 @@
                         <a href="http://localhost:3000/kunder">Kundregister</a>
                     </li>
                      <li>
-                        <a href="http://localhost:3000/chauffor">Chaufförregister</a>
+                        <a href="http://localhost:3000/chaufforer">Chaufförregister</a>
+                    </li>
+                     <li>
+                        <a href="http://localhost:3000/stader">Stadsregister</a>
                     </li>
                 
                 </ul>

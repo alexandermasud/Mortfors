@@ -45,7 +45,7 @@
        <div class="container">
         <div class="row">
            
-            <img src="/img/customers/kund.jpg">
+            <img src="img/destinations/volvo6c.jpg"> 
 
         <!-- /.row -->
         
@@ -64,18 +64,18 @@
 
 <div class="row">
 
-<h2>Kundregister</h2>
+<h2>Registrera ny resa</h2>
          
   <table class="table">
      
       
     <thead>
       <tr>
-        <th>KundID</th>
-        <th>Förnamn</th>
-        <th>Efternamn</th>
-        <th>Adress</th>
-        <th>Stad</th>
+        <th>stadsid</th>
+        <th>stadsnamn</th>
+        <th>stadsid</th>
+        <th>stadsnamn</th>
+        <th>datum</th>
         <th>Email</th>
         <th>Telefon</th>
       </tr>

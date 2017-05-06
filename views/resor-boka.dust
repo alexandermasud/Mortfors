@@ -28,9 +28,6 @@
                      <li>
                         <a href="http://localhost:3000/chaufforer">Chaufförregister</a>
                     </li>
-                     <li>
-                        <a href="http://localhost:3000/stader">Stadsregister</a>
-                    </li>
                    
                 </ul>
             </div>

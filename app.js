@@ -74,12 +74,12 @@ app.post('/regchauffor', function(req,res) {
            
        ]); 
           done();
-          res.redirect('/chauffor'); 
+          res.redirect('/chaufforer'); 
     });	
     
 });
 
-app.get('/chauffor', function(req, res){
+app.get('/chaufforer', function(req, res){
         pg.connect(connect, function(err, client, done){
         
         if(err) {
@@ -90,7 +90,7 @@ app.get('/chauffor', function(req, res){
             if(err) {
                 return console.error('error running query', err);
             }
-            res.render('chauffor', {chauffor: result.rows});
+            res.render('chaufforer', {chauffor: result.rows});
             done();
         });
     });   
@@ -138,8 +138,46 @@ app.get('/kunder', function(req, res){
         });
     });
 });
-   
 
+app.post('/regstad', function(req,res) {
+    
+      pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+          
+        
+       client.query('INSERT INTO stad (land, stad, adress) values($1, $2, $3)',[
+           
+           req.body.land, 
+           req.body.stad, 
+           req.body.adress
+          
+           
+       ]); 
+          done();
+          res.redirect('/stader'); 
+    });	
+    
+});
+   
+app.get('/stader', function(req, res){
+    pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+        client.query('SELECT * FROM stad', function(err, result) {
+            
+            if(err) {
+                return console.error('error running query', err);
+            }
+            res.render('stader', {stad: result.rows});
+            done();
+        });
+    });
+});
 
 
 // Server

@@ -1,6 +1,7 @@
 drop table if exists kund;
 drop table if exists chauffor;
 drop table if exists rutt;
+drop table if exists stad;
 
 
 create table kund (
@@ -64,6 +65,23 @@ insert into rutt values
 ('r3', 'Berlin', 'Köpenhamn'),
 ('r4', 'Köpenhamn', 'Berlin');
 
+create table stad (
 
+	land text not null,
+	stad text not null,
+	adress text not null,
+	
+
+	
+	primary key (land, stad)
+);
+
+insert into stad values 
+
+('Sverige', 'Stockholm', 'Terminalslingan 62'),
+('Sverige', 'Malmö', 'Lokgatan 5'),
+('Danmark', 'Köpenhamn', 'Terminalgade 19'),
+('Tyskland', 'Berlin', 'Alexanderplatz 3'),
+('Frankrike', 'Paris', 'Rue Saint-Lazare 32');
 
 
