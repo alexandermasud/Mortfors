@@ -40,15 +40,20 @@ app.get('/resor-sok', function(req, res){
         if(err) {
             return console.error('error while fetching client from pool', err);
         }
-        client.query('SELECT * FROM rutt', function(err, result) {
+        client.query('SELECT * FROM resa', function(err, result) {
             
             if(err) {
                 return console.error('error running query', err);
             }
-            res.render('resor-sok', {rutt: result.rows});
+            res.render('resor-sok', {resa: result.rows});
             done();
         });
     });
+            
+});
+
+app.get('/soka', function(req, res){
+        res.render('resor-sok');
             
 });
 
@@ -226,6 +231,9 @@ app.get('/resor-registrera', function(req, res){
         });
     });
 });
+
+
+
 
 
 // Server

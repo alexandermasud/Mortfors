@@ -17,7 +17,7 @@
         
         
         
-<button type="button" class="btn btn-primary btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal">Registrera ny resa</button>
+<button type="button" class="btn btn-primary btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal">Skapa ny resa</button>
   
              
        
@@ -99,7 +99,7 @@
         <form method="post" action="/regresa">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registrera ny stad</h4>
+        <h4 class="modal-title" id="myModalLabel">Skapa ny resa</h4>
       </div>
       <div class="modal-body">
 

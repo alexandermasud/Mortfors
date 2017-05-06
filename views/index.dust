@@ -66,17 +66,17 @@
             <div class="row">
                 <div class="col-lg-4" >
                     
-  <h2>Ny kund?</h2>
+  <h2>Ny kund</h2>
                     <a href="http://localhost:3000/kunder" style="color:black;">
   <div class="panel panel-default"><img src="/img/index/omgivning1.jpg" style="width:100%;">
-    <div class="panel-body"> <p>Är du ny kund? Alla nya kunder måste först registrera sig!</p></div>
+    <div class="panel-body"> <p>Är du ny kund? Alla nya kunder måste först registrera sig</p></div>
   </div>
                     </a>
 </div>
                 
                  <div class="col-lg-4">
-  <h2>Kolla resor?</h2>
-                     <a href="http://localhost:3000/resor" style="color:black;">
+  <h2>Kolla resor</h2>
+                     <a href="http://localhost:3000/resor-sok" style="color:black;">
   <div class="panel panel-default"><img src="img/index/omgivning2.jpg" style="width:100%;">
     <div class="panel-body"> <p>Vill du se eller boka resor? Vad kul, klicka här för att ta dig vidare.</p></div>
   </div>
@@ -84,7 +84,7 @@
 </div>
                 
                  <div class="col-lg-4">
-  <h2>Kontakta oss?</h2>
+  <h2>Kontakta oss</h2>
   <div class="panel panel-default"><img src="img/index/omgivning3.jpg" style="width:100%;">
     <div class="panel-body"><p>Behöver du komma i kontakt med oss? Absolut 040-111222 är numret, växeln är alltid öppen!.</p></div>
   </div>

@@ -12,19 +12,76 @@
             
             <img src="img/sök-resa/sok-resa1.jpg"> 
            
-     <h2>Sök resa</h2>
+           
+            
+     <h2>Sökfunktion</h2>
        
    
   
             
-        </div>
-        </div>
+       
         
         
-
-           
-
+        
+        
+        
+<form method="post" action="/soka">
     
+  <div class="form-group">
+    <label for="avgangsstad">Avgångsstad</label>
+    <input type="text" class="form-control" name="avgangsstad" placeholder="ex Malmö">
+  </div>
+
+
+  <input type="submit" class="btn btn-primary btn-block" value="Sök"/>
+</form>
+        
+        
+        
+        
+ <h2>Resultat</h2>
+             
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Avgångsid</th>
+        <th>Avgångsland</th>
+        <th>Avgångsstad</th>
+        <th>Ankomstland</th>
+        <th>Ankomststad</th>
+        <th>Datum</th>
+        <th>Avgång</th>
+        <th>Ankomst</th>
+        <th>Pris</th>
+        <th>Platser</th>
+        <th>Chaufförid</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+       {#resa} 
+      <tr>
+          
+        <td>{avgangsid}</td>
+        <td>{avgangsland}</td>
+        <td>{avgangsstad}</td>
+        <td>{ankomstland}</td>
+        <td>{ankomststad}</td>
+        <td>{datum}</td>
+        <td>{avgang}</td>
+        <td>{ankomst}</td>
+        <td>{pris}</td>
+        <td>{platser}</td>
+        <td>{chaufforid}</td>
+        
+      </tr>
+    {/resa}
+    </tbody>
+  </table>
+           
+ </div>
+    </div>
   
 
 {/body}
