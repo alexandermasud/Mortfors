@@ -86,8 +86,8 @@ create table resa (
 	datum text not null,
 	avgang text not null,
 	ankomst text not null,
-	pris text not null,
-	platser text not null,
+	pris int not null,
+	platser int not null,
 	chaufforid text not null,
 	
 	

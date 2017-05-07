@@ -65,14 +65,18 @@ app.post('/soka', function(req,res) {
             return console.error('error while fetching client from pool', err);
         }
               
-        var queryOne=(req.body.avgangsid)
-        var queryTwo=(req.body.kopplatser)
-        console.log(avgangsid)
-        console.log(kopplatser)
+        var queryOne=(req.body.searchSelect)
+        var queryTwo=(req.body.searchWord)
             
-       // var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
+        var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
         
-    
+        if(queryTwo == "") {
+            queryLine = ('SELECT * FROM resa')
+        }
+              
+        console.log(queryOne)
+        console.log(queryTwo)
+        console.log(queryLine)
         
        
         client.query((queryLine) ,function(err, result){
@@ -94,29 +98,34 @@ app.post('/kopa', function(req,res) {
             return console.error('error while fetching client from pool', err);
         }
               
-        var avgangsid=(req.body.avgangsid)
-        var antalplatser
+        var avgangsid=parseInt(req.body.avgangsid,10)
+        var koptaplatser=parseInt(req.body.koptaplatser,10)
+        console.log(avgangsid)
+        console.log(antalplatser)
         
+
             
-        var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
-        
-        if(queryTwo == "") {
-            queryLine = ('SELECT * FROM resa')
-        }
-              
-        console.log(queryOne)
-        console.log(queryTwo)
-        console.log(queryLine)
-        
        
-        client.query((queryLine) ,function(err, result){
+        var queryLine1 = ("UPDATE resa SET platser = platser -" + (koptaplatser) + "WHERE avgangsid =" + (avgangsid))
+        //var queryLine2 = ('SELECT avgangsid FROM resa ORDER BY avgangsid ASC')
+        
+ 
+  
+       
+        client.query(((queryLine1)) ,function(err, result){
         
             if(err) {
                 return console.error('error running query', err);
             }
-            res.render('resor-sok', {resa: result.rows});
-            done();
+            
+            
         });
+              
+              
+              
+              
+              
+              
     });   
 });
 
