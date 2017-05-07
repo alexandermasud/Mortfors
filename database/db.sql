@@ -111,7 +111,6 @@ insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avg
 ('Portugal', 'Lissabon', 'Sverige','Malmö', '17-04-16', '04:00', '12:00', '749', '30', '741122-3319'),   
 ('Tyskland', 'Berlin', 'Sverige','Malmö', '17-04-16', '11:00', '22:00', '799', '40', '689238-4877'),
 ('Finland', 'Helsingfors', 'Sverige','Malmö', '17-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
-('Finland', 'Helsingfors', 'Sverige','Malmö', '17-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
 ('Frankrike', 'Paris', 'Sverige','Göteborg', '17-04-19', '10:00', '23:00', '1199', '80', '789322-2893');
 
 

@@ -57,7 +57,7 @@ app.get('/resor-sok', function(req, res){
 
 
 
-// Search Page Function, searches for avgangsstad = 'Malmö'
+// Search Page Function
 app.post('/soka', function(req,res) {
           pg.connect(connect, function(err, client, done){
         
