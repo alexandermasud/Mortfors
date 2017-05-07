@@ -65,19 +65,14 @@ app.post('/soka', function(req,res) {
             return console.error('error while fetching client from pool', err);
         }
               
-        var queryOne=(req.body.searchSelect)
-        var queryTwo=(req.body.searchWord)
+        var queryOne=(req.body.avgangsid)
+        var queryTwo=(req.body.kopplatser)
+        console.log(avgangsid)
+        console.log(kopplatser)
             
-        var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
+       // var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
         
-        if(queryTwo == "") {
-            queryLine = ('SELECT * FROM resa')
-        }
-              
-        console.log(queryOne)
-        console.log(queryTwo)
-        console.log(queryLine)
-        
+    
         
        
         client.query((queryLine) ,function(err, result){
@@ -90,6 +85,42 @@ app.post('/soka', function(req,res) {
         });
     });   
 });
+
+// Search Page Function
+app.post('/kopa', function(req,res) {
+          pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+              
+        var avgangsid=(req.body.avgangsid)
+        var antalplatser
+        
+            
+        var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
+        
+        if(queryTwo == "") {
+            queryLine = ('SELECT * FROM resa')
+        }
+              
+        console.log(queryOne)
+        console.log(queryTwo)
+        console.log(queryLine)
+        
+       
+        client.query((queryLine) ,function(err, result){
+        
+            if(err) {
+                return console.error('error running query', err);
+            }
+            res.render('resor-sok', {resa: result.rows});
+            done();
+        });
+    });   
+});
+
+
 
 
 

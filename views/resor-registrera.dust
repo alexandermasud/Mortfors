@@ -27,7 +27,7 @@
 
             
         </div> 
-        </div> 
+       
            
         <div class="container"> 
         <div class="row">
@@ -58,10 +58,11 @@
         
       </tr>
     </thead>
+      
     <tbody>
        {#resa} 
       <tr>
-          
+      
         <td>{avgangsid}</td>
         <td>{avgangsland}</td>
         <td>{avgangsstad}</td>
@@ -72,18 +73,22 @@
         <td>{ankomst}</td>
         <td>{pris}</td>
         <td>{platser}</td>
+          
         <td>{chaufforid}</td>
+          
         
       </tr>
     {/resa}
+       
     </tbody>
+     
   </table>
             
            
 
          </div>   
             
-        </div> 
+       
            
     
 
@@ -134,7 +139,7 @@
            <div class="col-lg-6">
   <div class="form-group" >
     <label for="datum">Datum</label>
-    <input type="text" class="form-control" name="datum" placeholder="ex Terminalgade 19">
+    <input type="text" class="form-control" name="datum" placeholder="ex 17-05-19">
   </div>
       </div>
            <div class="col-lg-6">
