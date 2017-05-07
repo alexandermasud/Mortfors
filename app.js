@@ -100,8 +100,7 @@ app.post('/kopa', function(req,res) {
               
         var avgangsid=parseInt(req.body.avgangsid,10)
         var koptaplatser=parseInt(req.body.koptaplatser,10)
-        console.log(avgangsid)
-        console.log(antalplatser)
+       
         
 
             
@@ -117,7 +116,8 @@ app.post('/kopa', function(req,res) {
             if(err) {
                 return console.error('error running query', err);
             }
-            
+            res.render('resor-sok', {resa: result.rows});
+            done();
             
         });
               

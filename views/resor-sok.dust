@@ -43,7 +43,7 @@
     <div class="col-lg-6">
         
    
-    <input type="text"  class="form-control" name="searchWord" placeholder="ex Malmö">
+    <input type="text"  class="form-control" name="searchWord" placeholder="">
     
     </div>
         <div class="col-lg-2">
