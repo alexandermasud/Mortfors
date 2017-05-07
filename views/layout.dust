@@ -83,11 +83,7 @@
     
     {+body/}
     
- <footer class="footer" style="height:100px; background-color: #222222; margin-top: 50px;">
-      <div class="container">
-         <span class="text-muted" ><p class="text-center" style="padding-top: 40px;">Mörtfors Buss &copy; 2017</p></span>
-      </div>
-    </footer>    
+  
    
     <!-- jQuery Version 1.11.1 -->
    

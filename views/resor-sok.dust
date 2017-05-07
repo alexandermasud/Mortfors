@@ -14,7 +14,7 @@
            
        <form method="post" action="/resor-registrera" id="reset"></form>    
             
-     <h2>Sökfunktion</h2>
+     
        
 
     
@@ -65,12 +65,15 @@
    
      
   
-   
-      
+        </div>
+
+       
+
+        <div class="row">
 
   
             
- <h3>Resultat</h3>
+ <h2>Resultat</h2>
              
   <table class="table">
     <thead>

@@ -156,7 +156,7 @@ app.post('/regkund', function(req,res) {
            req.body.adress, 
            req.body.stad, 
            req.body.epost, 
-           req.body.telefon
+           req.body.telefon 
            
        ]); 
           done();
