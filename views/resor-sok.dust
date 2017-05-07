@@ -19,21 +19,43 @@
 
         
         
-       <div class="col-lg-12">
+    <div class="col-lg-12">
            
     <form method="post" action="/soka">
-    
-       
-        
-  <div class="form-group">
-    <label>Avgångsstad</label>
-    
-
-
-    <input type="text" id="test" class="form-control" name="" placeholder="ex Malmö">
+         <div class="form-group">
+       <div class="col-lg-2">
+<select id="select-search" class="selectpicker form-control">
+  <optgroup>
+    <option value="avgangsland">Avgångsland</option>
+    <option value="avgangsstad">Avgångsstad</option>
+    </optgroup>
+    <optgroup>
+    <option value="ankomssland">Ankomstland</option>
+    <option value="ankomsstad">Ankomsstad</option>
+  </optgroup>
+  
+       <optgroup>
+    <option value="avgangsid">Avgångsid</option>
+    <option value="chaufforid">Chaufförid</option>
+  </optgroup>
+</select>
         </div>
-  <input type="submit" class="btn btn-primary btn-block" value="Sök"/>
-</form>
+
+          <div class="col-lg-8">
+        
+   
+    <input type="text"  id="search-word" class="form-control" name="" placeholder="ex Malmö">
+    
+    </div>
+    <div class="col-lg-2">
+    
+        
+    <input type="submit"  id="search-btn" class="btn btn-primary btn-block" value="Sök"/>
+      
+    </div>
+        
+        </div>
+    </form>
            
            
     </div>
@@ -44,7 +66,7 @@
 
   
             
- <h2>Resultat</h2>
+ <h3>Resultat</h3>
              
   <table class="table">
     <thead>

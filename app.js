@@ -34,6 +34,7 @@ app.get('/', function(req, res){
             
 });
 
+// Search Page
 app.get('/resor-sok', function(req, res){
          pg.connect(connect, function(err, client, done){
         
@@ -54,24 +55,9 @@ app.get('/resor-sok', function(req, res){
             
 });
 
-app.post('/resor-registrera', function(req, res){
-    pg.connect(connect, function(err, client, done){
-        
-        if(err) {
-            return console.error('error while fetching client from pool', err);
-        }
-        client.query('SELECT * FROM resa', function(err, result) {
-            
-            if(err) {
-                return console.error('error running query', err);
-            }
-            res.render('resor-registrera', {resa: result.rows});
-            done();
-        });
-    });
-});
 
 
+// Search Page Function, searches for avgangsstad = 'Malmö'
 app.post('/soka', function(req,res) {
           pg.connect(connect, function(err, client, done){
         
@@ -79,7 +65,7 @@ app.post('/soka', function(req,res) {
             return console.error('error while fetching client from pool', err);
         }
               
-       
+           
         
        
         client.query("SELECT * FROM resa WHERE avgangsstad = 'Malmö'",function(err, result){
@@ -93,6 +79,35 @@ app.post('/soka', function(req,res) {
     });   
 });
 
+// Create Driver 
+app.post('/regchauffor', function(req,res) {
+    
+      pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+          
+        
+       client.query('INSERT INTO chauffor (chaufforid, fornamn, efternamn, adress, stad, hemtelefon) values($1, $2, $3, $4, $5, $6)',[
+           
+           req.body.chaufforid, 
+           req.body.fornamn, 
+           req.body.efternamn,
+           req.body.adress,
+           req.body.stad,
+           req.body.hemtelefon
+          
+           
+       ]); 
+          done();
+          res.redirect('/chaufforer'); 
+    });	
+    
+});
+
+
+// Driver Page
 app.get('/chaufforer', function(req, res){
         pg.connect(connect, function(err, client, done){
         
@@ -110,7 +125,7 @@ app.get('/chaufforer', function(req, res){
     });   
 });
  
-
+// Create Customer
 app.post('/regkund', function(req,res) {
     
       pg.connect(connect, function(err, client, done){
@@ -136,6 +151,7 @@ app.post('/regkund', function(req,res) {
     
 });
 
+// Customer Page
 app.get('/kunder', function(req, res){
     pg.connect(connect, function(err, client, done){
         
@@ -153,6 +169,7 @@ app.get('/kunder', function(req, res){
     });
 });
 
+// Create City
 app.post('/regstad', function(req,res) {
     
       pg.connect(connect, function(err, client, done){
@@ -175,7 +192,8 @@ app.post('/regstad', function(req,res) {
     });	
     
 });
-   
+
+// Cities Page
 app.get('/stader', function(req, res){
     pg.connect(connect, function(err, client, done){
         
@@ -193,6 +211,7 @@ app.get('/stader', function(req, res){
     });
 });
 
+// Create Travel Itinerary
 app.post('/regresa', function(req,res) {
     
       pg.connect(connect, function(err, client, done){
@@ -204,18 +223,16 @@ app.post('/regresa', function(req,res) {
         
        client.query('INSERT INTO resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',[
            
-           req.body.avgangsland, 
-           req.body.avgangsstad,
+            req.body.avgangsland, 
+            req.body.avgangsstad,
             req.body.ankomstland, 
-           req.body.ankomststad, 
+            req.body.ankomststad, 
             req.body.datum, 
-           req.body.avgang, 
+            req.body.avgang, 
             req.body.ankomst, 
-           req.body.pris, 
+            req.body.pris, 
             req.body.platser, 
-           req.body.chaufforid
-           
-          
+            req.body.chaufforid
            
        ]); 
           done();
@@ -224,6 +241,7 @@ app.post('/regresa', function(req,res) {
     
 });
 
+// Travel Page
 app.get('/resor-registrera', function(req, res){
     pg.connect(connect, function(err, client, done){
         
@@ -240,6 +258,8 @@ app.get('/resor-registrera', function(req, res){
         });
     });
 });
+
+
 
 
 

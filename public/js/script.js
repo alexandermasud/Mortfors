@@ -1,5 +1,18 @@
 $(document).ready(function(){
-    $("input").blur(function(){
-        alert("Value: " + $("#test").val());
+    $("#search-btn").click(function(){
+       
+        var id = $(this).children(":selected").attr("value");
+        alert("Du tryckte: " + $("#select-search").val());
+        alert("Du skrev: " + $("#search-word").val());
+    
     });
+    
+
+    
+
 });
+
+
+
+
+
