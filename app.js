@@ -65,10 +65,22 @@ app.post('/soka', function(req,res) {
             return console.error('error while fetching client from pool', err);
         }
               
-           
+        var queryOne=(req.body.searchSelect)
+        var queryTwo=(req.body.searchWord)
+            
+        var queryLine = ("SELECT * FROM resa WHERE " + (queryOne) + "='" + (queryTwo) + "'")
+        
+        if(queryTwo == "") {
+            queryLine = ('SELECT * FROM resa')
+        }
+              
+        console.log(queryOne)
+        console.log(queryTwo)
+        console.log(queryLine)
+        
         
        
-        client.query("SELECT * FROM resa WHERE avgangsstad = 'Malmö'",function(err, result){
+        client.query((queryLine) ,function(err, result){
         
             if(err) {
                 return console.error('error running query', err);
@@ -78,6 +90,8 @@ app.post('/soka', function(req,res) {
         });
     });   
 });
+
+
 
 // Create Driver 
 app.post('/regchauffor', function(req,res) {

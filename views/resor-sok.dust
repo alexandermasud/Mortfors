@@ -17,21 +17,20 @@
      <h2>Sökfunktion</h2>
        
 
-        
-        
-    <div class="col-lg-12">
+    
            
     <form method="post" action="/soka">
+       
          <div class="form-group">
        <div class="col-lg-2">
-<select id="select-search" class="selectpicker form-control">
+<select class="selectpicker form-control" name="searchSelect">
   <optgroup>
     <option value="avgangsland">Avgångsland</option>
     <option value="avgangsstad">Avgångsstad</option>
     </optgroup>
     <optgroup>
-    <option value="ankomssland">Ankomstland</option>
-    <option value="ankomsstad">Ankomsstad</option>
+    <option value="ankomstland">Ankomstland</option>
+    <option value="ankomststad">Ankomsstad</option>
   </optgroup>
   
        <optgroup>
@@ -41,12 +40,16 @@
 </select>
         </div>
 
-          <div class="col-lg-8">
+    <div class="col-lg-6">
         
    
-    <input type="text"  id="search-word" class="form-control" name="" placeholder="ex Malmö">
+    <input type="text"  class="form-control" name="searchWord" placeholder="ex Malmö">
     
     </div>
+        <div class="col-lg-2">
+             <button type="submit" class="btn btn-default form-control">Nollställ</button>
+                  
+             </div>
     <div class="col-lg-2">
     
         
@@ -55,10 +58,11 @@
     </div>
         
         </div>
-    </form>
+            
+
            
-           
-    </div>
+        </form>    
+   
      
   
    
