@@ -1,4 +1,4 @@
-Vad applikationen ska göra:
+﻿Vad applikationen ska göra:
 
 Redigera chaufför
 Minst en resa ska gå över natten
@@ -6,3 +6,22 @@ Minst en resa ska gå över natten
 Söka resor
 Boka resor (Ska inte gå att köpa flera platser än vad som finns)
 Registrera kunder
+
+
+Tabeller:
+
+Anslutningar(Avgångsland, Avgångsstad, Avgångsadress, Ankomstland, Ankomststad, Ankomstadress)
+P-key = Avgångsland, Avgångsstad, Ankomstland, Ankomststad
+
+Resa(Avgångsland, Avgångsstad, Avgångsadress, Avgångsdatum, Avgångstid, Ankomstland, Ankomststad, Ankomstadress, Ankomstdatum, Ankomsttid, Pris, Antalplatser, Chaufförpersonnummer)
+P-key = Avgångsdatum, Avgångstid, 
+F-key = Chaufförpersonnummer
+
+Chaufför(Chaufförpersonnummer, Förnamn, Efternamn, Adress, Hemtelefon)
+P-key = Chaufförpersonnummer
+
+Kund(Kundid, Förnamn, Efternamn, Adress, E-post, Telefonnummer) 
+P-key = Kundid
+
+Städer(Avgångsland, Avgångsstad, Avgångsadress)
+P-key = Avgångsland, Avgångsstad
