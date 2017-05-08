@@ -7,7 +7,7 @@ var express = require('express'),
     app= express();
 
 // DB connect String
-var connect = "postgres://alex:@localhost/database_mortfors";
+var connect = "postgres://af9712:c74p5osa@pgserver.mah.se:5432/mortfors_buss";
 
 // Assign Dust Engine To .dust Files
 
