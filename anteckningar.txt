@@ -1,0 +1,8 @@
+Vad applikationen ska göra:
+
+Redigera chaufför
+Minst en resa ska gå över natten
+
+Söka resor
+Boka resor (Ska inte gå att köpa flera platser än vad som finns)
+Registrera kunder
