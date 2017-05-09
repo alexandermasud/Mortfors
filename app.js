@@ -313,6 +313,23 @@ app.get('/resor-registrera', function(req, res){
     });
 });
 
+//Köpta Resor
+app.get('/kop', function(req, res){
+    pg.connect(connect, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+        client.query('SELECT * FROM kund', function(err, result) {
+            
+            if(err) {
+                return console.error('error running query', err);
+            }
+            res.render('kop', {kund: result.rows});
+            done();
+        });
+    });
+});
 
 
 

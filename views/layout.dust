@@ -58,6 +58,7 @@
           <li><a href="http://localhost:3000/chaufforer">Chaufförer</a></li>
           <li><a href="http://localhost:3000/stader">Städer</a></li>
           <li><a href="http://localhost:3000/resor-registrera">Resor</a></li>
+          <li><a href="http://localhost:3000/kop">Köp</a></li>
      
         </ul>
       </li>
