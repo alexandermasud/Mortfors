@@ -125,7 +125,7 @@
             
  <h2>Resultat</h2>
              
-  <table class="table">
+  <table class="table tablesorter" id="myTable">
     <thead>
       <tr>
         <th>Avgångsid</th>
