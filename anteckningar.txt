@@ -1,4 +1,4 @@
-﻿Vad applikationen ska göra:
+Vad applikationen ska göra:
 
 Redigera chaufför
 Minst en resa ska gå över natten
@@ -7,6 +7,8 @@ Söka resor
 Boka resor (Ska inte gå att köpa flera platser än vad som finns)
 Registrera kunder
 
+Värdena i tabellerna är för det mest bara ”text” nu, detta ska ändras.
+
 
 Tabeller:
 
@@ -14,6 +16,7 @@ Anslutningar(Avgångsland, Avgångsstad, Avgångsadress, Ankomstland, Ankomststa
 P-key = Avgångsland, Avgångsstad, Ankomstland, Ankomststad
 
 Resa(Avgångsland, Avgångsstad, Avgångsadress, Avgångsdatum, Avgångstid, Ankomstland, Ankomststad, Ankomstadress, Ankomstdatum, Ankomsttid, Pris, Antalplatser, Chaufförpersonnummer)
+
 P-key = Avgångsdatum, Avgångstid, 
 F-key = Chaufförpersonnummer
 
