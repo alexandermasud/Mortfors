@@ -102,17 +102,17 @@ app.post('/kopa', function(req,res) {
         var koptaplatser=parseInt(req.body.koptaplatser,10)
        
         
-
+       var queryLine1 = ("UPDATE resa SET platser = platser -" + (koptaplatser) + "WHERE avgangsid =" + (avgangsid))
+       var queryLine2 = ('SELECT * FROM resa')
             
+   
        
-        var queryLine1 = ("UPDATE resa SET platser = platser -" + (koptaplatser) + "WHERE avgangsid =" + (avgangsid))
-        var queryLine2 = ('SELECT * FROM resa')
         
         
  
   
        
-        client.query((queryLine1) + ';' + (queryLine2) ,function(err, result){
+        client.query((queryLine1) + ";" + (queryLine2),function(err, result){
         
             if(err) {
                 return console.error('error running query', err);
