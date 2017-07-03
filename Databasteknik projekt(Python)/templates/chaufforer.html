@@ -114,18 +114,18 @@
       </tr>
     </thead>
     <tbody>
-        
+      {% for chauffor in chaufforer %}
       <tr>
-        {% for chauffor in chaufforer %}
+        
         <td>{{chauffor[0]}}</td>
         <td>{{chauffor[1]}}</td>
         <td>{{chauffor[2]}}</td>
         <td>{{chauffor[3]}}</td>
         <td>{{chauffor[4]}}</td>
         <td>{{chauffor[5]}}</td>
-        {% endfor %}
+        
       </tr>
-    
+      {% endfor %}
     </tbody>
   </table>
   {% endblock %}

@@ -11,22 +11,43 @@ def connect_db():
     except:
         print("Kunde inte ansluta till databasen!")
         
-
+#Main Page
 @app.route('/')
 def index():
-    #Main Page
-
-    
     return render_template('index.html')
 
+
+#Purschsed trips page
 @app.route('/kop')
 def kop():
-    return render_template('kop.html')
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM kund")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('kop.html', kunder=results)
 
+
+#Costumers page
 @app.route('/kunder')
 def kunder():
-    return render_template('kunder.html')
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM kund")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('kunder.html', kunder=results)
 
+
+#Drivers page
 @app.route('/chaufforer')
 def chaufforer():
     conn = connect_db()
@@ -39,10 +60,23 @@ def chaufforer():
     results = cur.fetchall()
     return render_template('chaufforer.html', chaufforer=results)
 
+
+#Citys Page
 @app.route('/stader')
 def stader():
-    return render_template('stader.html')
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM stad")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('stader.html', stader=results)
 
+
+#Search trips page
 @app.route('/resor-sok')
 def resor_sok():
     #Ansluter till databasen och definerar en cursor.
@@ -57,8 +91,19 @@ def resor_sok():
     print(results)
     return render_template('resor-sok.html', resor=results)
 
+
+#Register trip page
 @app.route('/resor-registrera')
 def resor_registrera():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
     return render_template('resor-registrera.html')
 
 

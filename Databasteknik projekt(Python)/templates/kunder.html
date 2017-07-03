@@ -92,7 +92,7 @@
 <div class="row">
 
 <h2>Kundregister</h2>
-         
+  {% block content %}       
   <table class="table">
      
       
@@ -110,19 +110,21 @@
     </thead>
   
     <tbody>
-     
+     {% for kund in kunder %}
       <tr>
-        <td>{kundid}</td>
-        <td>{fornamn}</td>
-        <td>{efternamn}</td>
-        <td>{adress}</td>
-        <td>{stad}</td>
-        <td>{epost}</td>
-        <td>{telefon}</td>
+        <td>{{kund[0]}}</td>
+        <td>{{kund[1]}}</td>
+        <td>{{kund[2]}}</td>
+        <td>{{kund[3]}}</td>
+        <td>{{kund[4]}}</td>
+        <td>{{kund[5]}}</td>
+        <td>{{kund[6]}}</td>
       </tr>
-    
+      {% endfor %}
       </tbody> 
-</table>
+  </table>
+  {% endblock %}
+
 
     </div>
 </div>

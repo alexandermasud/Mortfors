@@ -76,7 +76,7 @@
 
         <div class="row">
             
-            <img src="img/2326x800-Financing-2016-bre-imgtxt.jpg"> 
+            <img src="{{url_for('static', filename='img/2326x800-Financing-2016-bre-imgtxt.jpg')}}"> 
            
        <form method="post" action="/kop" id="reset"></form>    
             
@@ -177,7 +177,7 @@
   
             
  <h2>Köpta Resor</h2>
-             
+  {% block content %}        
   <table class="table">
     <thead>
       <tr>
@@ -198,26 +198,26 @@
       </tr>
     </thead>
     <tbody>
-       
+      {% for kund in kunder %}
       <tr>
           
-        <td>{kundid}</td>
-        <td>{fornamn}</td>
-        <td>{efternamn}</td>
-        <td>{adress}</td>
-        <td>{stad}</td>
-        <td>{epost}</td>
-        <td>{telefon}</td>
+        <td>{{kund[0]}}</td>
+        <td>{{kund[1]}}</td>
+        <td>{{kund[2]}}</td>
+        <td>{{kund[3]}}</td>
+        <td>{{kund[4]}}</td>
+        <td>{{kund[5]}}</td>
+        <td>{{kund[6]}}</td>
         <!--<td>{ankomst}</td>
         <td>{pris}</td>
         <td>{platser}</td>
         <td>{chaufforid}</td>
         -->
       </tr>
-    
+      {% endfor %}
     </tbody>
   </table>
-           
+     {% endblock %}      
  </div>
     
 

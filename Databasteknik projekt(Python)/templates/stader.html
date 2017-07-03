@@ -104,7 +104,7 @@
         
 
   <h2>Stadsregister</h2>
-             
+  {% block content %}       
   <table class="table">
     <thead>
       <tr>
@@ -116,18 +116,18 @@
       </tr>
     </thead>
     <tbody>
-       
+      {% for stad in stader %} 
       <tr>
-          
-        <td>{land}</td>
-        <td>{stad}</td>
-        <td>{adress}</td>
+        
+        <td>{{stad[0]}}</td>
+        <td>{{stad[1]}}</td>
+        <td>{{stad[2]}}</td>
         
       </tr>
-    
+      {% endfor %}
     </tbody>
   </table>
-            
+  {% endblock %}         
            
 
          </div>   
