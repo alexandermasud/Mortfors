@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 import psycopg2
 
 app = Flask(__name__)
@@ -50,8 +50,10 @@ def kunder():
 #Drivers page
 @app.route('/chaufforer')
 def chaufforer():
+
     conn = connect_db()
     cur = conn.cursor()
+
     #Query
     try:
         cur.execute("SELECT * FROM chauffor")
@@ -59,6 +61,34 @@ def chaufforer():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('chaufforer.html', chaufforer=results)
+
+
+@app.route('/regchauffor', methods=['GET', 'POST'])
+def regchauffor():
+
+    if request.method == 'POST':
+        new_id = request.form['chaufforid']
+        new_firstname = request.form['fornamn']
+        new_lastname = request.form['efternamn']
+        new_adress = request.form['adress']
+        new_city = request.form['stad']
+        new_number = request.form['hemtelefon']
+
+        conn = connect_db()
+        cur = conn.cursor()
+
+        query = "INSERT INTO chauffor(chaufforid, fornamn, efternamn, adress, stad, hemtelefon) VALUES(%s, %s, %s, %s, %s, %s)"
+        data = (new_id, new_firstname, new_lastname, new_adress, new_city, new_number)
+    
+        cur.execute(query, data)
+        conn.commit()
+        
+        return redirect(url_for('chaufforer'))
+    else:
+        return flash("Något gick fel")
+
+
+
 
 
 #Citys Page
@@ -107,9 +137,7 @@ def resor_registrera():
     return render_template('resor-registrera.html')
 
 
-@app.route('/new')
-def new():
-    return 'Funkar!'
+
 
 '''
 import psycopg2
