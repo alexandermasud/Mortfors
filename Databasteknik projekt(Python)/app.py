@@ -47,6 +47,28 @@ def kunder():
     return render_template('kunder.html', kunder=results)
 
 
+@app.route('/regkund', methods=['GET', 'POST'])
+def regkund():
+    if request.method == 'POST':
+        new_firstname = request.form['fornamn']
+        new_lastname = request.form['efternamn']
+        new_adress = request.form['adress']
+        new_stad = request.form['stad']
+        new_epost = request.form['epost']
+        new_telefon = request.form['telefon']
+
+        conn = connect_db()
+        cur = conn.cursor()
+
+        query = "INSERT INTO kund(fornamn, efternamn, adress, stad, epost, telefon) VALUES(%s, %s, %s, %s, %s, %s)"
+        data = (new_firstname, new_lastname, new_adress, new_stad, new_epost, new_telefon)
+        cur.execute(query, data)
+        conn.commit()
+
+        return redirect(url_for('kunder'))
+    else:
+        return flash("Något gick fel")
+
 #Drivers page
 @app.route('/chaufforer')
 def chaufforer():
@@ -62,7 +84,7 @@ def chaufforer():
     results = cur.fetchall()
     return render_template('chaufforer.html', chaufforer=results)
 
-
+#Reg Driver
 @app.route('/regchauffor', methods=['GET', 'POST'])
 def regchauffor():
 
@@ -104,6 +126,28 @@ def stader():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('stader.html', stader=results)
+
+
+@app.route('/regstad', methods=['GET', 'POST'])
+def regstad():
+
+    if request.method == 'POST':
+        new_land = request.form['land']
+        new_stad = request.form['stad']
+        new_adress = request.form['adress']
+
+        conn = connect_db()
+        cur = conn.cursor()
+
+        query = "INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)"
+        data = (new_land, new_stad, new_adress)
+
+        cur.execute(query, data)
+        conn.commit()
+
+        return redirect(url_for('stader'))
+    else:
+        return flash("Något gick fel")
 
 
 #Search trips page
