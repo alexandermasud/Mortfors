@@ -102,7 +102,7 @@
         
 
   <h2>Reseregister</h2>
-             
+  {% block content %}
   <table class="table">
     <thead>
       <tr>
@@ -123,30 +123,30 @@
     </thead>
       
     <tbody>
-        
+    {%  for resa in resor %}
       <tr>
       
-        <td>{avgangsid}</td>
-        <td>{avgangsland}</td>
-        <td>{avgangsstad}</td>
-        <td>{ankomstland}</td>
-        <td>{ankomststad}</td>
-        <td>{datum}</td>
-        <td>{avgang}</td>
-        <td>{ankomst}</td>
-        <td>{pris}</td>
-        <td>{platser}</td>
+        <td>{{resa[0]}}</td>
+        <td>{{resa[1]}}</td>
+        <td>{{resa[2]}}</td>
+        <td>{{resa[3]}}</td>
+        <td>{{resa[4]}}</td>
+        <td>{{resa[5]}}</td>
+        <td>{{resa[6]}}</td>
+        <td>{{resa[7]}}</td>
+        <td>{{resa[8]}}</td>
+        <td>{{resa[9]}}</td>
           
-        <td>{chaufforid}</td>
+        <td>{{resa[10]}}</td>
           
         
       </tr>
-    
-       
+      {% endfor %}    
+      
     </tbody>
      
   </table>
-            
+  {% endblock %}   
            
 
          </div>   
