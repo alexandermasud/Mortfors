@@ -60,7 +60,7 @@ def regkund():
         conn = connect_db()
         cur = conn.cursor()
 
-        query = "INSERT INTO kund(fornamn, efternamn, adress, stad, epost, telefon) VALUES(%s, %s, %s, %s, %s, %s)"
+        query = ("INSERT INTO kund(fornamn, efternamn, adress, stad, epost, telefon) VALUES(%s, %s, %s, %s, %s, %s)")
         data = (new_firstname, new_lastname, new_adress, new_stad, new_epost, new_telefon)
         cur.execute(query, data)
         conn.commit()
@@ -99,7 +99,7 @@ def regchauffor():
         conn = connect_db()
         cur = conn.cursor()
 
-        query = "INSERT INTO chauffor(chaufforid, fornamn, efternamn, adress, stad, hemtelefon) VALUES(%s, %s, %s, %s, %s, %s)"
+        query = ("INSERT INTO chauffor(chaufforid, fornamn, efternamn, adress, stad, hemtelefon) VALUES(%s, %s, %s, %s, %s, %s)")
         data = (new_id, new_firstname, new_lastname, new_adress, new_city, new_number)
     
         cur.execute(query, data)
@@ -139,7 +139,7 @@ def regstad():
         conn = connect_db()
         cur = conn.cursor()
 
-        query = "INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)"
+        query = ("INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)")
         data = (new_land, new_stad, new_adress)
 
         cur.execute(query, data)
@@ -164,6 +164,28 @@ def resor_sok():
     results = cur.fetchall()
     print(results)
     return render_template('resor-sok.html', resor=results)
+
+#Buy page
+@app.route('/kopa', methods=['GET', 'POST'])
+def kopa():
+
+    if request.method == 'POST':
+        avgangsid = request.form['avgangsid']
+        new_koptaplatser = request.form['koptaplatser']
+
+        conn = connect_db()
+        cur = conn.cursor()
+
+        query = ("UPDATE resa SET platser = platser -" + (new_koptaplatser) + "WHERE avgangsid =" + (avgangsid))
+        query2 = ("SELECT * FROM resa")
+        
+        cur.execute(query, query2)
+        conn.commit()
+
+        return redirect(url_for('resor_sok'))
+    else:
+        return flash("Något gick fel")
+
 
 
 #Register trip page
@@ -198,7 +220,7 @@ def regresa():
         conn = connect_db()
         cur = conn.cursor()
 
-        query = "INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
         data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
 
         cur.execute(query, data)
