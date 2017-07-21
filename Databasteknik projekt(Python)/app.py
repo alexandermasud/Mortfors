@@ -193,7 +193,7 @@ def kopa():
                     cur.execute(query, query2)
                     conn.commit()
                 else:
-                    print("Detta kan fungera!")
+                    print("För många biljetter köptes!")
 
         return redirect(url_for('resor_sok'))
     else:
