@@ -171,16 +171,29 @@ def kopa():
 
     if request.method == 'POST':
         avgangsid = request.form['avgangsid']
-        new_koptaplatser = request.form['koptaplatser']
+        new_koptaplatser = int(request.form['koptaplatser'])
 
         conn = connect_db()
         cur = conn.cursor()
+        
+        query_platser = ("SELECT platser FROM resa WHERE avgangsid = {}".format(avgangsid))
+        
 
-        query = ("UPDATE resa SET platser = platser -" + (new_koptaplatser) + "WHERE avgangsid =" + (avgangsid))
+        cur.execute(query_platser)
+        res_platser = cur.fetchall()
+        
+        conn.commit()
+
+        query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,avgangsid))
         query2 = ("SELECT * FROM resa")
         
-        cur.execute(query, query2)
-        conn.commit()
+        for i in res_platser:
+            for j in i:
+                if j - new_koptaplatser >= 0:
+                    cur.execute(query, query2)
+                    conn.commit()
+                else:
+                    print("Detta kan fungera!")
 
         return redirect(url_for('resor_sok'))
     else:
