@@ -166,9 +166,9 @@ def resor_sok():
     return render_template('resor-sok.html', resor=results)
 
 
+
+
 #Seach function 
-
-
 @app.route('/soka', methods=['GET', 'POST'])
 def soka():
     #Ansluter till databasen och definerar en cursor.
@@ -188,9 +188,9 @@ def soka():
         cur = conn.cursor()
 
         cur.execute("SELECT * FROM resa WHERE {} = '{}'".format((search_select),(search_word)))
-        
-        
 
+        conn.commit()
+        
                  
     else:
         return flash("Något gick fel")
