@@ -165,6 +165,44 @@ def resor_sok():
     print(results)
     return render_template('resor-sok.html', resor=results)
 
+
+#Seach function 
+
+
+@app.route('/soka', methods=['GET', 'POST'])
+def soka():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    
+    
+    if request.method == 'POST':
+        
+             
+        search_select = request.form['searchSelect']
+        search_word = request.form['searchWord']        
+       
+
+        conn = connect_db()
+        cur = conn.cursor()
+
+        cur.execute("SELECT * FROM resa WHERE {} = '{}'".format((search_select),(search_word)))
+        
+        
+
+                 
+    else:
+        return flash("Något gick fel")
+    
+    results = cur.fetchall()
+    print(results)
+    return render_template('resor-sok.html', resor=results)
+    
+  
+
+
+
 #Buy page
 @app.route('/kopa', methods=['GET', 'POST'])
 def kopa():
