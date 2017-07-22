@@ -1,7 +1,9 @@
 drop table if exists kund cascade;
 drop table if exists chauffor cascade;
-drop table if exists resa;
+drop table if exists resa cascade;
 drop table if exists stad;
+drop table if exists kop;
+
 
 
 
@@ -111,4 +113,30 @@ insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avg
 ('Tyskland', 'Berlin', 'Sverige','Malmö', '17-04-16', '11:00', '22:00', '799', '40', '689238-4877'),
 ('Finland', 'Helsingfors', 'Sverige','Malmö', '17-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
 ('Frankrike', 'Paris', 'Sverige','Göteborg', '17-04-19', '10:00', '23:00', '1199', '80', '789322-2893');
+
+
+create table kop (
+
+	transaktionsid serial unique,
+	kundid int not null,
+	fornamn text not null,
+	platser int not null,
+	avgangsid int not null,
+	
+	
+	primary key (transaktionsid),
+	foreign key (kundid) references kund (kundid),
+	foreign key (avgangsid) references resa (avgangsid)
+ 	
+
+);
+
+
+insert into kop (kundid, fornamn, platser, avgangsid) values 
+(1, 'Alexander', 4, 2),     
+(1, 'Alexander', 6, 5),
+(2, 'Adam', 2,7);
+
+
+
 

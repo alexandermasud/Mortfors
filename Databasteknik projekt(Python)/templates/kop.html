@@ -181,38 +181,20 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Kund ID</th>
-        <th>Förnamn</th>
-        <th>Efternamn</th>
-        <th>Kund Adress</th>
-        <th>Stad</th>
-        <th>E-post</th>
-        <th>Telefonnummer</th>
-        <th>Avgångsland</th>
-        <th>Ankomstland</th>
-        <th>Pris</th>
-        <th>Antal Platser</th>
-        <th>Datum</th>
-        
-        
+        <th>Transaktionsid</th>
+        <th>Kundid</th>
+        <th>Avgangsid</th>
+        <th>Antal platser</th>  
       </tr>
     </thead>
     <tbody>
-      {% for kund in kunder %}
+      {% for kop in kop_register %}
       <tr>
           
-        <td>{{kund[0]}}</td>
-        <td>{{kund[1]}}</td>
-        <td>{{kund[2]}}</td>
-        <td>{{kund[3]}}</td>
-        <td>{{kund[4]}}</td>
-        <td>{{kund[5]}}</td>
-        <td>{{kund[6]}}</td>
-        <!--<td>{ankomst}</td>
-        <td>{pris}</td>
-        <td>{platser}</td>
-        <td>{chaufforid}</td>
-        -->
+        <td>{{kop[0]}}</td>
+        <td>{{kop[1]}}</td>
+        <td>{{kop[2]}}</td>
+        <td>{{kop[3]}}</td>
       </tr>
       {% endfor %}
     </tbody>

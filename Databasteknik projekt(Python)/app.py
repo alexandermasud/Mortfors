@@ -25,11 +25,11 @@ def kop():
     cur = conn.cursor()
     #Query
     try:
-        cur.execute("SELECT * FROM kund")
+        cur.execute("SELECT * FROM kop")
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()
-    return render_template('kop.html', kunder=results)
+    return render_template('kop.html', kop_register=results)
 
 
 #Costumers page
@@ -210,6 +210,8 @@ def kopa():
     if request.method == 'POST':
         avgangsid = request.form['avgangsid']
         new_koptaplatser = int(request.form['koptaplatser'])
+        fornamn = int(request.form['fornamn'])
+        kundid = int(request.form['kundid'])
 
         conn = connect_db()
         cur = conn.cursor()
@@ -222,14 +224,19 @@ def kopa():
         
         conn.commit()
 
-        query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,avgangsid))
+        query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
         query2 = ("SELECT * FROM resa")
+                 
+                 
+        query3 = ("INSERT INTO kop(kundid, fornamn, platser, avgangsid) VALUES(%s, %s, %s, %s)")
+        data = (kundid, fornamn, new_koptaplatser, avgangsid)
         
         for i in res_platser:
             for j in i:
                 if j - new_koptaplatser >= 0:
-                    cur.execute(query, query2)
+                    cur.execute(query, query2, query3, data)
                     conn.commit()
+                    print("Koden kördes")
                 else:
                     print("För många biljetter köptes!")
 
