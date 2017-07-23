@@ -179,7 +179,20 @@ def resor_sok_fel():
     
     return render_template('resor-sok-fel.html', resor=results)
 
-
+#Search trips page
+@app.route('/resor-sok-ratt')
+def resor_sok_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    
+    return render_template('resor-sok-ratt.html', resor=results)
 
 #Seach function 
 @app.route('/soka', methods=['GET', 'POST'])
@@ -217,60 +230,62 @@ def soka():
 #Buy page
 @app.route('/kopa', methods=['GET', 'POST'])
 def kopa():
+    
+    
+    try:
 
-    if request.method == 'POST':
-        
-        kundid = request.form['kundid']
-        avgangsid = request.form['avgangsid']
-        new_koptaplatser = int(request.form['koptaplatser'])
-       
-       
+        if request.method == 'POST':
 
-        conn = connect_db()
-        cur = conn.cursor()
-        
-        query_platser = ("SELECT platser FROM resa WHERE avgangsid = {}".format(avgangsid))
-        
+            kundid = request.form['kundid']
+            avgangsid = request.form['avgangsid']
+            new_koptaplatser = int(request.form['koptaplatser'])
 
-        cur.execute(query_platser)
-        res_platser = cur.fetchall()
-        
-        conn.commit()
 
-        query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
-        query2 = ("SELECT * FROM resa")
-                 
-        
-        for i in res_platser:
-            for j in i:
-                if j - new_koptaplatser >= 0:
-                    cur.execute(query, query2)
-                    conn.commit()
-                    print("Antal platser ok")
-                    
-                    
-                    conn = connect_db()
-                    cur = conn.cursor()
-                    
-                 
-                    query3 = ("INSERT INTO kop(kundid, avgangsid, platser) VALUES(%s, %s, %s)")
-                    data = (kundid, avgangsid, new_koptaplatser)
-                    
-                    cur.execute(query3, data)
-                    conn.commit()
-                    print("Köpet registrerades")
-                    return redirect(url_for('resor_sok'))
-                  
-                else:
-                    
-                    print("För många biljetter köptes!")
-                    submit_false= False
-                    return redirect(url_for('resor_sok_fel'))
+
+            conn = connect_db()
+            cur = conn.cursor()
+
+            query_platser = ("SELECT platser FROM resa WHERE avgangsid = {}".format(avgangsid))
+
+
+            cur.execute(query_platser)
+            res_platser = cur.fetchall()
+
+            conn.commit()
+
+            query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
+            query2 = ("SELECT * FROM resa")
+
+
+            for i in res_platser:
+                for j in i:
+                    if j - new_koptaplatser >= 0:
+                        cur.execute(query, query2)
+                        conn.commit()
+                        print("Antal platser ok")
+
+
+                        conn = connect_db()
+                        cur = conn.cursor()
+
+
+                        query3 = ("INSERT INTO kop(kundid, avgangsid, platser) VALUES(%s, %s, %s)")
+                        data = (kundid, avgangsid, new_koptaplatser)
+
+                        cur.execute(query3, data)
+                        conn.commit()
+                        print("Köpet registrerades")
+                        return redirect(url_for('resor_sok_ratt'))
+
+                    else:
+
+                        print("För många biljetter köptes!")
+                        submit_false= False
+                        return redirect(url_for('resor_sok_fel'))
+    except:
 
         
-    else:
-        return flash("Något gick fel")
-
+        return redirect(url_for('resor_sok_fel'))
 
 
 #Register trip page
