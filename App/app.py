@@ -411,36 +411,70 @@ def resor_registrera():
     results = cur.fetchall()
     return render_template('resor-registrera.html', resor=results)
 
+#Register trip page success
+@app.route('/resor-registrera-ratt')
+def resor_registrera_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('resor-registrera-ratt.html', resor=results)
+
+
+#Register trip page fail
+@app.route('/resor-registrera-fel')
+def resor_registrera_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('resor-registrera-fel.html', resor=results)
+
+
 @app.route('/regresa', methods=['GET', 'POST'])
 def regresa():
+    
+    try:
 
-    if request.method == 'POST':
-        new_avgangsland = request.form['avgangsland']
-        new_avgangsstad = request.form['avgangsstad']
-        new_ankomstland = request.form['ankomstland']
-        new_ankomststad = request.form['ankomststad']
-        new_datum = request.form['datum']
-        new_avgang = request.form['avgang']
-        new_ankomst = request.form['ankomst']
-        new_pris = request.form['pris']
-        new_platser = request.form['platser']
-        new_chaufforid = request.form['chaufforid']
+        if request.method == 'POST':
+            new_avgangsland = request.form['avgangsland']
+            new_avgangsstad = request.form['avgangsstad']
+            new_ankomstland = request.form['ankomstland']
+            new_ankomststad = request.form['ankomststad']
+            new_datum = request.form['datum']
+            new_avgang = request.form['avgang']
+            new_ankomst = request.form['ankomst']
+            new_pris = request.form['pris']
+            new_platser = request.form['platser']
+            new_chaufforid = request.form['chaufforid']
 
-        conn = connect_db()
-        cur = conn.cursor()
+            conn = connect_db()
+            cur = conn.cursor()
 
-        query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-        data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
+            query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+            data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
 
-        cur.execute(query, data)
-        conn.commit()
+            cur.execute(query, data)
+            conn.commit()
 
-        return redirect(url_for('resor_registrera'))
+            return redirect(url_for('resor_registrera_ratt'))
 
-    else:
-        return flash("Något gick fel")
+        else:
+            return flash("Något gick fel")
 
-
+    except:
+        
+            return redirect(url_for('resor_registrera_fel'))
 
 
 '''

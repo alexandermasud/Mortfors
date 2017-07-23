@@ -86,16 +86,16 @@ insert into stad values
 create table resa (
 
 	avgangsid serial unique,
-	avgangsland text not null,
-	avgangsstad text not null,
-	ankomstland text not null,
-	ankomststad text not null,
-	datum text not null,
-	avgang text not null,
-	ankomst text not null,
-	pris int not null,
-	platser int not null,
-	chaufforid text not null,
+	avgangsland text not null CONSTRAINT avgangsland CHECK(length(avgangsland)>0),
+	avgangsstad text not null CONSTRAINT avgangsstad CHECK(length(avgangsstad)>0),
+	ankomstland text not null CONSTRAINT ankomstland CHECK(length(ankomstland)>0),
+	ankomststad text not null CONSTRAINT ankomststad CHECK(length(ankomststad)>0),
+	datum text not null CONSTRAINT datum CHECK(length(datum)>0),
+	avgang text not null CONSTRAINT avgang CHECK(length(avgang)>0),
+	ankomst text not null CONSTRAINT ankomst CHECK(length(ankomst)>0),
+	pris text not null CONSTRAINT pris CHECK(length(pris)>0),
+	platser text not null CONSTRAINT platser CHECK(length(platser)>0),
+	chaufforid text not null CONSTRAINT chaufforid CHECK(length(chaufforid)>0),
 	
 	
 	primary key (avgangsid),
