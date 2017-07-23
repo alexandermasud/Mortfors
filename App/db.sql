@@ -11,12 +11,12 @@ create table kund (
 
 	
 	kundid serial unique,
-	fornamn text not null,
-	efternamn text not null,
-	adress text not null,
-	stad text not null,
-	epost text not null,
-	telefon text not null,
+	fornamn text not null CONSTRAINT fornamn CHECK(length(fornamn)>0),
+	efternamn text not null CONSTRAINT efternamn CHECK(length(efternamn)>0),
+	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
+	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
+	epost text not null CONSTRAINT epost CHECK(length(epost)>0),
+	telefon text not null CONSTRAINT telefon CHECK(length(telefon)>0),
 
 	primary key (kundid)
 	
@@ -25,19 +25,24 @@ create table kund (
 
 insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values 
 ('Alexander', 'Masud', 'Kompassgatan 40','Malmö', 'alexandermasud@gmail.com', '0730922534'),
-('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
-('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
+('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@icloud.com', '0723452312'),
+('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453'),
+('Maria', 'Johansson', 'Lönngatan 28a','Malmö', 'Maria88@ghotmail.com', '0728938472'),
+('Anders', 'Blomquist', 'Köpenhamnsvägen 75','Malmö', 'bil_anders@gmail.com', '0752312238'),
+('Viktor', 'Olsson', 'Ringduvevägen 46','Åkarp', 'vike88@gmail.com', '0732994212');
+
+
 
 
 create table chauffor (
 
 	
-	chaufforID text not null,
-	fornamn text not null,
-	efternamn text not null,
-	adress text not null,
-	stad text not null,
-	hemtelefon text not null,
+	chaufforID text not null CONSTRAINT chaufforID CHECK(length(chaufforID)>0),
+	fornamn text not null CONSTRAINT fornamn CHECK(length(fornamn)>0),
+	efternamn text not null CONSTRAINT efternamn CHECK(length(efternamn)>0),
+	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
+	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
+	hemtelefon text not null CONSTRAINT hemtelefon CHECK(length(hemtelefon)>0),
 
 	
 	primary key (chaufforID)
