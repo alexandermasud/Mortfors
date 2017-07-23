@@ -162,7 +162,7 @@ def resor_sok():
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()
-    print(results)
+    
     return render_template('resor-sok.html', resor=results)
 
 
@@ -196,12 +196,10 @@ def soka():
         return flash("Något gick fel")
     
     results = cur.fetchall()
-    print(results)
+    
     return render_template('resor-sok.html', resor=results)
     
   
-
-
 
 #Buy page
 @app.route('/kopa', methods=['GET', 'POST'])
@@ -213,7 +211,6 @@ def kopa():
         fornamn = request.form['fornamn']
         new_koptaplatser = int(request.form['koptaplatser'])
         avgangsid = request.form['avgangsid']
-       
        
        
 
@@ -240,7 +237,7 @@ def kopa():
                 if j - new_koptaplatser >= 0:
                     cur.execute(query, query2)
                     conn.commit()
-                    print("Koden kördes")
+                    print("Antal platser ok")
                     
                     
                     conn = connect_db()
@@ -252,7 +249,7 @@ def kopa():
                     
                     cur.execute(query3, data)
                     conn.commit()
-                    print("Koden kördes 2")
+                    print("Köpet registrerades")
                   
                 else:
                     print("För många biljetter köptes!")
