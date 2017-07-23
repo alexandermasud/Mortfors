@@ -25,7 +25,7 @@ def kop():
     cur = conn.cursor()
     #Query
     try:
-        cur.execute("SELECT * FROM kop")
+        cur.execute("SELECT kop.transaktionsid, kop.kundid, kund.fornamn, kund.efternamn, kop.avgangsid, resa.avgangsland, resa.avgangsstad, resa.ankomstland, resa.ankomststad, resa.datum, resa.avgang, resa.ankomst, kop.platser FROM resa JOIN kop ON kop.avgangsid=resa.avgangsid JOIN kund ON kund.kundid=kop.kundid;")
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()
@@ -108,8 +108,6 @@ def regchauffor():
         return redirect(url_for('chaufforer'))
     else:
         return flash("Något gick fel")
-
-
 
 
 
@@ -208,9 +206,8 @@ def kopa():
     if request.method == 'POST':
         
         kundid = request.form['kundid']
-        fornamn = request.form['fornamn']
-        new_koptaplatser = int(request.form['koptaplatser'])
         avgangsid = request.form['avgangsid']
+        new_koptaplatser = int(request.form['koptaplatser'])
        
        
 
@@ -228,9 +225,6 @@ def kopa():
         query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
         query2 = ("SELECT * FROM resa")
                  
-                 
-        query3 = ("INSERT INTO kop(kundid, fornamn, platser, avgangsid) VALUES(%s, %s, %s, %s)")
-        data = (kundid, fornamn, new_koptaplatser, avgangsid)
         
         for i in res_platser:
             for j in i:
@@ -244,8 +238,8 @@ def kopa():
                     cur = conn.cursor()
                     
                  
-                    query3 = ("INSERT INTO kop(kundid, fornamn, platser, avgangsid) VALUES(%s, %s, %s, %s)")
-                    data = (kundid, fornamn, new_koptaplatser, avgangsid)
+                    query3 = ("INSERT INTO kop(kundid, avgangsid, platser) VALUES(%s, %s, %s)")
+                    data = (kundid, avgangsid, new_koptaplatser)
                     
                     cur.execute(query3, data)
                     conn.commit()

@@ -119,9 +119,8 @@ create table kop (
 
 	transaktionsid serial unique,
 	kundid int not null,
-	fornamn text not null,
-	platser int not null,
 	avgangsid int not null,
+	platser int not null,
 	
 	
 	primary key (transaktionsid),
@@ -132,11 +131,7 @@ create table kop (
 );
 
 
-insert into kop (kundid, fornamn, avgangsid, platser) values 
-(1, 'Alexander', 2, 4),     
-(1, 'Alexander', 5, 6),
-(2, 'Adam', 7,2);
-
-
-
-
+insert into kop (kundid, avgangsid, platser) values 
+(1, 4, 2),     
+(1, 6, 5),
+(2, 2, 7);

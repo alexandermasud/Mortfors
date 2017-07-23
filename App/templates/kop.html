@@ -168,24 +168,28 @@
     </div>    
         </div>
         
-       
-
-       
 
         <div class="row">
 
   
-            
  <h2>Köpta Resor</h2>
   {% block content %}        
   <table class="table">
     <thead>
       <tr>
-        <th>Transaktionsid</th>
+        <th>Transid</th>
         <th>Kundid</th>
         <th>Förnamn</th>
-        <th>Antal platser</th>
+        <th>Efternamn</th>
         <th>Avgångsid</th>
+        <th>Avgångsland</th>
+        <th>Avgångsstad</th>
+        <th>Ankomstland</th>
+        <th>Ankomststad</th>
+        <th>Datum</th>
+        <th>Avgång</th>
+        <th>Ankomst</th>
+        <th>Antal platser</th>
         
       </tr>
     </thead>
@@ -198,6 +202,15 @@
         <td>{{kop[2]}}</td>
         <td>{{kop[3]}}</td>
         <td>{{kop[4]}}</td>
+        <td>{{kop[5]}}</td>
+        <td>{{kop[6]}}</td>
+        <td>{{kop[7]}}</td>
+        <td>{{kop[8]}}</td>
+        <td>{{kop[9]}}</td>
+        <td>{{kop[10]}}</td>
+        <td>{{kop[11]}}</td>
+        <td>{{kop[12]}}</td>
+          
       </tr>
       {% endfor %}
     </tbody>
