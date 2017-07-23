@@ -127,7 +127,6 @@ create table kop (
 	foreign key (kundid) references kund (kundid),
 	foreign key (avgangsid) references resa (avgangsid)
  	
-
 );
 
 

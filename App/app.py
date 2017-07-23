@@ -164,6 +164,21 @@ def resor_sok():
     return render_template('resor-sok.html', resor=results)
 
 
+#Search trips page
+@app.route('/resor-sok-fel')
+def resor_sok_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    
+    return render_template('resor-sok-fel.html', resor=results)
+
 
 
 #Seach function 
@@ -244,11 +259,15 @@ def kopa():
                     cur.execute(query3, data)
                     conn.commit()
                     print("Köpet registrerades")
+                    return redirect(url_for('resor_sok'))
                   
                 else:
+                    
                     print("För många biljetter köptes!")
+                    submit_false= False
+                    return redirect(url_for('resor_sok_fel'))
 
-        return redirect(url_for('resor_sok'))
+        
     else:
         return flash("Något gick fel")
 
