@@ -202,24 +202,59 @@ def stader():
 
 @app.route('/regstad', methods=['GET', 'POST'])
 def regstad():
+    
 
-    if request.method == 'POST':
-        new_land = request.form['land']
-        new_stad = request.form['stad']
-        new_adress = request.form['adress']
+    try:
+        if request.method == 'POST':
+            new_land = request.form['land']
+            new_stad = request.form['stad']
+            new_adress = request.form['adress']
 
-        conn = connect_db()
-        cur = conn.cursor()
+            conn = connect_db()
+            cur = conn.cursor()
 
-        query = ("INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)")
-        data = (new_land, new_stad, new_adress)
+            query = ("INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)")
+            data = (new_land, new_stad, new_adress)
 
-        cur.execute(query, data)
-        conn.commit()
+            cur.execute(query, data)
+            conn.commit()
 
-        return redirect(url_for('stader'))
-    else:
-        return flash("Något gick fel")
+            return redirect(url_for('stader_ratt'))
+        else:
+            return flash("Något gick fel")
+    except:
+        
+            return redirect(url_for('stader_fel'))
+        
+
+#Citys Page success
+@app.route('/stader-ratt')
+def stader_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM stad")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('stader-ratt.html', stader=results)
+
+
+#Citys Page fail
+@app.route('/stader-fel')
+def stader_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM stad")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('stader-fel.html', stader=results)
 
 
 #Search trips page

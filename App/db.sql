@@ -61,9 +61,9 @@ insert into chauffor values
 
 create table stad (
 
-	land text not null,
-	stad text not null,
-	adress text not null,
+	land text not null CONSTRAINT land CHECK(length(land)>0),
+	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
+	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
 	
 
 	
@@ -78,7 +78,8 @@ insert into stad values
 ('Sverige', 'Malmö', 'Lokgatan 5'),
 ('Tyskland', 'Berlin', 'Alexanderplatz 3'),
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32'),
-('Portugal', 'Lissabon', 'Praça dos Restauradores 9');
+('Portugal', 'Lissabon', 'Praça dos Restauradores 9'),
+('Spanien', 'Madrid', 'Plaza Emperador Carlos 5');
 
 
 
