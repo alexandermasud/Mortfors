@@ -208,10 +208,14 @@ def soka():
 def kopa():
 
     if request.method == 'POST':
-        avgangsid = request.form['avgangsid']
+        
+        kundid = request.form['kundid']
+        fornamn = request.form['fornamn']
         new_koptaplatser = int(request.form['koptaplatser'])
-        fornamn = int(request.form['fornamn'])
-        kundid = int(request.form['kundid'])
+        avgangsid = request.form['avgangsid']
+       
+       
+       
 
         conn = connect_db()
         cur = conn.cursor()
@@ -234,9 +238,22 @@ def kopa():
         for i in res_platser:
             for j in i:
                 if j - new_koptaplatser >= 0:
-                    cur.execute(query, query2, query3, data)
+                    cur.execute(query, query2)
                     conn.commit()
                     print("Koden kördes")
+                    
+                    
+                    conn = connect_db()
+                    cur = conn.cursor()
+                    
+                 
+                    query3 = ("INSERT INTO kop(kundid, fornamn, platser, avgangsid) VALUES(%s, %s, %s, %s)")
+                    data = (kundid, fornamn, new_koptaplatser, avgangsid)
+                    
+                    cur.execute(query3, data)
+                    conn.commit()
+                    print("Koden kördes 2")
+                  
                 else:
                     print("För många biljetter köptes!")
 
