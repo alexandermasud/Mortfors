@@ -433,34 +433,35 @@ def resor_registrera_fel():
 
 @app.route('/regresa', methods=['GET', 'POST'])
 def regresa():
+    try:
+        if request.method == 'POST':
+            new_avgangsland = request.form['avgangsland']
+            new_avgangsstad = request.form['avgangsstad']
+            new_ankomstland = request.form['ankomstland']
+            new_ankomststad = request.form['ankomststad']
+            new_datum = request.form['datum']
+            new_avgang = request.form['avgang']
+            new_ankomst = request.form['ankomst']
+            new_pris = request.form['pris']
+            new_platser = request.form['platser']
+            new_chaufforid = request.form['chaufforid']
 
-    if request.method == 'POST':
-        new_avgangsland = request.form['avgangsland']
-        new_avgangsstad = request.form['avgangsstad']
-        new_ankomstland = request.form['ankomstland']
-        new_ankomststad = request.form['ankomststad']
-        new_datum = request.form['datum']
-        new_avgang = request.form['avgang']
-        new_ankomst = request.form['ankomst']
-        new_pris = request.form['pris']
-        new_platser = request.form['platser']
-        new_chaufforid = request.form['chaufforid']
+            conn = connect_db()
+            cur = conn.cursor()
 
-        conn = connect_db()
-        cur = conn.cursor()
+            query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+            data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
 
-        query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-        data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
+            cur.execute(query, data)
+            conn.commit()
 
-        cur.execute(query, data)
-        conn.commit()
+            return redirect(url_for('resor_registrera_ratt'))
 
-        return redirect(url_for('resor_registrera'))
+        else:
+            return redirect(url_for('resor_registrera_fel'))
 
-    else:
-        return flash("Något gick fel")
-
-
+    except:
+        return redirect(url_for('resor_registrera_fel'))
 
 
 '''
