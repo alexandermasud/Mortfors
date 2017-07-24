@@ -466,22 +466,55 @@ def regresa():
         return redirect(url_for('resor_registrera_fel'))
 
 
-'''
-import psycopg2
+#Edit driver
+@app.route('/redchauffor', methods=['GET', 'POST'])
+def redchauffor():
+
+    try:
+        if request.method == 'POST':
+            
+            chaufforid = request.form['chaufforid']
+            avgangsid = request.form['avgangsid']
+                                 
+
+            conn = connect_db()
+            cur = conn.cursor()
+            
+            query = ("UPDATE resa SET chaufforid = '{}' WHERE avgangsid = {};".format((chaufforid),(avgangsid)))
+     
+            cur.execute(query)
+          
+            conn.commit()
+        
+            print("Chaufför uppdaterades")
+            return redirect(url_for('resor_registrera_ratt_chauffor'))
+        
+        else:
+            return redirect(url_for('resor_registrera_fel'))                            
+            
+
+    except:
+        print("Uppdatering av chaufför misslyckades")
+        return redirect(url_for('resor_registrera_fel'))
+
+#Register trip page edit driver success
+@app.route('/resor-registrera-ratt-chauffor')
+def resor_registrera_ratt_chauffor():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('resor-registrera-ratt-chauffor.html', resor=results)
+
+        
 
 
-conn = psycopg2.connect("dbname='mtmjbqma' user='mtmjbqma' host='horton.elephantsql.com' password='FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d'")
 
-cursor = conn.cursor()
-
-cursor.execute("select kundid, fornamn, efternamn from kund")
-
-result = cursor.fetchall()
-
-for record in result:
-    print(record[0], record[1], record[2])
-
-'''
 
 if __name__ == '__main__':
     app.run()

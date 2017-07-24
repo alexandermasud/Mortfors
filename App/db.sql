@@ -89,7 +89,7 @@ create table resa (
 	ankomst time not null,
 	pris int not null,
 	platser int not null,
-	chaufforid text not null,
+	chaufforid character(11),
 	
 	
 	primary key (avgangsid),
@@ -131,7 +131,13 @@ create table kop (
 );
 
 
+
 insert into kop (kundid, avgangsid, platser) values 
 (1, 4, 2),     
 (1, 6, 5),
 (2, 2, 7);
+
+
+
+
+
