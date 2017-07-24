@@ -25,13 +25,8 @@ create table kund (
 
 insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values 
 ('Alexander', 'Masud', 'Kompassgatan 40','Malmö', 'alexandermasud@gmail.com', '0730922534'),
-('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@icloud.com', '0723452312'),
-('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453'),
-('Maria', 'Johansson', 'Lönngatan 28a','Malmö', 'Maria88@ghotmail.com', '0728938472'),
-('Anders', 'Blomquist', 'Köpenhamnsvägen 75','Malmö', 'bil_anders@gmail.com', '0752312238'),
-('Viktor', 'Olsson', 'Ringduvevägen 46','Åkarp', 'vike88@gmail.com', '0732994212');
-
-
+('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
+('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
 
 
 create table chauffor (
@@ -78,8 +73,7 @@ insert into stad values
 ('Sverige', 'Malmö', 'Lokgatan 5'),
 ('Tyskland', 'Berlin', 'Alexanderplatz 3'),
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32'),
-('Portugal', 'Lissabon', 'Praça dos Restauradores 9'),
-('Spanien', 'Madrid', 'Plaza Emperador Carlos 5');
+('Portugal', 'Lissabon', 'Praça dos Restauradores 9');
 
 
 
@@ -93,8 +87,8 @@ create table resa (
 	datum text not null,
 	avgang text not null,
 	ankomst text not null,
-	pris text not null,
-	platser text not null,
+	pris int not null,
+	platser int not null,
 	chaufforid text not null,
 	
 	
@@ -133,6 +127,7 @@ create table kop (
 	foreign key (kundid) references kund (kundid),
 	foreign key (avgangsid) references resa (avgangsid)
  	
+
 );
 
 
