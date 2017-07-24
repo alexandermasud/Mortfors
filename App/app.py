@@ -365,6 +365,7 @@ def kopa():
             query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
             query2 = ("SELECT * FROM resa")
 
+            
             print("1.0")
             for i in res_platser:
                 print("1.1")
