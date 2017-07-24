@@ -164,6 +164,39 @@ def resor_sok():
     return render_template('resor-sok.html', resor=results)
 
 
+#Search trips page
+@app.route('/resor-sok-ratt')
+def resor_sok_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    
+    return render_template('resor-sok-ratt.html', resor=results)
+
+#Search trips page
+@app.route('/resor-sok-fel')
+def resor_sok_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    
+    return render_template('resor-sok-fel.html', resor=results)
+
+
+
+
 
 
 #Seach function 
@@ -203,54 +236,58 @@ def soka():
 @app.route('/kopa', methods=['GET', 'POST'])
 def kopa():
 
-    if request.method == 'POST':
-        
-        kundid = request.form['kundid']
-        avgangsid = request.form['avgangsid']
-        new_koptaplatser = int(request.form['koptaplatser'])
-       
-       
+    try:
+        if request.method == 'POST':
+            
+            kundid = request.form['kundid']
+            avgangsid = request.form['avgangsid']
+            new_koptaplatser = int(request.form['koptaplatser'])
+           
+           
 
-        conn = connect_db()
-        cur = conn.cursor()
-        
-        query_platser = ("SELECT platser FROM resa WHERE avgangsid = {}".format(avgangsid))
-        
+            conn = connect_db()
+            cur = conn.cursor()
+            
+            query_platser = ("SELECT platser FROM resa WHERE avgangsid = {}".format(avgangsid))
+            
 
-        cur.execute(query_platser)
-        res_platser = cur.fetchall()
-        
-        conn.commit()
+            cur.execute(query_platser)
+            res_platser = cur.fetchall()
+            
+            conn.commit()
 
-        query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
-        query2 = ("SELECT * FROM resa")
-                 
-        
-        for i in res_platser:
-            for j in i:
-                if j - new_koptaplatser >= 0:
-                    cur.execute(query, query2)
-                    conn.commit()
-                    print("Antal platser ok")
-                    
-                    
-                    conn = connect_db()
-                    cur = conn.cursor()
-                    
-                 
-                    query3 = ("INSERT INTO kop(kundid, avgangsid, platser) VALUES(%s, %s, %s)")
-                    data = (kundid, avgangsid, new_koptaplatser)
-                    
-                    cur.execute(query3, data)
-                    conn.commit()
-                    print("Köpet registrerades")
-                  
-                else:
-                    print("För många biljetter köptes!")
+            query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
+            query2 = ("SELECT * FROM resa")
+                     
+            
+            for i in res_platser:
+                for j in i:
+                    if j - new_koptaplatser >= 0:
+                        cur.execute(query, query2)
+                        conn.commit()
+                        print("Antal platser ok")
+                        
+                        
+                        conn = connect_db()
+                        cur = conn.cursor()
+                        
+                     
+                        query3 = ("INSERT INTO kop(kundid, avgangsid, platser) VALUES(%s, %s, %s)")
+                        data = (kundid, avgangsid, new_koptaplatser)
+                        
+                        cur.execute(query3, data)
+                        conn.commit()
+                        print("Köpet registrerades")
+                      
+                    else:
+                        print("För många biljetter köptes!")
 
-        return redirect(url_for('resor_sok'))
-    else:
-        return flash("Något gick fel")
+            return redirect(url_for('resor_sok_ratt'))
+        else:
+            return flash("Något gick fel")
+
+    except:
+        return redirect(url_for('resor_sok_fel'))
 
 
 
