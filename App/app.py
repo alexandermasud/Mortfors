@@ -359,20 +359,27 @@ def kopa():
 
             cur.execute(query_platser)
             res_platser = cur.fetchall()
-
+            print(res_platser)
             conn.commit()
 
             query = ("UPDATE resa SET platser = platser - {} WHERE avgangsid ={}".format((new_koptaplatser) ,(avgangsid)))
             query2 = ("SELECT * FROM resa")
 
-
+            print("1.0")
             for i in res_platser:
+                print("1.1")
                 for j in i:
+                    print("J = " + j)
+                    print("new_koptaplatser = " + new_koptaplatser)
+
+ 
                     if j - new_koptaplatser >= 0:
+                        print("1.3")
                         cur.execute(query, query2)
+                        print("1.4")
                         conn.commit()
                         print("Antal platser ok")
-
+                            
 
                         conn = connect_db()
                         cur = conn.cursor()
@@ -393,7 +400,7 @@ def kopa():
                         return redirect(url_for('resor_sok_fel'))
     except:
 
-        
+        print("Except valdes")
         return redirect(url_for('resor_sok_fel'))
 
 
