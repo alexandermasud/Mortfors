@@ -173,7 +173,6 @@ def regchauffor():
             print("Chaufför registrerades")
         
     except:
-        return redirect(url_for('chaufforer_fel'))
         print("Chaufför registrerades inte")
 
 #Citys Page
@@ -222,26 +221,26 @@ def stader_fel():
 
 @app.route('/regstad', methods=['GET', 'POST'])
 def regstad():
+    try:
+        if request.method == 'POST':
+            new_land = request.form['land']
+            new_stad = request.form['stad']
+            new_adress = request.form['adress']
 
-    if request.method == 'POST':
-        new_land = request.form['land']
-        new_stad = request.form['stad']
-        new_adress = request.form['adress']
+            conn = connect_db()
+            cur = conn.cursor()
 
-        conn = connect_db()
-        cur = conn.cursor()
+            query = ("INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)")
+            data = (new_land, new_stad, new_adress)
 
-        query = ("INSERT INTO stad(land, stad, adress) VALUES(%s, %s, %s)")
-        data = (new_land, new_stad, new_adress)
+            cur.execute(query, data)
+            conn.commit()
 
-        cur.execute(query, data)
-        conn.commit()
-
-        return redirect(url_for('stader'))
-    else:
-        return flash("Något gick fel")
-
-
+            return redirect(url_for('stader_ratt'))
+        else:
+            return flash("Något gick fel")
+    except: 
+        return redirect(url_for('stader_fel'))
 #Search trips page
 @app.route('/resor-sok')
 def resor_sok():
