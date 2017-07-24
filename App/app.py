@@ -173,7 +173,9 @@ def regchauffor():
             print("Chaufför registrerades")
         
     except:
+        return redirect(url_for('chaufforer_fel'))
         print("Chaufför registrerades inte")
+        
 
 #Citys Page
 @app.route('/stader')
