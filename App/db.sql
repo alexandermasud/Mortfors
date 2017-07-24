@@ -32,7 +32,7 @@ insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values
 create table chauffor (
 
 	
-	chaufforID text not null,
+	chaufforID character(11) not null,
 	fornamn text not null,
 	efternamn text not null,
 	adress text not null,
@@ -84,9 +84,9 @@ create table resa (
 	avgangsstad text not null,
 	ankomstland text not null,
 	ankomststad text not null,
-	datum text not null,
-	avgang text not null,
-	ankomst text not null,
+	datum date not null,
+	avgang time not null,
+	ankomst time not null,
 	pris int not null,
 	platser int not null,
 	chaufforid text not null,
@@ -104,15 +104,15 @@ create table resa (
 
 
 insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) values 
-('Sverige', 'Malmö', 'Portugal','Lissabon', '17-04-10', '10:00', '23:00', '1099', '30', '741122-3319'),     
-('Sverige', 'Göteborg', 'Frankrike','Paris', '17-04-11', '09:00', '22:00', '1199', '76', '789322-2893'),
-('Sverige', 'Stockholm', 'Sverige','Malmö', '17-04-13', '13:00', '18:00', '499', '40', '910328-2387'),
-('Sverige', 'Malmö', 'Tyskland','Berlin', '17-04-14', '11:00', '22:00', '999', '50', '689238-4877'),
-('Sverige', 'Malmö', 'Finland','Helsingfors', '17-04-14', '09:00', '15:00', '799', '34', '910328-2387'),
-('Portugal', 'Lissabon', 'Sverige','Malmö', '17-04-16', '04:00', '12:00', '749', '30', '741122-3319'),   
-('Tyskland', 'Berlin', 'Sverige','Malmö', '17-04-16', '11:00', '22:00', '799', '38', '689238-4877'),
-('Finland', 'Helsingfors', 'Sverige','Malmö', '17-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
-('Frankrike', 'Paris', 'Sverige','Göteborg', '17-04-19', '10:00', '23:00', '1199', '80', '789322-2893');
+('Sverige', 'Malmö', 'Portugal','Lissabon', '2017-04-10', '10:00', '23:00', '1099', '30', '741122-3319'),     
+('Sverige', 'Göteborg', 'Frankrike','Paris', '2017-04-11', '09:00', '22:00', '1199', '76', '789322-2893'),
+('Sverige', 'Stockholm', 'Sverige','Malmö', '2017-04-13', '13:00', '18:00', '499', '40', '910328-2387'),
+('Sverige', 'Malmö', 'Tyskland','Berlin', '2017-04-14', '11:00', '22:00', '999', '50', '689238-4877'),
+('Sverige', 'Malmö', 'Finland','Helsingfors', '2017-04-14', '09:00', '15:00', '799', '34', '910328-2387'),
+('Portugal', 'Lissabon', 'Sverige','Malmö', '2017-04-16', '04:00', '12:00', '749', '30', '741122-3319'),   
+('Tyskland', 'Berlin', 'Sverige','Malmö', '2017-04-16', '11:00', '22:00', '799', '38', '689238-4877'),
+('Finland', 'Helsingfors', 'Sverige','Malmö', '2017-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
+('Frankrike', 'Paris', 'Sverige','Göteborg', '2017-04-19', '10:00', '23:00', '1199', '80', '789322-2893');
 
 
 create table kop (
