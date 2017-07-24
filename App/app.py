@@ -46,29 +46,61 @@ def kunder():
     results = cur.fetchall()
     return render_template('kunder.html', kunder=results)
 
+#Costumers page success
+@app.route('/kunder-ratt')
+def kunder_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM kund")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('kunder-ratt.html', kunder=results)
+
+
+#Costumers page fail
+@app.route('/kunder-fel')
+def kunder_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM kund")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('kunder-fel.html', kunder=results)
+
 
 @app.route('/regkund', methods=['GET', 'POST'])
 def regkund():
-    if request.method == 'POST':
-        new_firstname = request.form['fornamn']
-        new_lastname = request.form['efternamn']
-        new_adress = request.form['adress']
-        new_stad = request.form['stad']
-        new_epost = request.form['epost']
-        new_telefon = request.form['telefon']
 
-        conn = connect_db()
-        cur = conn.cursor()
+    try:
+        if request.method == 'POST':
+            new_firstname = request.form['fornamn']
+            new_lastname = request.form['efternamn']
+            new_adress = request.form['adress']
+            new_stad = request.form['stad']
+            new_epost = request.form['epost']
+            new_telefon = request.form['telefon']
 
-        query = ("INSERT INTO kund(fornamn, efternamn, adress, stad, epost, telefon) VALUES(%s, %s, %s, %s, %s, %s)")
-        data = (new_firstname, new_lastname, new_adress, new_stad, new_epost, new_telefon)
-        cur.execute(query, data)
-        conn.commit()
+            conn = connect_db()
+            cur = conn.cursor()
 
-        return redirect(url_for('kunder'))
-    else:
-        return flash("Något gick fel")
+            query = ("INSERT INTO kund(fornamn, efternamn, adress, stad, epost, telefon) VALUES(%s, %s, %s, %s, %s, %s)")
+            data = (new_firstname, new_lastname, new_adress, new_stad, new_epost, new_telefon)
+            cur.execute(query, data)
+            conn.commit()
 
+            return redirect(url_for('kunder_ratt'))
+        else:
+            return flash("Något gick fel")
+    except:
+        return redirect(url_for('kunder_fel'))
 #Drivers page
 @app.route('/chaufforer')
 def chaufforer():
@@ -83,6 +115,36 @@ def chaufforer():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('chaufforer.html', chaufforer=results)
+
+#Drivers page success
+@app.route('/chaufforer-ratt')
+def chaufforer_ratt():
+
+    conn = connect_db()
+    cur = conn.cursor()
+
+    #Query
+    try:
+        cur.execute("SELECT * FROM chauffor")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('chaufforer-ratt.html', chaufforer=results)
+
+#Drivers page fail
+@app.route('/chaufforer-fel')
+def chaufforer_fel():
+
+    conn = connect_db()
+    cur = conn.cursor()
+
+    #Query
+    try:
+        cur.execute("SELECT * FROM chauffor")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('chaufforer-fel.html', chaufforer=results)
 
 #Reg Driver
 @app.route('/regchauffor', methods=['GET', 'POST'])
@@ -125,6 +187,35 @@ def stader():
     results = cur.fetchall()
     return render_template('stader.html', stader=results)
 
+
+#Citys Page success
+@app.route('/stader-ratt')
+def stader_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM stad")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('stader-ratt.html', stader=results)
+
+
+#Citys Page fail
+@app.route('/stader-fel')
+def stader_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM stad")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('stader-fel.html', stader=results)
 
 @app.route('/regstad', methods=['GET', 'POST'])
 def regstad():
@@ -304,6 +395,39 @@ def resor_registrera():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('resor-registrera.html', resor=results)
+
+#Register trip page success
+@app.route('/resor-registrera-ratt')
+def resor_registrera_ratt():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('resor-registrera-ratt.html', resor=results)
+
+
+#Register trip page fail
+@app.route('/resor-registrera-fel')
+def resor_registrera_fel():
+    #Ansluter till databasen och definerar en cursor.
+    conn = connect_db()
+    cur = conn.cursor()
+    #Query
+    try:
+        cur.execute("SELECT * FROM resa")
+    except:
+        print("Fel när koden kördes!")
+    results = cur.fetchall()
+    return render_template('resor-registrera-fel.html', resor=results)
+
+
+
+
 
 @app.route('/regresa', methods=['GET', 'POST'])
 def regresa():
