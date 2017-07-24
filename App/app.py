@@ -97,10 +97,11 @@ def regkund():
             conn.commit()
 
             return redirect(url_for('kunder_ratt'))
-        else:
-            return flash("Något gick fel")
+            print("Kund registrerades")
     except:
         return redirect(url_for('kunder_fel'))
+        print("Kund registrerades inte")
+    
 #Drivers page
 @app.route('/chaufforer')
 def chaufforer():
@@ -150,28 +151,30 @@ def chaufforer_fel():
 @app.route('/regchauffor', methods=['GET', 'POST'])
 def regchauffor():
 
-    if request.method == 'POST':
-        new_id = request.form['chaufforid']
-        new_firstname = request.form['fornamn']
-        new_lastname = request.form['efternamn']
-        new_adress = request.form['adress']
-        new_city = request.form['stad']
-        new_number = request.form['hemtelefon']
+    try:
+        if request.method == 'POST':
+            new_id = request.form['chaufforid']
+            new_firstname = request.form['fornamn']
+            new_lastname = request.form['efternamn']
+            new_adress = request.form['adress']
+            new_city = request.form['stad']
+            new_number = request.form['hemtelefon']
 
-        conn = connect_db()
-        cur = conn.cursor()
+            conn = connect_db()
+            cur = conn.cursor()
 
-        query = ("INSERT INTO chauffor(chaufforid, fornamn, efternamn, adress, stad, hemtelefon) VALUES(%s, %s, %s, %s, %s, %s)")
-        data = (new_id, new_firstname, new_lastname, new_adress, new_city, new_number)
-    
-        cur.execute(query, data)
-        conn.commit()
+            query = ("INSERT INTO chauffor(chaufforid, fornamn, efternamn, adress, stad, hemtelefon) VALUES(%s, %s, %s, %s, %s, %s)")
+            data = (new_id, new_firstname, new_lastname, new_adress, new_city, new_number)
         
-        return redirect(url_for('chaufforer'))
-    else:
-        return flash("Något gick fel")
-
-
+            cur.execute(query, data)
+            conn.commit()
+            
+            return redirect(url_for('chaufforer_ratt'))
+            print("Chaufför registrerades")
+        
+    except:
+        return redirect(url_for('chaufforer_fel'))
+        print("Chaufför registrerades inte")
 
 #Citys Page
 @app.route('/stader')
