@@ -73,7 +73,8 @@ insert into stad values
 ('Sverige', 'Malmö', 'Lokgatan 5'),
 ('Tyskland', 'Berlin', 'Alexanderplatz 3'),
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32'),
-('Portugal', 'Lissabon', 'Praça dos Restauradores 9');
+('Portugal', 'Lissabon', 'Praça dos Restauradores 9'),
+('Spanien', 'Madrid', 'Plaza Emperador Carlos 5');
 
 
 
@@ -89,7 +90,7 @@ create table resa (
 	ankomst time not null,
 	pris int not null,
 	platser int not null,
-	chaufforid character(11),
+	chaufforid text,
 	
 	
 	primary key (avgangsid),
