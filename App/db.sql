@@ -45,6 +45,7 @@ create table chauffor (
 
 insert into chauffor values 
 
+('Ej bestämt', ' ', ' ', ' ',' ',' '),
 ('910328-2387', 'Arne', 'Persson', 'Genvägen 18','Dalby','043145324'),
 ('789322-2893', 'Per', 'Hansson', 'Ormvägen 88','Lund','045238495'),
 ('741122-3319', 'Sven', 'Hammar', 'Östravägen 12','Lund','045225390'),
@@ -88,8 +89,8 @@ create table resa (
 	datum date not null,
 	avgang time not null,
 	ankomst time not null,
-	pris int not null CONSTRAINT pris CHECK (pris >= 0),
-	platser int not null CONSTRAINT platser CHECK (platser >= 0),
+	pris int not null CONSTRAINT pris CHECK (pris > 0),
+	platser int not null CONSTRAINT platser CHECK (platser > 0),
 	chaufforid text CONSTRAINT chaufforid CHECK(length(chaufforid)>0),
 	
 	
@@ -121,7 +122,7 @@ create table kop (
 	transaktionsid serial unique,
 	kundid int not null ,
 	avgangsid int not null,
-	platser int not null CONSTRAINT platser CHECK (platser >= 0),
+	platser int not null CONSTRAINT platser CHECK (platser > 0),
 	
 	
 	primary key (transaktionsid),
