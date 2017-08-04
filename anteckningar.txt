@@ -1,3 +1,6 @@
+BUGGAR
+
+
 Vad applikationen ska göra:
 
 Redigera chaufför

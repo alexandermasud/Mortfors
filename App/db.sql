@@ -11,12 +11,12 @@ create table kund (
 
 	
 	kundid serial unique,
-	fornamn text not null,
-	efternamn text not null,
-	adress text not null,
-	stad text not null,
-	epost text not null,
-	telefon text not null,
+	fornamn text not null CONSTRAINT fornamn CHECK(length(fornamn)>0),
+	efternamn text not null CONSTRAINT efternamn CHECK(length(efternamn)>0),
+	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
+	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
+	epost text not null CONSTRAINT epost CHECK(length(epost)>0),
+	telefon text not null CONSTRAINT telefon CHECK(length(telefon)>0),
 
 	primary key (kundid)
 	
@@ -32,12 +32,12 @@ insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values
 create table chauffor (
 
 	
-	chaufforID character(11) not null,
-	fornamn text not null,
-	efternamn text not null,
-	adress text not null,
-	stad text not null,
-	hemtelefon text not null,
+	chaufforID character(11) not null CONSTRAINT chaufforID CHECK(length(chaufforID)>0),
+	fornamn text not null CONSTRAINT fornamn CHECK(length(fornamn)>0),
+	efternamn text not null CONSTRAINT efternamn CHECK(length(efternamn)>0),
+	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
+	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
+	hemtelefon text not null CONSTRAINT hemtelefon CHECK(length(hemtelefon)>0),
 
 	
 	primary key (chaufforID)
@@ -56,9 +56,9 @@ insert into chauffor values
 
 create table stad (
 
-	land text not null,
-	stad text not null,
-	adress text not null,
+	land text not null CONSTRAINT land CHECK(length(land)>0),
+	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
+	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
 	
 
 	
@@ -81,16 +81,16 @@ insert into stad values
 create table resa (
 
 	avgangsid serial unique,
-	avgangsland text not null,
-	avgangsstad text not null,
-	ankomstland text not null,
-	ankomststad text not null,
+	avgangsland text not null CONSTRAINT avgangsland CHECK(length(avgangsland)>0),
+	avgangsstad text not null CONSTRAINT avgangsstad CHECK(length(avgangsstad)>0),
+	ankomstland text not null CONSTRAINT ankomstland CHECK(length(ankomstland)>0),
+	ankomststad text not null CONSTRAINT ankomststad CHECK(length(ankomststad)>0),
 	datum date not null,
 	avgang time not null,
 	ankomst time not null,
-	pris int not null,
-	platser int not null,
-	chaufforid text,
+	pris int not null CONSTRAINT pris CHECK (pris >= 0),
+	platser int not null CONSTRAINT platser CHECK (platser >= 0),
+	chaufforid text CONSTRAINT chaufforid CHECK(length(chaufforid)>0),
 	
 	
 	primary key (avgangsid),
@@ -119,15 +119,15 @@ insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avg
 create table kop (
 
 	transaktionsid serial unique,
-	kundid int not null,
+	kundid int not null ,
 	avgangsid int not null,
-	platser int not null,
+	platser int not null CONSTRAINT platser CHECK (platser >= 0),
 	
 	
 	primary key (transaktionsid),
 	foreign key (kundid) references kund (kundid),
 	foreign key (avgangsid) references resa (avgangsid)
- 	
+
 
 );
 

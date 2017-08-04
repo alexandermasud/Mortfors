@@ -373,11 +373,14 @@ def kopa():
                         cur.execute(query3, data)
                         conn.commit()
                         print("Köpet registrerades")
+                        return redirect(url_for('resor_sok_ratt'))
+
                       
                     else:
+                        
                         print("För många biljetter köptes!")
+                        return redirect(url_for('resor_sok_fel'))
 
-            return redirect(url_for('resor_sok_ratt'))
         else:
             return flash("Något gick fel")
 
