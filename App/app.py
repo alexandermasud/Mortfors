@@ -111,7 +111,7 @@ def chaufforer():
 
     #Query
     try:
-        cur.execute("SELECT * FROM chauffor")
+        cur.execute("SELECT * FROM chauffor WHERE chaufforid != 'Ej bestämt'")
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()
@@ -126,7 +126,7 @@ def chaufforer_ratt():
 
     #Query
     try:
-        cur.execute("SELECT * FROM chauffor")
+        cur.execute("SELECT * FROM chauffor WHERE chaufforid != 'Ej bestämt'")
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()
@@ -141,7 +141,7 @@ def chaufforer_fel():
 
     #Query
     try:
-        cur.execute("SELECT * FROM chauffor")
+        cur.execute("SELECT * FROM chauffor WHERE chaufforid != 'Ej bestämt'")
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()
