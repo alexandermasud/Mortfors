@@ -25,7 +25,7 @@ def kop():
     cur = conn.cursor()
     #Query
     try:
-        cur.execute("SELECT kop.transaktionsid, kop.kundid, kund.fornamn, kund.efternamn, kop.avgangsid, resa.avgangsland, resa.avgangsstad, resa.ankomstland, resa.ankomststad, resa.datum, resa.avgang, resa.ankomst, kop.platser FROM resa JOIN kop ON kop.avgangsid=resa.avgangsid JOIN kund ON kund.kundid=kop.kundid;")
+        cur.execute("SELECT kop.transaktionsid, kop.kundid, kund.fornamn, kund.efternamn, kop.avgangsid, resa.avgangsstad, resa.ankomststad, resa.avgangsdatum, resa.ankomstdatum , resa.avgang, resa.ankomst, kop.platser FROM resa JOIN kop ON kop.avgangsid=resa.avgangsid JOIN kund ON kund.kundid=kop.kundid;")
     except:
         print("Fel när koden kördes!")
     results = cur.fetchall()

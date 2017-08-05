@@ -86,7 +86,8 @@ create table resa (
 	avgangsstad text not null CONSTRAINT avgangsstad CHECK(length(avgangsstad)>0),
 	ankomstland text not null CONSTRAINT ankomstland CHECK(length(ankomstland)>0),
 	ankomststad text not null CONSTRAINT ankomststad CHECK(length(ankomststad)>0),
-	datum date not null,
+	avgangsdatum date not null,
+	ankomstdatum date not null,
 	avgang time not null,
 	ankomst time not null,
 	pris int not null CONSTRAINT pris CHECK (pris > 0),
@@ -105,16 +106,17 @@ create table resa (
 
 
 
-insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) values 
-('Sverige', 'Malmö', 'Portugal','Lissabon', '2017-04-10', '10:00', '23:00', '1099', '30', '741122-3319'),     
-('Sverige', 'Göteborg', 'Frankrike','Paris', '2017-04-11', '09:00', '22:00', '1199', '76', '789322-2893'),
-('Sverige', 'Stockholm', 'Sverige','Malmö', '2017-04-13', '13:00', '18:00', '499', '40', '910328-2387'),
-('Sverige', 'Malmö', 'Tyskland','Berlin', '2017-04-14', '11:00', '22:00', '999', '50', '689238-4877'),
-('Sverige', 'Malmö', 'Finland','Helsingfors', '2017-04-14', '09:00', '15:00', '799', '34', '910328-2387'),
-('Portugal', 'Lissabon', 'Sverige','Malmö', '2017-04-16', '04:00', '12:00', '749', '30', '741122-3319'),   
-('Tyskland', 'Berlin', 'Sverige','Malmö', '2017-04-16', '11:00', '22:00', '799', '38', '689238-4877'),
-('Finland', 'Helsingfors', 'Sverige','Malmö', '2017-04-17', '09:00', '15:00', '799', '40', '910328-2387'),
-('Frankrike', 'Paris', 'Sverige','Göteborg', '2017-04-19', '10:00', '23:00', '1199', '80', '789322-2893');
+insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, avgangsdatum, ankomstdatum, avgang, ankomst, pris, platser, chaufforid) values 
+('Sverige', 'Malmö', 'Portugal','Lissabon', '2017-09-10','2017-09-11', '21:00', '14:00', '1099', '30', '741122-3319'),     
+('Sverige', 'Göteborg', 'Frankrike','Paris', '2017-09-11', '2017-09-11', '09:00', '22:00', '1199', '76', '789322-2893'),
+('Sverige', 'Stockholm', 'Sverige','Malmö', '2017-09-13', '2017-09-13', '13:00', '18:00', '499', '40', '910328-2387'),
+('Sverige', 'Malmö', 'Tyskland','Berlin', '2017-09-14', '2017-09-14', '11:00', '22:00', '999', '50', '689238-4877'),
+('Sverige', 'Malmö', 'Finland','Helsingfors', '2017-09-14', '2017-09-14', '09:00', '15:00', '799', '34', 'Ej bestämt'),
+('Portugal', 'Lissabon', 'Sverige','Malmö', '2017-09-16', '2017-09-16', '04:00', '12:00', '749', '30', '741122-3319'),   
+('Tyskland', 'Berlin', 'Sverige','Malmö', '2017-09-16', '2017-09-16', '11:00', '22:00', '799', '38', '689238-4877'),
+('Finland', 'Helsingfors', 'Sverige','Malmö', '2017-09-17', '2017-09-17', '09:00', '15:00', '799', '40', 'Ej bestämt'),
+('Spanien', 'Madrid', 'Sverige','Malmö', '2017-09-19', '2017-09-20', '22:00', '15:00', '799', '40', '910328-2387'),
+('Frankrike', 'Paris', 'Sverige','Göteborg', '2017-09-19', '2017-09-20', '18:00', '07:00', '1199', '80', '789322-2893');
 
 
 create table kop (
@@ -138,7 +140,6 @@ insert into kop (kundid, avgangsid, platser) values
 (1, 4, 2),     
 (1, 6, 5),
 (2, 2, 7);
-
 
 
 
