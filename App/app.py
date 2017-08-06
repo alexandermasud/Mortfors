@@ -494,7 +494,8 @@ def regresa():
             new_avgangsstad = request.form['avgangsstad']
             new_ankomstland = request.form['ankomstland']
             new_ankomststad = request.form['ankomststad']
-            new_datum = request.form['datum']
+            new_datum_avgang = request.form['avgangsdatum']
+            new_datum_ankomst = request.form['ankomstdatum']
             new_avgang = request.form['avgang']
             new_ankomst = request.form['ankomst']
             new_pris = request.form['pris']
@@ -504,8 +505,8 @@ def regresa():
             conn = connect_db()
             cur = conn.cursor()
 
-            query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, datum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-            data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
+            query = ("INSERT INTO resa(avgangsland, avgangsstad, ankomstland, ankomststad, avgangsdatum, ankomstdatum, avgang, ankomst, pris, platser, chaufforid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+            data = (new_avgangsland, new_avgangsstad, new_ankomstland, new_ankomststad, new_datum_avgang, new_datum_ankomst, new_avgang, new_ankomst, new_pris, new_platser, new_chaufforid)
 
             cur.execute(query, data)
             conn.commit()
