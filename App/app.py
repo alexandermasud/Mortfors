@@ -10,14 +10,19 @@ def connect_db():
 
     except:
         print("Kunde inte ansluta till databasen!")
-        
+
+
+
+       
 #Main Page
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-#Purschsed trips page
+
+
+#Purchased trips page
 @app.route('/kop')
 def kop():
     #Ansluter till databasen och definerar en cursor.
@@ -30,6 +35,8 @@ def kop():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('kop.html', kop_register=results)
+
+
 
 
 #Costumers page
@@ -46,6 +53,9 @@ def kunder():
     results = cur.fetchall()
     return render_template('kunder.html', kunder=results)
 
+
+
+
 #Costumers page success
 @app.route('/kunder-ratt')
 def kunder_ratt():
@@ -59,6 +69,7 @@ def kunder_ratt():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('kunder-ratt.html', kunder=results)
+
 
 
 #Costumers page fail
@@ -76,6 +87,8 @@ def kunder_fel():
     return render_template('kunder-fel.html', kunder=results)
 
 
+
+#Reg Customer
 @app.route('/regkund', methods=['GET', 'POST'])
 def regkund():
 
@@ -101,6 +114,9 @@ def regkund():
     except:
         return redirect(url_for('kunder_fel'))
         print("Kund registrerades inte")
+
+
+
     
 #Drivers page
 @app.route('/chaufforer')
@@ -117,6 +133,10 @@ def chaufforer():
     results = cur.fetchall()
     return render_template('chaufforer.html', chaufforer=results)
 
+
+
+
+
 #Drivers page success
 @app.route('/chaufforer-ratt')
 def chaufforer_ratt():
@@ -132,6 +152,10 @@ def chaufforer_ratt():
     results = cur.fetchall()
     return render_template('chaufforer-ratt.html', chaufforer=results)
 
+
+
+
+
 #Drivers page fail
 @app.route('/chaufforer-fel')
 def chaufforer_fel():
@@ -146,6 +170,9 @@ def chaufforer_fel():
         print("Fel när koden kördes!")
     results = cur.fetchall()
     return render_template('chaufforer-fel.html', chaufforer=results)
+
+
+
 
 #Reg Driver
 @app.route('/regchauffor', methods=['GET', 'POST'])
@@ -177,7 +204,9 @@ def regchauffor():
         print("Chaufför registrerades inte")
         
 
-#Citys Page
+
+
+#Cities Page
 @app.route('/stader')
 def stader():
     #Ansluter till databasen och definerar en cursor.
@@ -192,7 +221,9 @@ def stader():
     return render_template('stader.html', stader=results)
 
 
-#Citys Page success
+
+
+#Cities Page success
 @app.route('/stader-ratt')
 def stader_ratt():
     #Ansluter till databasen och definerar en cursor.
@@ -207,7 +238,9 @@ def stader_ratt():
     return render_template('stader-ratt.html', stader=results)
 
 
-#Citys Page fail
+
+
+#Cities Page fail
 @app.route('/stader-fel')
 def stader_fel():
     #Ansluter till databasen och definerar en cursor.
@@ -221,6 +254,10 @@ def stader_fel():
     results = cur.fetchall()
     return render_template('stader-fel.html', stader=results)
 
+
+
+
+#Reg city
 @app.route('/regstad', methods=['GET', 'POST'])
 def regstad():
     try:
@@ -243,6 +280,11 @@ def regstad():
             return flash("Något gick fel")
     except: 
         return redirect(url_for('stader_fel'))
+
+
+
+
+    
 #Search trips page
 @app.route('/resor-sok')
 def resor_sok():
@@ -259,7 +301,9 @@ def resor_sok():
     return render_template('resor-sok.html', resor=results)
 
 
-#Search trips page
+
+
+#Search trips page success
 @app.route('/resor-sok-ratt')
 def resor_sok_ratt():
     #Ansluter till databasen och definerar en cursor.
@@ -274,7 +318,9 @@ def resor_sok_ratt():
     
     return render_template('resor-sok-ratt.html', resor=results)
 
-#Search trips page
+
+
+#Search trips page fail
 @app.route('/resor-sok-fel')
 def resor_sok_fel():
     #Ansluter till databasen och definerar en cursor.
@@ -288,9 +334,6 @@ def resor_sok_fel():
     results = cur.fetchall()
     
     return render_template('resor-sok-fel.html', resor=results)
-
-
-
 
 
 
@@ -360,7 +403,7 @@ def kopa():
                     if j - new_koptaplatser >= 0:
                         cur.execute(query, query2)
                         conn.commit()
-                        print("Antal platser ok")
+                    
                         
                         
                         conn = connect_db()
@@ -378,7 +421,7 @@ def kopa():
                       
                     else:
                         
-                        print("För många biljetter köptes!")
+                        
                         return redirect(url_for('resor_sok_fel'))
 
         else:
@@ -389,7 +432,9 @@ def kopa():
 
 
 
-#Register trip page
+
+
+#Trip page
 @app.route('/resor-registrera')
 def resor_registrera():
     #Ansluter till databasen och definerar en cursor.
@@ -403,7 +448,10 @@ def resor_registrera():
     results = cur.fetchall()
     return render_template('resor-registrera.html', resor=results)
 
-#Register trip page success
+
+
+
+#Trip page success
 @app.route('/resor-registrera-ratt')
 def resor_registrera_ratt():
     #Ansluter till databasen och definerar en cursor.
@@ -418,7 +466,9 @@ def resor_registrera_ratt():
     return render_template('resor-registrera-ratt.html', resor=results)
 
 
-#Register trip page fail
+
+
+#Trip page fail
 @app.route('/resor-registrera-fel')
 def resor_registrera_fel():
     #Ansluter till databasen och definerar en cursor.
@@ -435,7 +485,7 @@ def resor_registrera_fel():
 
 
 
-
+#Reg trip
 @app.route('/regresa', methods=['GET', 'POST'])
 def regresa():
     try:
@@ -469,6 +519,8 @@ def regresa():
         return redirect(url_for('resor_registrera_fel'))
 
 
+
+
 #Edit driver
 @app.route('/redchauffor', methods=['GET', 'POST'])
 def redchauffor():
@@ -500,6 +552,9 @@ def redchauffor():
         print("Uppdatering av chaufför misslyckades")
         return redirect(url_for('resor_registrera_fel'))
 
+
+
+
 #Register trip page edit driver success
 @app.route('/resor-registrera-ratt-chauffor')
 def resor_registrera_ratt_chauffor():
@@ -514,10 +569,8 @@ def resor_registrera_ratt_chauffor():
     results = cur.fetchall()
     return render_template('resor-registrera-ratt-chauffor.html', resor=results)
 
+
         
-
-
-
 
 if __name__ == '__main__':
     app.run()

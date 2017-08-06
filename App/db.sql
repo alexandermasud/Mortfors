@@ -68,10 +68,10 @@ create table stad (
 
 insert into stad values 
 
-('Finland', 'Helsingfors', 'Järnvägstorget 1'),
 ('Sverige', 'Stockholm', 'Terminalslingan 62'),
 ('Sverige', 'Göteborg', 'Drottningtorget 5'),
 ('Sverige', 'Malmö', 'Lokgatan 5'),
+('Finland', 'Helsingfors', 'Järnvägstorget 1'),
 ('Tyskland', 'Berlin', 'Alexanderplatz 3'),
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32'),
 ('Portugal', 'Lissabon', 'Praça dos Restauradores 9'),
