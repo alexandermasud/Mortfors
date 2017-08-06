@@ -25,7 +25,14 @@ create table kund (
 
 insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values 
 ('Alexander', 'Masud', 'Kompassgatan 40','Malmö', 'alexandermasud@gmail.com', '0730922534'),
+('Göran', 'Gren', 'Lantgatan 16','Malmö', 'göran.gren@gmail.com', '0728938271'),
+('Bengt', 'Persson', 'Vårgatan 66','Göteborg', 'Bengt67@gmail.com', '0713782397'),
+('Annika', 'Bergkvist', 'Stadsgatan 17','Halmstad', 'annika.bergkvist58@gmail.com', '0723721927'),
+('Julia', 'Sjöstrand', 'Smålandsgatan 4','Vellinge', 'julia_s@gmail.com', '0738293741'),
+('Stefan', 'Molin', 'Kantatgatan 14b','Malmö', 'molin_molin@gmail.com', '0728372611'),
 ('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
+('Sofie', 'Westergren', 'Hammarvägen 11','Lund', 'sofie_89@gmail.com', '07238928177'),
+('Javier', 'Alvarez', 'krukvägen 15','Malmö', 'mario_italia@gmail.com', '0723849934'),
 ('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
 
 
@@ -107,14 +114,14 @@ create table resa (
 
 
 insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, avgangsdatum, ankomstdatum, avgang, ankomst, pris, platser, chaufforid) values 
-('Sverige', 'Malmö', 'Portugal','Lissabon', '2017-09-10','2017-09-11', '21:00', '14:00', '1099', '30', '741122-3319'),     
-('Sverige', 'Göteborg', 'Frankrike','Paris', '2017-09-11', '2017-09-11', '09:00', '22:00', '1199', '76', '789322-2893'),
+('Sverige', 'Malmö', 'Portugal','Lissabon', '2017-09-10','2017-09-11', '21:00', '14:00', '1099', '29', '741122-3319'),     
+('Sverige', 'Göteborg', 'Frankrike','Paris', '2017-09-11', '2017-09-11', '09:00', '22:00', '1199', '71', '789322-2893'),
 ('Sverige', 'Stockholm', 'Sverige','Malmö', '2017-09-13', '2017-09-13', '13:00', '18:00', '499', '40', '910328-2387'),
-('Sverige', 'Malmö', 'Tyskland','Berlin', '2017-09-14', '2017-09-14', '11:00', '22:00', '999', '50', '689238-4877'),
-('Sverige', 'Malmö', 'Finland','Helsingfors', '2017-09-14', '2017-09-14', '09:00', '15:00', '799', '34', 'Ej bestämt'),
-('Portugal', 'Lissabon', 'Sverige','Malmö', '2017-09-16', '2017-09-16', '04:00', '12:00', '749', '30', '741122-3319'),   
+('Sverige', 'Malmö', 'Tyskland','Berlin', '2017-09-14', '2017-09-14', '11:00', '22:00', '999', '46', '689238-4877'),
+('Sverige', 'Malmö', 'Finland','Helsingfors', '2017-09-14', '2017-09-14', '09:00', '15:00', '799', '30', 'Ej bestämt'),
+('Portugal', 'Lissabon', 'Sverige','Malmö', '2017-09-16', '2017-09-16', '04:00', '12:00', '749', '22', '741122-3319'),   
 ('Tyskland', 'Berlin', 'Sverige','Malmö', '2017-09-16', '2017-09-16', '11:00', '22:00', '799', '38', '689238-4877'),
-('Finland', 'Helsingfors', 'Sverige','Malmö', '2017-09-17', '2017-09-17', '09:00', '15:00', '799', '40', 'Ej bestämt'),
+('Finland', 'Helsingfors', 'Sverige','Malmö', '2017-09-17', '2017-09-17', '09:00', '15:00', '799', '38', 'Ej bestämt'),
 ('Spanien', 'Madrid', 'Sverige','Malmö', '2017-09-19', '2017-09-20', '22:00', '15:00', '799', '40', '910328-2387'),
 ('Frankrike', 'Paris', 'Sverige','Göteborg', '2017-09-19', '2017-09-20', '18:00', '07:00', '1199', '80', '789322-2893');
 
@@ -137,9 +144,16 @@ create table kop (
 
 
 insert into kop (kundid, avgangsid, platser) values 
-(1, 4, 2),     
-(1, 6, 5),
-(2, 2, 7);
+(1, 4, 2),
+(9, 2, 4),     
+(5, 1, 1),
+(3, 5, 6),
+(8, 5, 4),
+(10, 8, 2),
+(7, 4, 2),
+(4, 6, 5),
+(2, 2, 1),
+(6, 6, 3);
 
 
 
