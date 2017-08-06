@@ -80,11 +80,16 @@
         
         
         
+<div class="col-lg-8">   
+        
 <button type="button" class="btn btn-primary btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal">Skapa ny resa</button>
-  
-<button type="button" class="btn btn-primary btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal1">Redigera chaufför</button>             
-       
-   
+</div>
+        
+<div class="col-lg-4">
+        
+<button type="button" class="btn btn-primary btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal1">Redigera chaufför</button>       
+ 
+</div>    
    
           
 
@@ -109,7 +114,7 @@
 
   <h2>Reseregister</h2>
   {% block content %}
-  <table class="table">
+  <table class="table" class="table tablesorter" id="myTable">
     <thead>
       <tr>
         <th>Avgångsid</th>
