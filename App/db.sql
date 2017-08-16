@@ -32,7 +32,7 @@ insert into kund (fornamn, efternamn, adress, stad, epost, telefon) values
 ('Stefan', 'Molin', 'Kantatgatan 14b','Malmö', 'molin_molin@gmail.com', '0728372611'),
 ('Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
 ('Sofie', 'Westergren', 'Hammarvägen 11','Lund', 'sofie_89@gmail.com', '07238928177'),
-('Javier', 'Alvarez', 'krukvägen 15','Malmö', 'mario_italia@gmail.com', '0723849934'),
+('Javier', 'Alvarez', 'Krukvägen 15','Malmö', 'mario_italia@gmail.com', '0723849934'),
 ('Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
 
 
