@@ -1,8 +1,8 @@
 drop table if exists kund cascade;
 drop table if exists chauffor cascade;
 drop table if exists resa cascade;
-drop table if exists stad;
-drop table if exists kop;
+drop table if exists stad cascade;
+drop table if exists kop cascade;
 
 
 
@@ -104,6 +104,7 @@ create table resa (
 	
 	primary key (avgangsid),
 	foreign key (avgangsland, avgangsstad) references stad (land, stad),
+	foreign key (ankomstland, ankomststad) references stad (land, stad),
 	foreign key (chaufforid) references chauffor (chaufforid)
  	
 
