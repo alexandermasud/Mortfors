@@ -1,0 +1,161 @@
+
+
+
+
+
+    <div class="container">
+
+        <div class="row">
+            <!--
+            <img src="img/transaktioner/2326x800-Financing-2016-bre-imgtxt.jpg" class="img-responsive" alt="Två personer"> 
+           
+            -->
+            
+            
+     {{#if test_msg}}
+
+	<div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+                </button>
+ 			{{test_msg}}
+	</div>
+{{/if}}
+       
+
+    
+
+   
+     
+  
+        </div>
+        
+        <div class="row">
+        
+        
+                    
+ <h2>Mina uppgifter</h2>
+             
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Namn</th>
+        <th>E-post</th>
+        <th>Användarnamn</th>
+      
+          
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+       
+     {{#if user}}
+             
+        
+            
+        
+        
+        
+        
+      <tr>
+        
+        <td>{{user._id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+     
+       
+      </tr>
+        
+       {{else}}
+        
+        {{/if}}
+   
+    </tbody>
+  </table>
+        
+        
+        
+        </div>
+ 
+        
+       
+
+       
+
+        <div class="row">
+
+  
+            
+ <h2>Mina resor</h2>
+             
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Transid</th>
+        <th>Kundid</th>
+        <th>Förnamn</th>
+        <th>Efternamn</th>
+        <th>Avgångsid</th>
+        <th>Avgångsstad</th>
+        <th>Ankomststad</th>
+        <th>Avgång</th>
+        <th>Ankomst</th>
+        <th>Platser</th>
+        <th>Kostnad</th>
+          
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+       {{#kund}}
+    
+        
+        
+        
+      <tr>
+        
+        <td>{{transaktionsid}}</td>
+        <td>{{kundid}}</td>
+        <td>{{fornamn}}</td>
+        <td>{{efternamn}}</td>
+        <td>{{avgangsid}}</td>
+        <td>{{avgangsstad}}</td>
+        <td>{{ankomststad}}</td>
+        <td>{{avgang}}</td>
+        <td>{{ankomst}}</td>
+        <td>{{platser}}</td>
+        <td>{{kostnad}}</td>
+        
+       
+      </tr>
+        
+   
+    {{/kund}}
+    </tbody>
+  </table>
+           
+ </div>
+    
+
+
+
+ </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

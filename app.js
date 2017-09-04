@@ -44,7 +44,7 @@ var deleteTransaction = require('./routes/deleteTransaction');
 
 
 
-var loggedIn = require('./routes/loggedIn');
+var account = require('./routes/account');
 var users = require('./routes/users');
 
 
@@ -136,7 +136,8 @@ app.post('/deleteTransaction',deleteTransaction);
 
 
 
-app.use('/loggedIn', loggedIn);
+
+app.get('/account', account);
 app.use('/users', users);
 
 // Set Port
