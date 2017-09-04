@@ -1,13 +1,13 @@
 {
-  "name": "loginapp",
-  "version": "1.0.0",
-  "description": "Simple authentication system",
+  "name": "Mortfors",
+  "version": "2.0.0",
+  "description": "Applikation för Mörtfors buss",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Brad Traversy",
+  "author": "Alexander Masud",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "*",
@@ -24,7 +24,6 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
-    "pg": "6.1.5",
-    
+    "pg": "6.1.5"
   }
 }

@@ -1,21 +1,24 @@
-# Node.js Loginapp
+# Mörtfors buss
 
-This is a user login and registration app using Node.js, Express, Passport and Mongoose. It is part of the YouTube series [here](https://www.youtube.com/watch?v=Z1ktxiqyiLA)
+This app is built with Node.js, Handlebars.js, Express.js, Passport, Mongoose for database MongoDB and PostgreSQL has been used.
+
 
 ### Version
-1.1.0
+2.0.0
 
 ### Usage
 
+An app to be used by a busscompany both internally and for customers.
 
 ### Installation
 
-Loginapp requires [Node.js](https://nodejs.org/) v4+ to run.
+Mörtfors buss requires Node.js and MongoDB to be installed locally.
 
 ```sh
 $ npm install
+$ node app
 ```
 
 ```sh
-$ npm start
+$ mongod
 ```
