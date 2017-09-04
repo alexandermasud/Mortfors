@@ -1,0 +1,16 @@
+Starta:
+
+Terminal 1:
+
+cd ../IA
+
+node app
+
+Terminal 2:
+
+cd ../mongodb/bin
+
+mongod
+
+
+
