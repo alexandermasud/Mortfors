@@ -104,6 +104,7 @@ app.use(flash());
 app.use(function (req, res, next) {
   
   res.locals.test_msg = req.flash('test_msg');
+  res.locals.fail_msg = req.flash('fail_msg');
     
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
@@ -139,7 +140,7 @@ app.post('/deleteTransaction',deleteTransaction);
 
 
 
-app.get('/account', account);
+app.post('/account', account);
 app.use('/users', users);
 
 // Set Port

@@ -41,13 +41,39 @@
          <ul class="nav navbar-nav nav-pills pull-right">
             {{#if user}}
              
-        
+ 
               
-              <li role="presentation"><a href="/account">{{user.firstname}}</a></li>
+              <li role="presentation">
+                  
+                  
+                  <form method="POST" action="/account">
+                   <input type="text" class="hidden" name ="username"  value="{{user.username}}">
+                  <input type="submit" class="btn btn-primary account-btn" value="{{user.firstname}}"/>
+                
+                  </form>
+                  
+                  
+                  
+                  
+                  
+                  
+            </li>
               <li role="presentation"><a href="/users/logout">Logga ut</a></li>
              
             {{else}}
-              <li role="presentation"><a href="/users/login">Logga in</a></li>
+              <li role="presentation">
+                  
+                  
+               
+                  <form action="/users/login">
+                  
+                  <input type="submit" class="btn btn-primary account-btn" value="Logga in"/>
+                
+                  </form>
+                  
+             
+             
+             </li>
               <li role="presentation"><a href="/users/register">Nytt konto</a></li>
             {{/if}}
      </ul>

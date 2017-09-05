@@ -79,8 +79,9 @@ router.post('/register', function(req, res){
         }
           
         
-       client.query('INSERT INTO kund (fornamn, efternamn, adress, stad, epost, telefon) values($1, $2, $3, $4, $5, $6)',[
+       client.query('INSERT INTO kund (kundid, fornamn, efternamn, adress, stad, epost, telefon) values($1, $2, $3, $4, $5, $6, $7)',[
            
+           req.body.username,
            req.body.firstname, 
            req.body.lastname, 
            req.body.address, 

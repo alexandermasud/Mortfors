@@ -26,18 +26,29 @@
                 </button>
  			{{{test_msg}}}
 	</div>
-{{/if}}
-     
+        
+       {{/if}}
+        
+        
+        {{#if fail_msg}}
+
+	<div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+                </button>
+ 			{{{fail_msg}}}
+        </div>
+    
+        {{/if}}
+    
         
     
         
-        <div class="row">
-           <div class= "col-lg-12">  
+    
         
-    
-           
-    
-    
+            <div class="row">
+        <div class= "col-lg-12">  
+        
    
     <h2>Sök resa</h2>
 
@@ -97,15 +108,12 @@
         
       <div class="modal-body">
           
-            {{#if user}}
-            <input  class="form-control customer-form-input" name="mongouser" value="{{user._id}}">
-            {{else}}     
-            {{/if}}
+           
   
          
-    
-    <input type="text" class="form-control hidden" name="avgangsid">
-    <input type="text" class="form-control hidden" name="orgplatser">       
+    <input type="text" class="form-control hidden" name="kundid" value="{{user.username}}" readonly>
+    <input type="text" class="form-control hidden" name="avgangsid" readonly>
+    <input type="text" class="form-control hidden" name="orgplatser" readonly>       
    
           
     <div class="col-lg-6">
@@ -142,7 +150,7 @@
     </div>
     </div>
           
-    <div class="col-lg-6">
+    <div class="col-lg-4">
     <div class="form-group" >
     <label for="pris">Pris / st</label>
     <input type="text" class="form-control customer-form-input" name="pris" id="pris" readonly>
@@ -152,7 +160,7 @@
           
  
     
-      <div class="col-lg-6">
+      <div class="col-lg-4">
     <div class="form-group"> 
         <label for="exampleSelect1">Antal biljetter</label>
         <select class="form-control selectpicker"  name="koptaplatser" id="koptaplatser">
@@ -172,18 +180,12 @@
           
     
                  
-   <div class="col-lg-6">
-    <div class="form-group" >
-     <label for="kundid">Kundid</label>
-    <input type="number" class="form-control customer-form-input" name="kundid" min="1" required>
-    </div>
-      </div> 
-          
+   
    
           
+        
           
-          
-           <div class="col-lg-6">
+           <div class="col-lg-4">
     <div class="form-group" >
      <label for="fornamn">Totalt</label>
     <input type="text" class="form-control customer-form-input" name="kostnad" id="totalt" readonly>
@@ -195,11 +197,16 @@
           
           
         
-        </div>
+        
+        
        <div class="modal-footer">
+           
+        
         <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
         <input type="submit" class="btn btn-primary" value="Spara" />
       </div>
+          
+          </div>
         </form>
       </div>
     </div>

@@ -5,7 +5,6 @@ var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.ele
 
 
 
-
 // Buy function
 
 router.post('/purchase', function(req,res) {
@@ -33,6 +32,7 @@ router.post('/purchase', function(req,res) {
             console.log("")
             console.log("Köpet avbröts")
             console.log("")
+            req.flash('fail_msg', '<p><strong>Tyvärr </strong> Köpet gick inte igenom! </p>');
             res.redirect('/'); 
             done();    
         }
@@ -44,7 +44,7 @@ router.post('/purchase', function(req,res) {
              console.log("")
 
 
-            client.query("BEGIN; UPDATE resa SET platser = platser - " + (koptaplatser) + " WHERE avgangsid = " + (avgangsid) + " ; INSERT INTO kop (kundid, avgangsid, platser, kostnad) values (" + (kundid) + "," + (avgangsid) + ","+ (koptaplatser) + "," +(kostnad) +" ); COMMIT;",function(err, result) {
+            client.query("BEGIN; UPDATE resa SET platser = platser - " + (koptaplatser) + " WHERE avgangsid = " + (avgangsid) + " ; INSERT INTO kop (kundid, avgangsid, platser, kostnad) values ('" + (kundid) + "'," + (avgangsid) + ","+ (koptaplatser) + "," +(kostnad) +" ); COMMIT;",function(err, result) {
 
                 if(err) {
                     return console.error('Något gick fel', err);
