@@ -24,7 +24,7 @@
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 	<span aria-hidden="true">&times;</span>
                 </button>
- 			{{test_msg}}
+ 			{{{test_msg}}}
 	</div>
 {{/if}}
      
@@ -211,36 +211,94 @@
       
             
             <div class="row">
-                <div class="col-lg-12" >
-            {{#resa}}  
+            <div class="col-lg-12" >
+   
+                    
+                    
+                
+        {{#if user}}
+                
+        {{#resa}} 
+                
+                    
+                    
+            <div class="panel panel-default">
+            <div class="panel-body">
          <form>
              
              
-        <div class="panel panel-default">
-            <div class="panel-body">
-            
+       
+           
             <h2>{{avgangsstad}} - {{ankomststad}}</h2>
             <h5>{{avgang}} - {{ankomst}}</h5>
             <h5>Pris: {{pris}}</h5>
             
+                
+                 
+             
+                          <button data-avgangsid-id={{avgangsid}} data-avgangsland-id={{avgangsland}} data-avgangsstad-id={{avgangsstad}} data-ankomstland-id={{ankomstland}} data-ankomststad-id={{ankomststad}} data-avgang-id={{avgang}} data-ankomst-id={{ankomst}} data-pris-id={{pris}} data-orgplatser-id={{platser}} type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal">
+                              <span class="glyphicon glyphicon-shopping-cart" area-hidden="true"></span>
+                            </button>
+                
 
-               
-
-            <button data-avgangsid-id={{avgangsid}} data-avgangsland-id={{avgangsland}} data-avgangsstad-id={{avgangsstad}} data-ankomstland-id={{ankomstland}} data-ankomststad-id={{ankomststad}} data-avgang-id={{avgang}} data-ankomst-id={{ankomst}} data-pris-id={{pris}} data-orgplatser-id={{platser}} type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal">
-            <span class="glyphicon glyphicon-shopping-cart" area-hidden="true"></span>
-            </button>
-
-     
             
             
-            </div>
-            </div>  
-   
+        
         </form>
-                    
-                    
+                
+        </div>
+        </div>           
   
-    {{/resa}}
+        {{/resa}}         
+              
+        {{else}} 
+                
+                
+           {{#resa}} 
+                
+                    
+                    
+            <div class="panel panel-default">
+            <div class="panel-body">
+         <form>
+             
+             
+       
+           
+            <h2>{{avgangsstad}} - {{ankomststad}}</h2>
+            <h5>{{avgang}} - {{ankomst}}</h5>
+            <h5>Pris: {{pris}}</h5>
+            
+                
+                 
+             
+                          <button  type="button" class="btn btn-default">
+                              <span class="glyphicon glyphicon-shopping-cart" area-hidden="true"></span>
+                              <a href="/users/login">Logga in</a>
+                            </button>
+                
+
+            
+            
+        
+        </form>
+                
+        </div>
+        </div>           
+  
+        {{/resa}} 
+                  
+                
+        {{/if}}
+                
+                
+                
+                
+                
+
+       
+                
+  
                     
                     
                     

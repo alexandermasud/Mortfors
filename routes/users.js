@@ -17,14 +17,22 @@ router.get('/login', function(req, res){
 
 // Registrera användare
 router.post('/register', function(req, res){
-	var name = req.body.name;
+	var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
+    var address = req.body.address;
+    var city = req.body.city;
+    var phone = req.body.phone;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
 	// Validation
-	req.checkBody('name', 'Name is required').notEmpty();
+	req.checkBody('firstname', 'Firstname is required').notEmpty();
+    req.checkBody('lastname', 'Lastname is required').notEmpty();
+    req.checkBody('address', 'Address is required').notEmpty();
+    req.checkBody('city', 'City is required').notEmpty();
+    req.checkBody('phone', 'Phone number is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
@@ -39,8 +47,13 @@ router.post('/register', function(req, res){
 		});
 	} else {
 		var newUser = new User({
-			name: name,
-			email:email,
+            
+            firstname: firstname,
+			lastname: lastname,
+            address: address,
+            city: city,
+            phone: phone,
+			email: email,
 			username: username,
 			password: password
 		});
@@ -94,9 +107,9 @@ router.post('/login',
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('success_msg', 'You are logged out');
+	req.flash('test_msg', '<p>Du är nu utloggad</p>');
 
-	res.redirect('/users/login');
+	res.redirect('/');
 });
 
 module.exports = router;

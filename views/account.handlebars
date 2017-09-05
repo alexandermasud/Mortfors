@@ -1,8 +1,3 @@
-
-
-
-
-
     <div class="container">
 
         <div class="row">
@@ -40,31 +35,34 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Namn</th>
-        <th>E-post</th>
+        <th>Förnamn</th>
+        <th>Efternamn</th>
+        <th>Adress</th>
+        <th>Stad</th>
+        <th>Telefon</th>
         <th>Användarnamn</th>
-      
-          
-        
-        
+        <th>E-post</th> 
       </tr>
     </thead>
-    <tbody>
+      <tbody>
        
      {{#if user}}
              
         
             
-        
-        
-        
+
         
       <tr>
         
         <td>{{user._id}}</td>
-        <td>{{user.name}}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.phone}}</td> 
         <td>{{user.username}}</td>
-        <td>{{user.email}}</td>
+        <td>{{user.email}}</td> 
+      
      
        
       </tr>
@@ -94,6 +92,7 @@
   <table class="table">
     <thead>
       <tr>
+          
         <th>Transid</th>
         <th>Kundid</th>
         <th>Förnamn</th>
@@ -105,17 +104,13 @@
         <th>Ankomst</th>
         <th>Platser</th>
         <th>Kostnad</th>
-          
-        
-        
+
       </tr>
     </thead>
+      
     <tbody>
        {{#kund}}
-    
-        
-        
-        
+     
       <tr>
         
         <td>{{transaktionsid}}</td>
@@ -130,7 +125,6 @@
         <td>{{platser}}</td>
         <td>{{kostnad}}</td>
         
-       
       </tr>
         
    
