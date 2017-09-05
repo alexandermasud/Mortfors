@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
-var flash = require('connect-flash');
-
 
 
 // Kontosidan

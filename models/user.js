@@ -10,12 +10,26 @@ var UserSchema = mongoose.Schema({
 	password: {
 		type: String
 	},
-	email: {
+	firstname: {
 		type: String
 	},
-	name: {
+	lastname: {
 		type: String
-	}
+	},
+    address: {
+		type: String
+	},
+    city: {
+		type: String
+	},
+    phone: {
+		type: String
+	},
+    email: {
+		type: String
+	},
+    
+			
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);

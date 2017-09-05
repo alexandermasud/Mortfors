@@ -5,6 +5,10 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 
+var pg = require('pg');
+var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
+
+
 // Registrera
 router.get('/register', function(req, res){
 	res.render('register');
@@ -66,6 +70,30 @@ router.post('/register', function(req, res){
 			if(err) throw err;
 			console.log(user);
 		});
+        
+        
+        pg.connect(conString, function(err, client, done){
+        
+        if(err) {
+            return console.error('error while fetching client from pool', err);
+        }
+          
+        
+       client.query('INSERT INTO kund (fornamn, efternamn, adress, stad, epost, telefon) values($1, $2, $3, $4, $5, $6)',[
+           
+           req.body.firstname, 
+           req.body.lastname, 
+           req.body.address, 
+           req.body.city, 
+           req.body.email, 
+           req.body.phone 
+           
+       ]); 
+          done();
+    });	
+        
+        
+        
 
 		req.flash('test_msg', 'Du är nu registrerad!');
 
