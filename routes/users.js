@@ -26,6 +26,9 @@ router.post('/register', function(req, res){
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+    
+    
+    console.log("Ph nr är  " + (phone));
 
 	// Validation
 	req.checkBody('firstname', 'Firstname is required').notEmpty();
@@ -48,6 +51,7 @@ router.post('/register', function(req, res){
 	} else {
 		var newUser = new User({
             
+            
             firstname: firstname,
 			lastname: lastname,
             address: address,
@@ -63,9 +67,9 @@ router.post('/register', function(req, res){
 			console.log(user);
 		});
 
-		req.flash('success_msg', 'You are registered and can now login');
+		req.flash('test_msg', 'Du är nu registrerad!');
 
-		res.redirect('/users/login');
+		res.redirect('/');
 	}
 });
 
@@ -74,7 +78,7 @@ passport.use(new LocalStrategy(
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
    	if(!user){
-   		return done(null, false, {message: 'Unknown User'});
+   		return done(null, false, {message: 'Ogiltiga uppgifter'});
    	}
 
    	User.comparePassword(password, user.password, function(err, isMatch){
@@ -82,7 +86,7 @@ passport.use(new LocalStrategy(
    		if(isMatch){
    			return done(null, user);
    		} else {
-   			return done(null, false, {message: 'Invalid password'});
+   			return done(null, false, {message: 'Ogiltigt lösenord'});
    		}
    	});
    });
@@ -107,7 +111,7 @@ router.post('/login',
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('test_msg', '<p>Du är nu utloggad</p>');
+	req.flash('test_msg', 'Du är nu utloggad');
 
 	res.redirect('/');
 });

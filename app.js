@@ -8,13 +8,15 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
+
 
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 
-mongoose.connect('mongodb://localhost/loginapp');
+
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
 var db = mongoose.connection;
 
 
@@ -146,6 +148,7 @@ app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function(){
     console.log('')
 	console.log('Server started on localhost:'+app.get('port')+' and on 10.0.1.6:'+app.get('port'));
+    console.log('')
     
     
 });

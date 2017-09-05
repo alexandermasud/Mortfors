@@ -6,11 +6,6 @@ var flash = require('connect-flash');
 
 
 
-
-
-
-
-
 // Buy function
 
 router.post('/purchase', function(req,res) {
@@ -57,7 +52,7 @@ router.post('/purchase', function(req,res) {
 
 
             done();
-              req.flash('test_msg', 'Köp genomfördes!');
+              req.flash('test_msg', '<p><strong>Grattis </strong> Ditt köp genomfördes!</p>');
               res.redirect('/');
             
             });
