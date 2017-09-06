@@ -39,6 +39,7 @@ $(document).ready(function(){
         var prisId = $(e.relatedTarget).data('pris-id');
         $(e.currentTarget).find('input[name="pris"]').val(prisId);
         
+  
        
 
         

@@ -23,17 +23,6 @@ create table kund (
 );
 
 
-insert into kund (kundid, fornamn, efternamn, adress, stad, epost, telefon) values 
-('alex', 'Alexander', 'Masud', 'Kompassgatan 40','Malmö', 'alexandermasud@gmail.com', '0730922534'),
-('goran','Göran', 'Gren', 'Lantgatan 16','Malmö', 'göran.gren@gmail.com', '0728938271'),
-('bengt','Bengt', 'Persson', 'Vårgatan 66','Göteborg', 'Bengt67@gmail.com', '0713782397'),
-('annika','Annika', 'Bergkvist', 'Stadsgatan 17','Halmstad', 'annika.bergkvist58@gmail.com', '0723721927'),
-('julia','Julia', 'Sjöstrand', 'Smålandsgatan 4','Vellinge', 'julia_s@gmail.com', '0738293741'),
-('stefan','Stefan', 'Molin', 'Kantatgatan 14b','Malmö', 'molin_molin@gmail.com', '0728372611'),
-('adam','Adam', 'Svensson', 'Industrigatan 15','Göteborg', 'adam777@gmail.com', '0723452312'),
-('sofie','Sofie', 'Westergren', 'Hammarvägen 11','Lund', 'sofie_89@gmail.com', '07238928177'),
-('javier','Javier', 'Alvarez', 'Krukvägen 15','Malmö', 'mario_italia@gmail.com', '0723849934'),
-('per','Per', 'Andersson', 'Sommargatan 33','Helsingborg', 'per_king@gmail.com', '0723894453');
 
 
 create table chauffor (
@@ -151,16 +140,6 @@ create table kop (
 
 
 
-insert into kop (kundid, avgangsid, platser, kostnad) values 
-('alex', 4, 2, 2198),
-('bengt', 2, 4, 4396),     
-('javier', 1, 1, 1099),
-('annika', 5, 6, 7194),
-('per', 5, 4, 5995),
-('stefan', 8, 2, 1598),
-('sofie', 4, 2, 2198),
-('julia', 6, 5, 2495),
-('goran', 2, 1, 1099),
-('adam', 6, 3, 1497);
+
 
 
