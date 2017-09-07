@@ -26,24 +26,24 @@
         </div>
         
         <div class="row">
+            
         
-        
+            
+            
+        <div class="text-center animated fadeInDown">
+            <p class="pusername">Hej {{user.firstname}}</p>
+            
+        </div>
+            
+            
+            
+        </div>
+        <div class="row animated fadeInRight" id="section1">
+   
                     
- <h2>Mina uppgifter</h2>
+ <h2>Användarinfo</h2>
              
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Användarnamn</th>
-        <th>Förnamn</th>
-        <th>Efternamn</th>
-        <th>Adress</th>
-        <th>Stad</th>
-        <th>Telefon</th>
-        <th>E-post</th> 
-      </tr>
-    </thead>
-      <tbody>
+  
        
      {{#if user}}
              
@@ -51,26 +51,25 @@
       
 
         
-      <tr>
+    
         
-        <td>{{user.username}}</td>
-        <td>{{user.firstname}}</td>
-        <td>{{user.lastname}}</td>
-        <td>{{user.address}}</td>
-        <td>{{user.city}}</td>
-        <td>{{user.phone}}</td> 
-        <td>{{user.email}}</td> 
+        <p>{{user.username}}</p>
+        <p>{{user.firstname}}</p>
+        <p>{{user.lastname}}</p>
+        <p>{{user.address}}</p>
+        <p>{{user.city}}</p>
+        <p>{{user.phone}}</p> 
+        <p>{{user.email}}</p> 
       
      
        
-      </tr>
+      
         
        {{else}}
         
         {{/if}}
    
-    </tbody>
-  </table>
+   
         
         
         
@@ -81,21 +80,17 @@
 
        
 
-        <div class="row">
+        <div class="row animated fadeInLeft" id="section2">
 
   
             
- <h2>Mina resor</h2>
+ <h2>Resor</h2>
              
   <table class="table">
     <thead>
       <tr>
           
-        <th>Transid</th>
-        <th>Kundid</th>
-        <th>Förnamn</th>
-        <th>Efternamn</th>
-        <th>Avgångsid</th>
+       
         <th>Avgångsstad</th>
         <th>Ankomststad</th>
         <th>Avgång</th>
@@ -111,11 +106,7 @@
      
       <tr>
         
-        <td>{{transaktionsid}}</td>
-        <td>{{kundid}}</td>
-        <td>{{fornamn}}</td>
-        <td>{{efternamn}}</td>
-        <td>{{avgangsid}}</td>
+       
         <td>{{avgangsstad}}</td>
         <td>{{ankomststad}}</td>
         <td>{{avgang}}</td>

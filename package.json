@@ -10,6 +10,7 @@
   "author": "Alexander Masud",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.5.2",
     "bcryptjs": "*",
     "body-parser": "*",
     "connect-flash": "*",

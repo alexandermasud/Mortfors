@@ -12,13 +12,11 @@ An app to be used by a busscompany both internally and for customers.
 
 ### Installation
 
-Mörtfors buss requires Node.js and MongoDB to be installed locally.
+Mörtfors buss requires Node.js.
 
 ```sh
+$ cd 
 $ npm install
 $ node app
 ```
 
-```sh
-$ mongod
-```
