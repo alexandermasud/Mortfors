@@ -86,7 +86,7 @@
            
         </form> 
    
-            </div>
+        </div>
   
         </div>
         
@@ -111,58 +111,40 @@
            
   
          
-    <input type="text" class="form-control hidden" name="kundid" value="{{user.username}}" readonly>
+    <input type="text" class="form-control hidden" name="kundid" id="form" value="{{user.username}}" readonly>
+    <input type="text" class="form-control hidden" name="firstname" value="{{user.firstname}}" readonly>
+    <input type="text" class="form-control hidden" name="lastname" value="{{user.lastname}}" readonly> 
+    <input type="text" class="form-control hidden" name="email" value="{{user.email}}" readonly>       
+          
     <input type="text" class="form-control hidden" name="avgangsid" readonly>
-    <input type="text" class="form-control hidden" name="orgplatser" readonly>       
-   
+    <input type="text" class="form-control hidden" name="orgplatser" readonly>
+    <input type="text" class="form-control hidden" name="avgangsland" readonly>
+     <input type="text" class="form-control hidden" name="avgangsstad" readonly>
+       <input type="text" class="form-control hidden" name="ankomstland" readonly>
+     <input type="text" class="form-control hidden" name="ankomststad" readonly>
           
-    <div class="col-lg-6">
-    <div class="form-group">
-     <label for="avgangsland">Från</label>
-    <input type="text" class="form-control customer-form-input" name="avgangsland" readonly>
-     <input type="text" class="form-control customer-form-input" name="avgangsstad" readonly>
-    </div>
-      </div>
+          <input type="text" class="form-control hidden" name="avgang" readonly>
+          <input type="text" class="form-control hidden" name="ankomst" readonly>
+          <input type="text" class="form-control hidden" name="pris" id="pris" readonly>
           
-               
-                  <div class="col-lg-6">
-    <div class="form-group">
-    <label for="ankomstland">Till</label>
-    <input type="text" class="form-control customer-form-input" name="ankomstland" readonly>
-     <input type="text" class="form-control customer-form-input" name="ankomststad" readonly>
-    </div>
-      </div> 
+    <input type="text" class="form-control hidden" name="kostnad" id="totalt" readonly>
           
-  
-       
-        
-                <div class="col-lg-6">
-    <div class="form-group" >
-     <label for="avgang">Avgång</label>
-    <input type="text" class="form-control customer-form-input" name="avgang" readonly>
-    </div>
-      </div>  
-        
-    <div class="col-lg-6">
-    <div class="form-group" >
-     <label for="ankomst">Ankomst</label>
-    <input type="text" class="form-control customer-form-input" name="ankomst" readonly>
-    </div>
-    </div>
-          
-    <div class="col-lg-4">
-    <div class="form-group" >
-    <label for="pris">Pris / st</label>
-        <input type="text" class="form-control customer-form-input" name="pris" id="pris" readonly>
-    </div>
-    </div> 
-          
-          
- 
     
-      <div class="col-lg-4">
-    <div class="form-group"> 
-        <label for="exampleSelect1">Antal biljetter</label>
+          <h2 class="col-lg-6 text-center" id="avgangslandId"></h2>
+          <h2 class="col-lg-6 text-center" id="ankomstlandId"></h2>
+          
+          <h2 class="col-lg-6 text-center" id="avgangsstadId"></h2>
+          <h2 class="col-lg-6 text-center" id="ankomststadId"></h2>
+           
+          <h2 class="col-lg-6 text-center" id="avgangId"></h2>
+          <h2 class="col-lg-6 text-center" id="ankomstId"></h2>
+          
+          <h2 class="col-lg-5 text-center" id="prisId"></h2>
+          
+          
+      <div class="col-lg-2">
+    
+       
         <select class="form-control selectpicker"  name="koptaplatser" id="koptaplatser">
             <option>1</option>
             <option>2</option>
@@ -175,29 +157,13 @@
             <option>9</option>
             <option>10</option>
         </select>
-    </div>
+   
           </div>
           
+            <h2 class="col-lg-5 text-center" id="totalt-h2"></h2>
     
                  
    
-   
-          
-        
-          
-           <div class="col-lg-4">
-    <div class="form-group" >
-     <label for="fornamn">Totalt</label>
-    <input type="text" class="form-control customer-form-input" name="kostnad" id="totalt" readonly>
-    </div>
-      </div> 
-        
-        
-
-          
-          <p name="pris" id="pris"></p>
-        
-        
         
        <div class="modal-footer">
            
@@ -282,7 +248,7 @@
                           <button  type="button" class="btn btn-default">
                               <span class="glyphicon glyphicon-shopping-cart" area-hidden="true"></span>
                               <a href="/users/login">Logga in</a>
-                            </button>
+                          </button>
                 
 
             

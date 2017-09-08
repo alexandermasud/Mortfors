@@ -9,6 +9,7 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+var nodemailer = require('nodemailer');
 
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
@@ -16,8 +17,10 @@ var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.ele
 
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
 var db = mongoose.connection;
+
+mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
+
 
 
 

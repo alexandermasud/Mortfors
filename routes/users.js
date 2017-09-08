@@ -8,6 +8,7 @@ var User = require('../models/user');
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 
+var nodemailer = require('nodemailer');
 
 // Registrera
 router.get('/register', function(req, res){
@@ -31,8 +32,46 @@ router.post('/register', function(req, res){
 	var password = req.body.password;
 	var password2 = req.body.password2;
     
+    var output = `
     
-    console.log("Ph nr är  " + (phone));
+
+    <h1>Hej ${req.body.firstname}</h1>
+
+    <h2>Vi på Mörtfors buss har nu skapat ett konto till dig!</h2>
+
+    <h3>Nedan finner ni era kunduppgifter</h3>
+    <h4>
+    
+        <ul>
+            <li>Användarnamn: ${req.body.username}</li>
+
+            <li>Förnamn: ${req.body.firstname}</li>
+            <li>Efternamn: ${req.body.lastname}</li>
+            <li>Adress: ${req.body.address}</li>
+            <li>Stad: ${req.body.city}</li>
+            <li>Telefon: ${req.body.phone}</li>
+            <li>E-post: ${req.body.email}</li>
+
+        </ul>
+
+    </h4>
+
+     
+
+
+
+
+
+
+
+
+
+
+    <h2>Vänliga hälsningar Mörtfors buss</h2>
+`;
+        
+        
+    
 
 	// Validation
 	req.checkBody('firstname', 'Firstname is required').notEmpty();
@@ -92,6 +131,51 @@ router.post('/register', function(req, res){
        ]); 
           done();
     });	
+        
+        
+        
+        
+          // create reusable transporter object using the default SMTP transport
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'rt26upz4yyy57273@ethereal.email',
+        pass: 'R1KmpBx8wKjR2UtsVc'
+    }
+      
+      
+      /*,
+      tls:{
+          rejectUnauthorized:false
+      }
+      */
+});
+
+    // setup email data with unicode symbols
+    let mailOptions = {
+        
+       
+        
+        from: '"Mörtfors buss" <noreply@mortfors.se>', // sender address
+        to: '"' + (firstname) + " " + (lastname) +'"' +(email) + '"', // list of receivers
+        subject: 'Nytt konto skapat', // Subject line
+        /* text: 'Hello world?', // plain text body */
+        html: output // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    });
         
         
         
