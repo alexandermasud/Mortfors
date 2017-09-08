@@ -30,7 +30,7 @@
         
             
             
-        <div class="text-center animated fadeInDown">
+        <div class="text-center animated fadeIn">
             <p class="pusername">Hej {{user.firstname}}</p>
             
         </div>
@@ -41,7 +41,6 @@
         <div class="row animated fadeInRight" id="section1">
    
                     
- <h2>Användarinfo</h2>
              
   
        
@@ -49,20 +48,27 @@
              
         
       
-
-        
-    
-        
-        <p>{{user.username}}</p>
+<div class="col-lg-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Användarinfo</h3>
+  </div>
+  <div class="panel-body">
+     
         <p>{{user.firstname}}</p>
         <p>{{user.lastname}}</p>
         <p>{{user.address}}</p>
         <p>{{user.city}}</p>
         <p>{{user.phone}}</p> 
         <p>{{user.email}}</p> 
+  </div>
+</div>
+    
+ </div>       
+      
       
      
-       
+
       
         
        {{else}}
@@ -73,20 +79,19 @@
         
         
         
-        </div>
+        
  
         
        
-
+   <div class="col-lg-8">
        
 
-        <div class="row animated fadeInLeft" id="section2">
-
-  
-            
- <h2>Resor</h2>
-             
-  <table class="table">
+        <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Kommande resor</h3>
+  </div>
+  <div class="panel-body">
+      <table class="table">
     <thead>
       <tr>
           
@@ -120,15 +125,23 @@
     {{/kund}}
     </tbody>
   </table>
+  </div>
+</div>
+
+  
+            
+
+             
+
            
  </div>
     
+</div>    
 
 
+ 
 
- </div> 
-
-
+</div>
 
 
 
