@@ -29,7 +29,6 @@ var search = require('./routes/search');
 var purchase = require('./routes/purchase');
 
 var customers = require('./routes/customers');
-var createCustomer = require('./routes/createCustomer');
 
 var drivers = require('./routes/drivers');
 var createDriver = require('./routes/createDriver');
@@ -123,7 +122,6 @@ app.post('/search', search);
 app.post('/purchase', purchase);
 
 app.get('/customers',customers);
-app.post('/createCustomer',createCustomer);
 
 app.get('/drivers',drivers);
 app.post('/createDriver',createDriver);
