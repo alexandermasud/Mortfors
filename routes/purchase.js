@@ -135,7 +135,7 @@ router.post('/purchase', function(req,res) {
                 
                 
                 
-              req.flash('test_msg', '<p><strong>Grattis </strong> Ditt köp genomfördes!</p>');
+              req.flash('test_msg', '<p><strong>Grattis </strong> Din resa från ' + (req.body.avgangsland) + ' till ' + (req.body.ankomstland) + ' är nu bokad!</p>');
               res.redirect('/');
             
             });

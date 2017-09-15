@@ -1,12 +1,11 @@
 
-    <!-- Page Content -->
-    <div class="container">
+
 
         <div class="row">
             
             <div class= "col-lg-12">
            
-            <img src="img/sök-resa/sok-resa1.jpg" class="img-responsive" alt="En buss"> 
+            <img src="img/sök-resa/sok-resa1.jpg" class="img-fluid" alt="En buss"> 
           
     
             
@@ -107,6 +106,105 @@
              
 
 
+
+       
+    <h2>Resultat</h2>
+
+                    
+            
+ 
+         
+      
+            
+            <div class="row">
+            <div class="col-lg-12" >
+   
+                    
+                    
+                
+        {{#if user}}
+                
+        {{#resa}} 
+                
+        <div class="card card-custom">
+
+
+            <a type="button" data-toggle="collapse" data-target="#{{avgangsid}}" aria-expanded="false" aria-controls="collapseExample">
+                <h3 class="card-header">{{avgangsstad}} - {{ankomststad}}</h3>
+            
+            </a>
+  
+  
+
+<div class="collapse" id="{{avgangsid}}">
+  <div class="card card-block">
+     <form>
+      
+      
+      
+      
+      
+    <h4 class="card-title">{{avgang}} - {{ankomst}}</h4>
+    <p class="card-text">Pris: {{pris}}</p>
+      <button data-avgangsid-id={{avgangsid}} data-avgangsland-id={{avgangsland}} data-avgangsstad-id={{avgangsstad}} data-ankomstland-id={{ankomstland}} data-ankomststad-id={{ankomststad}} data-avgang-id={{avgang}} data-ankomst-id={{ankomst}} data-pris-id={{pris}} data-orgplatser-id={{platser}} type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal">
+                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+      
+      </form>
+  </div>
+</div>
+      
+      
+    </div>
+                    
+  
+        {{/resa}}         
+              
+        {{else}} 
+                
+                
+           {{#resa}} 
+                
+       
+                    
+           <div class="card card-custom">
+  <h3 class="card-header">{{avgangsstad}} - {{ankomststad}}</h3>
+  <div class="card-block">
+      <form>
+      
+      
+      
+      
+      
+    <h4 class="card-title">{{avgang}} - {{ankomst}}</h4>
+    <p class="card-text">Pris: {{pris}}</p>
+          
+      <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Du måste vara inloggad för att köpa resor.">
+   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+</button>
+      
+      </form>
+  </div>
+</div>
+        {{/resa}} 
+                  
+                
+        {{/if}}
+                
+                
+               
+                    
+                    
+</div>
+                       
+
+</div>
+
+
+       
+
+
+
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -124,23 +222,23 @@
            
   
          
-    <input type="text" class="form-control hidden" name="kundid" id="form" value="{{user.username}}" readonly>
-    <input type="text" class="form-control hidden" name="firstname" value="{{user.firstname}}" readonly>
-    <input type="text" class="form-control hidden" name="lastname" value="{{user.lastname}}" readonly> 
-    <input type="text" class="form-control hidden" name="email" value="{{user.email}}" readonly>       
+    <input type="text" class="form-control hidden-*-up" name="kundid" id="form" value="{{user.username}}"  hidden>
+    <input type="text" class="form-control hidden-*-up" name="firstname" value="{{user.firstname}}"  hidden>
+    <input type="text" class="form-control hidden-*-up" name="lastname" value="{{user.lastname}}"  hidden> 
+    <input type="text" class="form-control hidden-*-up" name="email" value="{{user.email}}"  hidden>       
           
-    <input type="text" class="form-control hidden" name="avgangsid" readonly>
-    <input type="text" class="form-control hidden" name="orgplatser" readonly>
-    <input type="text" class="form-control hidden" name="avgangsland" readonly>
-     <input type="text" class="form-control hidden" name="avgangsstad" readonly>
-       <input type="text" class="form-control hidden" name="ankomstland" readonly>
-     <input type="text" class="form-control hidden" name="ankomststad" readonly>
+    <input type="text" class="form-control hidden-*-up" name="avgangsid"  hidden>
+    <input type="text" class="form-control hidden-*-up" name="orgplatser"  hidden>
+    <input type="text" class="form-control hidden-*-up" name="avgangsland"  hidden>
+     <input type="text" class="form-control hidden-*-up" name="avgangsstad"  hidden>
+       <input type="text" class="form-control hidden-*-up" name="ankomstland"  hidden>
+     <input type="text" class="form-control hidden-*-up" name="ankomststad"  hidden>
           
-          <input type="text" class="form-control hidden" name="avgang" readonly>
-          <input type="text" class="form-control hidden" name="ankomst" readonly>
-          <input type="text" class="form-control hidden" name="pris" id="pris" readonly>
+          <input type="text" class="form-control hidden-*-up" name="avgang"  hidden>
+          <input type="text" class="form-control hidden-*-up" name="ankomst"  hidden>
+          <input type="text" class="form-control hidden-*-up" name="pris" id="pris"  hidden>
           
-    <input type="text" class="form-control hidden" name="kostnad" id="totalt" readonly>
+    <input type="text" class="form-control hidden-*-up" name="kostnad" id="totalt"  hidden>
           
             
            
@@ -200,108 +298,4 @@
     </div>
     </div>   
        
-
-       
-    <h2>Resultat</h2>
-      
-            
-            <div class="row">
-            <div class="col-lg-12" >
-   
-                    
-                    
-                
-        {{#if user}}
-                
-        {{#resa}} 
-                
-                    
-                    
-            <div class="panel panel-default">
-            <div class="panel-body">
-         <form>
-             
-             
-       
-           
-            <h2>{{avgangsstad}} - {{ankomststad}}</h2>
-            <h5>{{avgang}} - {{ankomst}}</h5>
-            <h5>Pris: {{pris}}</h5>
-            
-                
-                 
-             
-                          <button data-avgangsid-id={{avgangsid}} data-avgangsland-id={{avgangsland}} data-avgangsstad-id={{avgangsstad}} data-ankomstland-id={{ankomstland}} data-ankomststad-id={{ankomststad}} data-avgang-id={{avgang}} data-ankomst-id={{ankomst}} data-pris-id={{pris}} data-orgplatser-id={{platser}} type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal">
-                              <span class="glyphicon glyphicon-shopping-cart" area-hidden="true"></span>
-                            </button>
-                
-
-            
-            
-        
-        </form>
-                
-        </div>
-        </div>           
-  
-        {{/resa}}         
-              
-        {{else}} 
-                
-                
-           {{#resa}} 
-                
-                    
-                    
-            <div class="panel panel-default">
-            <div class="panel-body">
-         <form>
-             
-             
-       
-           
-            <h2>{{avgangsstad}} - {{ankomststad}}</h2>
-            <h5>{{avgang}} - {{ankomst}}</h5>
-            <h5>Pris: {{pris}}</h5>
-            
-                
-                 
-             
-                          <button  type="button" class="btn btn-default">
-                              <span class="glyphicon glyphicon-shopping-cart" area-hidden="true"></span>
-                              <a href="/users/login">Logga in</a>
-                          </button>
-                
-
-            
-            
-        
-        </form>
-                
-        </div>
-        </div>           
-  
-        {{/resa}} 
-                  
-                
-        {{/if}}
-                
-                
-                
-                
-                
-
-       
-                
-  
-                    
-                    
-                    
-</div>
-                       
-
-</div>
-
-
-        </div>
    

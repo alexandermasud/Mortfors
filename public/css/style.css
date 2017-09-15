@@ -89,13 +89,19 @@ footer{
 
 
 .account-btn{
+    margin-right:5px;
     
-    margin-top: 8px;
 }
 
 
 
 .pusername {
     font-size: 70px;
+}
+
+.card-custom{
+    
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 

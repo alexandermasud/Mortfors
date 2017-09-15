@@ -32,7 +32,7 @@ router.post('/deleteTransaction', function(req,res){
             if(err) {
                 return console.error('error running query', err);
             }
-            req.flash('test_msg', 'Köp togs bort!'); 
+            req.flash('test_msg', '<p>Transaktion ' + (req.body.transaktionsid) + ' togs bort!</p>'); 
             res.redirect('/transactions');
             done();
         });
