@@ -39,25 +39,25 @@
        <ul class="nav navbar-nav nav-pills pull-right">
             {{#if user}}
              
- 
+         
               
               <li role="presentation">
-                  
+                
                   
                   <form method="POST" action="/account">
                       
                   <input type="text" class="hidden-*-up" name ="username"  value="{{user.username}}" hidden>
-                  <input type="submit" class="btn btn-outline-primary account-btn" value="{{user.firstname}}"/>
+                  <input type="submit" class="btn btn-outline-primary account-btn btn-block" value="{{user.firstname}}"/>
                 
                   </form>
                   
-                  
+               
                   
                   
                   
                   
             </li>
-              <li role="presentation"><a href="/users/logout" class="btn btn-outline-secondary">Logga ut</a></li>
+              <li role="presentation"><a href="/users/logout" class="btn btn-outline-secondary btn-block">Logga ut</a></li>
              
             {{else}}
               <li role="presentation">
@@ -66,14 +66,14 @@
                
                   <form action="/users/login">
                   
-                  <input type="submit" class="btn btn-outline-primary account-btn" value="Logga in"/>
+                  <input type="submit" class="btn btn-outline-primary account-btn btn-block" value="Logga in"/>
                 
                   </form>
                   
              
              
              </li>
-              <li role="presentation"><a href="/users/register" class="btn btn-outline-secondary">Nytt konto</a></li>
+              <li role="presentation"><a href="/users/register" class="btn btn-outline-secondary btn-block">Nytt konto</a></li>
             {{/if}}
      </ul>
    
