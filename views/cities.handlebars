@@ -92,31 +92,38 @@
     <div class="modal-content">
         <form method="POST" action="/createCity">
       <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Registrera ny stad</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registrera ny stad</h4>
+        
       </div>
       <div class="modal-body">
 
+    <div class="container">
+    <div class="row"> 
     <div class="col-lg-6">
   <div class="form-group" >
     <label for="land">Land</label>
-    <input type="text" class="form-control" name="land" placeholder="ex Sverige">
+    <input type="text" class="form-control" name="land" placeholder="ex Sverige" required>
   </div>
       </div>
           
          <div class="col-lg-6">
   <div class="form-group" >
     <label for="stad">Stad</label>
-    <input type="text" class="form-control" name="stad" placeholder="ex Malmö">
+    <input type="text" class="form-control" name="stad" placeholder="ex Malmö" required>
   </div>
       </div>
+        
+      </div>
+       <div class="row">
       <div class="col-lg-12">
   <div class="form-group" >
     <label for="adress">Adress</label>
-    <input type="text" class="form-control" name="adress" placeholder="ex Storgatan 15">
+    <input type="text" class="form-control" name="adress" placeholder="ex Storgatan 15" required>
   </div>
       </div>
-      
+       </div>
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>

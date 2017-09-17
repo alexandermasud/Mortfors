@@ -30,13 +30,13 @@ router.post('/register', function(req, res){
            pg.connect(conString, function(err, client, done){
        
     
-                   client.query("SELECT count(*) as countnames FROM kund WHERE kundid = '" + (req.body.username) + "'", function (err, result) {
+                   client.query("SELECT count(*) as countuser FROM kund WHERE kundid = '" + (req.body.username) + "'", function (err, result) {
 
                        if(err) {
                     return console.error('error while fetching client from pool', err);
                     }
                         
-                        var usernameOccupied = (result.rows[0].countnames)
+                        var usernameOccupied = (result.rows[0].countuser)
                         
                             if (usernameOccupied == 1){
                                 

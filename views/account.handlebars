@@ -1,74 +1,37 @@
     <div class="container">
 
-        <div class="row">
-            <!--
-            <img src="img/transaktioner/2326x800-Financing-2016-bre-imgtxt.jpg" class="img-responsive" alt="Två personer"> 
-           
-            -->
-            
-            
-     {{#if test_msg}}
+     <div class="row">
 
-	<div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                	<span aria-hidden="true">&times;</span>
-                </button>
- 			{{test_msg}}
-	</div>
-{{/if}}
-       
-
-    
-
-   
-     
-  
-        </div>
-        
-        <div class="row">
-            
-        
-            
-            
-        <div class="text-center animated fadeIn">
             <p class="pusername">Hej {{user.firstname}}</p>
+
             
-        </div>
-            
-            
-            
-        </div>
+    </div>
         
    
                     
-    <div class="animated fadeIn">         
+<div class="row ">         
   
        
      {{#if user}}
-             
-        
-      
-<div class="col-lg-4">
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Användarinfo</h3>
-  </div>
-  <div class="panel-body">
-     
-        <p>{{user.firstname}} {{user.lastname}}</p>
-        <p>{{user.address}}</p>
-        <p>{{user.city}}</p>
-        <p>{{user.phone}}</p> 
-        <p>{{user.email}}</p> 
-  </div>
-</div>
-    
- </div>       
-      
-      
-     
 
-      
+        <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Användarinfo</h3>
+          </div>
+          <div class="panel-body">
+
+                <p>{{user.firstname}} {{user.lastname}}</p>
+                <p>{{user.address}}</p>
+                <p>{{user.city}}</p>
+                <p>{{user.phone}}</p> 
+                <p>{{user.email}}</p> 
+          </div>
+        </div>
+
+         </div>       
+
+    
         
        {{else}}
         

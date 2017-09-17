@@ -11,16 +11,30 @@
         
            </div>
            
-           
-         {{#if test_msg}}
+     
+        {{#if test_msg}}
 
 	<div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 	<span aria-hidden="true">&times;</span>
                 </button>
- 			{{test_msg}}
+ 			{{{test_msg}}}
 	</div>
-{{/if}}
+        
+       {{/if}}
+        
+        
+        {{#if fail_msg}}
+
+	<div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+                </button>
+ 			{{{fail_msg}}}
+        </div>
+    
+        {{/if}}
+    
            
      <div class="row">
            
@@ -91,52 +105,65 @@
     <div class="modal-content">
         <form method="POST" action="/createDriver">
       <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Registrera ny chaufför</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registrera ny chaufför</h4>
+        
       </div>
       <div class="modal-body">
 
-    <div class="col-lg-6">
-  <div class="form-group" >
-    <label for="chaufforid">Personummer</label>
-    <input type="text" class="form-control" name="chaufforid" placeholder="ex 550122-1234" >
-  </div>
-      </div>
+<div class="container">
           
+    <div class="row">
          <div class="col-lg-6">
   <div class="form-group" >
     <label for="fornamn">Förnamn</label>
-    <input type="text" class="form-control" name="fornamn" placeholder="ex Johan" >
+    <input type="text" class="form-control" name="fornamn" placeholder="ex Johan" required>
   </div>
       </div>
       <div class="col-lg-6">
   <div class="form-group" >
     <label for="efternamn">Efternamn</label>
-    <input type="text" class="form-control" name="efternamn" placeholder="ex Persson" >
+    <input type="text" class="form-control" name="efternamn" placeholder="ex Persson" required>
   </div>
       </div>
+        
+       </div>
+    
+    <div class="row">
       
     <div class="col-lg-6">
     <div class="form-group">
         
     <label for="adress">Adress</label>
-    <input type="text" class="form-control" name="adress" placeholder="ex Storgatan 15" >
+    <input type="text" class="form-control" name="adress" placeholder="ex Storgatan 15" required>
   </div>
       </div>
       <div class="col-lg-6">
       <div class="form-group">
     <label for="stad">Stad</label>
-    <input type="text" class="form-control" name="stad" placeholder="ex Stockholm" >
+    <input type="text" class="form-control" name="stad" placeholder="ex Stockholm" required>
+  </div>
+      </div>
+      </div>
+          <div class="row">
+           <div class="col-lg-6">
+  <div class="form-group" >
+    <label for="chaufforid">Personummer</label>
+    <input type="text" class="form-control" name="chaufforid" placeholder="ex 550122-1234" required>
   </div>
       </div>
     
       <div class="col-lg-6">
     <div class="form-group">
     <label for="hemtelefon">Hemtelefon</label>
-    <input type="number" class="form-control" name="hemtelefon" placeholder="ex 040123456" >
+    <input type="number" class="form-control" name="hemtelefon" placeholder="ex 040123456" required>
   </div>
       </div>
+    
+  </div>
+    
       </div>
+        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
         <input type="submit" class="btn btn-primary" value="Spara" />
