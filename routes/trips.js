@@ -4,53 +4,20 @@ var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 
 
-
-
-// Startsida
-router.get('/trips', function(req, res){
-    
-       
- pg.connect(conString, function(err, client, done){
-        
-        if(err) {
-            return console.error('error while fetching client from pool', err);
-        }
-        client.query('SELECT * FROM resa ORDER by avgangsid', function(err, result) {
-            
-            if(err) {
-                return console.error('error running query', err);
-            }
-          res.render('trips', {resa: result.rows})
-            done();
-        });
-    });
-    
-    
+router.get('/trips', function(req, res) {
+	pg.connect(conString, function(err, client, done) {
+		if (err) {
+			return console.error('error while fetching client from pool', err);
+		}
+		client.query('SELECT * FROM resa ORDER by avgangsid', function(err, result) {
+			if (err) {
+				return console.error('error running query', err);
+			}
+			res.render('trips', {
+				resa: result.rows
+			})
+			done();
+		});
+	});
 });
-
-
-
-
-
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -5,8 +5,6 @@ drop table if exists stad cascade;
 drop table if exists kop cascade;
 
 
-
-
 create table kund (
 
 	
@@ -25,7 +23,6 @@ create table kund (
 insert into kund values
 
 ('alex', 'Alexander', 'Masud', 'Kompassgatan 40', 'Malmö', 'alexandermasud@protonmail.com', '0730922534');
-
 
 create table chauffor (
 
@@ -49,17 +46,11 @@ insert into chauffor values
 ('741122-3319', 'Sven', 'Hammar', 'Östravägen 12','Lund','045225390'),
 ('689238-4877', 'Bengt-Åke', 'Johansson', 'Rasmusgatan 12','Malmö','040378948');
 
-
-
-
-
 create table stad (
 
 	land text not null CONSTRAINT land CHECK(length(land)>0),
 	stad text not null CONSTRAINT stad CHECK(length(stad)>0),
 	adress text not null CONSTRAINT adress CHECK(length(adress)>0),
-	
-
 	
 	primary key (land, stad)
 );
@@ -74,8 +65,6 @@ insert into stad values
 ('Frankrike', 'Paris', 'Rue Saint-Lazare 32'),
 ('Portugal', 'Lissabon', 'Praça dos Restauradores 9'),
 ('Spanien', 'Madrid', 'Plaza Emperador Carlos 5');
-
-
 
 create table resa (
 
@@ -99,10 +88,6 @@ create table resa (
 
 );
 
-
-
-
-
 insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, avgang, ankomst, pris, platser, chaufforid) values 
 
 ('Sverige', 'Malmö', 'Portugal','Lissabon', '21:00', '14:00', '1099', '29', '741122-3319'),
@@ -110,9 +95,7 @@ insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, avgang, an
 
 ('Sverige', 'Malmö', 'Portugal','Lissabon', '21:00', '14:00', '1099', '29', '741122-3319'),
 ('Portugal','Lissabon', 'Sverige','Malmö', '21:00', '14:00', '1099', '29', '741122-3319'),
- 
- 
-   
+  
 ('Sverige', 'Göteborg', 'Frankrike','Paris','09:00', '22:00', '1199', '71', '789322-2893'),
 ('Sverige', 'Stockholm', 'Sverige','Malmö', '13:00', '18:00', '499', '40', '910328-2387'),
 ('Sverige', 'Malmö', 'Tyskland','Berlin',  '11:00', '22:00', '999', '46', '689238-4877'),
@@ -122,7 +105,6 @@ insert into resa (avgangsland, avgangsstad, ankomstland, ankomststad, avgang, an
 ('Finland', 'Helsingfors', 'Sverige','Malmö', '09:00', '15:00', '799', '38', 'Ej bestämt'),
 ('Spanien', 'Madrid', 'Sverige','Malmö',  '22:00', '15:00', '799', '40', '910328-2387'),
 ('Frankrike', 'Paris', 'Sverige','Göteborg', '18:00', '07:00', '1199', '80', '789322-2893');
-
 
 create table kop (
 
@@ -139,11 +121,3 @@ create table kop (
 
 
 );
-
-
-
-
-
-
-
-
