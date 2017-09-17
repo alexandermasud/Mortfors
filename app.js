@@ -134,7 +134,7 @@ app.post('/createTrip',createTrip);
 app.post('/tripEditDriver',tripEditDriver);
 
 app.get('/transactions',transactions);
-app.delete('/deleteTransaction/:{id}',deleteTransaction);
+app.post('/deleteTransaction',deleteTransaction);
 
 
 

@@ -66,7 +66,7 @@
     </thead>
     <tbody>
        {{#kund}}
-    <form>
+    <form method="post" action="/deleteTransaction">
         
         
         
@@ -87,12 +87,15 @@
         <td>
           
             
-          
+            <input type="text" name="transaktionsid" value={{transaktionsid}} hidden>    
+            <input type="text" name="avgangsid" value={{avgangsid}} hidden>
+            <input type="text" name="platser" value={{platser}} hidden>    
+            
         
             
-            <a type="submit" class="btn btn-danger delete-transaction" data-id="{{transaktionsid}}">
+            <button type="submit" class="btn btn-danger">
             <i class="fa fa-trash" aria-hidden="true"></i>
-            </a>
+            </button>
            
             
         </td>
