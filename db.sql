@@ -140,9 +140,7 @@ create table kop (
 
 );
 
-insert into kop values 
 
-( 1, 'alex', 1, 5, 5495);
 
 
 
