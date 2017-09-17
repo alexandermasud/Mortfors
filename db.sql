@@ -22,7 +22,9 @@ create table kund (
 	
 );
 
+insert into kund values
 
+('alex', 'Alexander', 'Masud', 'Kompassgatan 40', 'Malmö', 'alexandermasud@protonmail.com', '0730922534');
 
 
 create table chauffor (
@@ -137,6 +139,10 @@ create table kop (
 
 
 );
+
+insert into kop values 
+
+( 1, 'alex', 1, 5, 5495);
 
 
 
