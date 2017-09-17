@@ -11,9 +11,6 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var nodemailer = require('nodemailer');
 
-var pg = require('pg');
-var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
-
 
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
