@@ -3,7 +3,33 @@
 $(document).ready(function(){ 
     
    
-    
+    $('.delete-transaction').on('click', function(){
+        
+        var id = $(this).data('id');
+        var url = '/deleteTransaction/'+id;
+        
+        
+            
+            
+           
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                success: function(result){
+                    
+                    console.log('Tar bort tranaktion');
+                    window.localtion.href='/';
+                    
+                },
+                error: function(err){
+                    
+                    console.log(err);
+                }
+                
+            });
+           
+        
+    });
     
  
     $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
