@@ -17,28 +17,61 @@ router.post('/tripEditDriver', function(req, res){
             return console.error('error while fetching client from pool', err);
         }
               
-              var avgangsid=(req.body.avgangsid)
-              var chaufforid=(req.body.chaufforid)
-              
-            
-              
-          
-        
-       client.query(("UPDATE resa SET chaufforid = '" + (chaufforid) + "' WHERE avgangsid = '"+ (avgangsid) + "' ;") ,function(err, result){
-        
-            if(err) {
-                return console.error('error running query', err);
-            } 
-          done();
-          req.flash('test_msg', 'Chaufför redigerades!');
-          res.redirect('/trips'); 
-    });	
-    
-    
-});
-    
-});
+            client.query("SELECT count(*) as originid FROM resa WHERE avgangsid='" + (req.body.avgangsid) + "'", function(err, result) {
+                
+                
+                
+                 if(err) {
+                    return console.error('error while fetching client from pool', err);
+                }
+                
+                    if ((result.rows[0].originid) > 0){
+                        
+                                client.query("SELECT count(*) as driver FROM chauffor WHERE chaufforid='" + (req.body.chaufforid) + "'" , function(err, result){
+                                    
+                                    
+                                    
+                                      if(err) {
+                                        return console.error('error while fetching client from pool', err);
+                                        }  
 
+
+                                       if ((result.rows[0].driver) > 0){
+                                           
+                                           
+                                           
+                                           
+                                       client.query(("UPDATE resa SET chaufforid = '" + (req.body.chaufforid) + "' WHERE avgangsid = '"+ (req.body.avgangsid) + "' ;") ,function(err, result){
+
+                                            if(err) {
+                                                return console.error('error running query', err);
+                                            } 
+                                          done();
+                                          req.flash('test_msg', 'Chaufför redigerades!');
+                                          res.redirect('/trips'); 
+                                        });	
+  
+                                       }
+                                        else{
+                                            req.flash('fail_msg', 'Chaufförid finns ej!');
+                                          res.redirect('/trips');
+      
+                                        }
+
+                                });
+
+                        }
+                        else{
+                            
+                               req.flash('fail_msg', 'Avgångsid finns ej!');
+                                          res.redirect('/trips'); 
+                        }
+              
+
+                });
+    
+          });
+});
 
 
 

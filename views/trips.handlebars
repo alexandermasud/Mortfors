@@ -28,6 +28,19 @@
  			{{test_msg}}
         </div>
         {{/if}}
+    
+    
+    
+           {{#if fail_msg}}
+
+	<div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+                </button>
+ 			{{{fail_msg}}}
+        </div>
+    
+        {{/if}}
        
            
         <div class="container"> 
