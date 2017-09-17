@@ -10,8 +10,7 @@ router.post('/createDriver', function(req, res) {
 			return console.error('error while fetching client from pool', err);
 		}
 		client.query("SELECT count(*) as countdriver FROM chauffor WHERE chaufforid = '" + (req.body.chaufforid) + "'", function(err, result) {
-			var chaufforidOccupied = (result.rows[0].countdriver)
-			if (chaufforidOccupied = 1) {
+			if ((result.rows[0].countdriver) == 1) {
 				req.flash('fail_msg', 'Personnummret är upptaget');
 				res.redirect('/drivers');
 			} else {

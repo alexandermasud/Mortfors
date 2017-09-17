@@ -1,133 +1,73 @@
 <div class="container">
-           
-    <div class="row">
-           
-        <img src="img/stadsregister/stadsregister1.jpg" class="img-fluid" alt="En stad"> 
-        
-        <!-- /.row -->
-        
-    
-            
-           </div> 
-         
-         
-         
-         
-         {{#if test_msg}}
-
-	<div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                	<span aria-hidden="true">&times;</span>
-                </button>
- 			{{test_msg}}
-	</div>
-{{/if}}
-         
-         
         <div class="row">
-           
-         
-           
-        <div class="col-lg-10">
-        <h2>Stadsregister</h2>
-            
-            </div>
-               <div class="col-lg-2">
-                <button type="button" class="btn btn-success btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal">Ny stad +</button>
-            </div>   
-            
-            </div>
+            <img alt="En stad" class="img-fluid" src="img/stadsregister/stadsregister1.jpg"> <!-- /.row -->
+        </div>{{#if test_msg}}
+        <div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
+            <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button> {{test_msg}}
+        </div>{{/if}}
         <div class="row">
-           
-
-    
-        
-        
-        
-
-             
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Land</th>
-        <th>Stad</th>
-        <th>Adress</th>
-        
-        
-      </tr>
-    </thead>
-    <tbody>
-       {{#stad}} 
-      <tr>
-          
-        <td>{{land}}</td>
-        <td>{{stad}}</td>
-        <td>{{adress}}</td>
-        
-      </tr>
-    {{/stad}}
-    </tbody>
-  </table>
-            
-           
-
-         </div>   
-            
-        </div> 
-           
-    
-
-   
-     
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <form method="POST" action="/createCity">
-      <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Registrera ny stad</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        
-      </div>
-      <div class="modal-body">
-
-    <div class="container">
-    <div class="row"> 
-    <div class="col-lg-6">
-  <div class="form-group" >
-    <label for="land">Land</label>
-    <input type="text" class="form-control" name="land" placeholder="ex Sverige" required>
-  </div>
-      </div>
-          
-         <div class="col-lg-6">
-  <div class="form-group" >
-    <label for="stad">Stad</label>
-    <input type="text" class="form-control" name="stad" placeholder="ex Malmö" required>
-  </div>
-      </div>
-        
-      </div>
-       <div class="row">
-      <div class="col-lg-12">
-  <div class="form-group" >
-    <label for="adress">Adress</label>
-    <input type="text" class="form-control" name="adress" placeholder="ex Storgatan 15" required>
-  </div>
-      </div>
-       </div>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
-        <input type="submit" class="btn btn-primary" value="Spara" />
-      </div>
-        </form>
-    </div>
-  </div>
+            <div class="col-lg-10">
+                <h2>Stadsregister</h2>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-success btn-block" data-target="#formModal" data-toggle="modal" style="float:right; margin-top: 20px; margin-bottom: 20px;;" type="button">Ny stad +</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Land</th>
+                        <th>Stad</th>
+                        <th>Adress</th>
+                    </tr>
+                </thead>
+                {{#stad}}
+                <tbody>
+                    <tr>
+                        <td>{{land}}</td>
+                        <td>{{stad}}</td>
+                        <td>{{adress}}</td>
+                    </tr>
+                </tbody>
+                {{/stad}}
+            </table>
+        </div>
+    </div><!-- Modal -->
+    <div aria-labelledby="formModalLabel" class="modal fade" id="formModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="/createCity" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Registrera ny stad</h4><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="land">Land</label> <input class="form-control" name="land" placeholder="ex Sverige" required="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="stad">Stad</label> <input class="form-control" name="stad" placeholder="ex Malmö" required="" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="adress">Adress</label> <input class="form-control" name="adress" placeholder="ex Storgatan 15" required="" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">Avbryt</button> <input class="btn btn-primary" type="submit" value="Spara">
+                    </div>
+                </form>
+            </div>
+        </div>
 </div>
-    

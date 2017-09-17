@@ -1,119 +1,55 @@
 <div class="container">
-
-     <div class="row">
-
-            <p class="pusername">Hej {{user.firstname}}</p>
-
-            
+    <div class="row">
+        <p class="pusername">Hej {{user.firstname}}</p>
     </div>
-        
-   
-                    
-<div class="row ">         
-  
-       
-     {{#if user}}
-
+    <div class="row">
+        {{#if user}}
         <div class="col-lg-4">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Användarinfo</h3>
-          </div>
-          <div class="panel-body">
-
-                <p>{{user.firstname}} {{user.lastname}}</p>
-                <p>{{user.address}}</p>
-                <p>{{user.city}}</p>
-                <p>{{user.phone}}</p> 
-                <p>{{user.email}}</p> 
-          </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Användarinfo</h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{user.firstname}} {{user.lastname}}</p>
+                    <p>{{user.address}}</p>
+                    <p>{{user.city}}</p>
+                    <p>{{user.phone}}</p>
+                    <p>{{user.email}}</p>
+                </div>
+            </div>
+        </div>{{else}} {{/if}}
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Kommande resor</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Avgångsstad</th>
+                                <th>Ankomststad</th>
+                                <th>Avgång</th>
+                                <th>Ankomst</th>
+                                <th>Platser</th>
+                                <th>Kostnad</th>
+                            </tr>
+                        </thead>
+                        {{#kund}}
+                        <tbody>
+                            <tr>
+                                <td>{{avgangsstad}}</td>
+                                <td>{{ankomststad}}</td>
+                                <td>{{avgang}}</td>
+                                <td>{{ankomst}}</td>
+                                <td>{{platser}}</td>
+                                <td>{{kostnad}}</td>
+                            </tr>
+                        </tbody>
+                        {{/kund}}
+                    </table>
+                </div>
+            </div>
         </div>
-
-         </div>       
-
-    
-        
-       {{else}}
-        
-        {{/if}}
-   
-   
-        
-        
-        
-        
- 
-        
-       
-   <div class="col-lg-8">
-       
-
-        <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Kommande resor</h3>
-  </div>
-  <div class="panel-body">
-      <table class="table">
-    <thead>
-      <tr>
-          
-       
-        <th>Avgångsstad</th>
-        <th>Ankomststad</th>
-        <th>Avgång</th>
-        <th>Ankomst</th>
-        <th>Platser</th>
-        <th>Kostnad</th>
-
-      </tr>
-    </thead>
-      
-    <tbody>
-       {{#kund}}
-     
-      <tr>
-        
-       
-        <td>{{avgangsstad}}</td>
-        <td>{{ankomststad}}</td>
-        <td>{{avgang}}</td>
-        <td>{{ankomst}}</td>
-        <td>{{platser}}</td>
-        <td>{{kostnad}}</td>
-        
-      </tr>
-        
-   
-    {{/kund}}
-    </tbody>
-  </table>
-  </div>
+    </div>
 </div>
-
-  
-            
-
-             
-
-           
- </div>
-    
-</div>
-
-
- 
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,7 +18,7 @@ router.post('/purchase', function(req, res) {
 			res.redirect('/');
 			done();
 		}
-		if (((orgplatser) - (koptaplatser) > -1)) {
+		if (((req.body.orgplatser) - (req.body.koptaplatser) > -1)) {
 			console.log("")
 			console.log("Köpet genomfördes")
 			console.log("")

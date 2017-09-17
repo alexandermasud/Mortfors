@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
-
+console.log('HEJ!!!!')
 
 router.post('/deleteTransaction', function(req, res) {
 	pg.connect(conString, function(err, client, done) {
@@ -12,7 +12,7 @@ router.post('/deleteTransaction', function(req, res) {
 		var transaktionsid = (req.body.transaktionsid)
 		var avgangsid = (req.body.avgangsid)
 		var platser = (req.body.platser)
-		var queryLine = "BEGIN; DELETE FROM kop WHERE transaktionsid =" + (transaktionsid) + " AND avgangsid = " + (avgangsid) + "; UPDATE resa SET platser = platser +" + (platser) + "WHERE avgangsid =" + (avgangsid) + "; COMMIT;"
+		var queryLine = "BEGIN; DELETE FROM kop WHERE transaktionsid ='" + (req.body.transaktionsid) + "'; UPDATE resa SET platser = platser + '" + (req.body.platser) + "' WHERE avgangsid = '" + (req.body.avgangsid) + "' ; COMMIT;"
 		client.query(queryLine, function(err, result) {
 			if (err) {
 				return console.error('error running query', err);

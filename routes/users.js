@@ -30,7 +30,7 @@ router.post('/register', function(req, res) {
 			var usernameOccupied = (result.rows[0].countuser)
 			if (usernameOccupied == 1) {
 				req.flash('fail_msg', 'Användarnamnet är upptaget');
-				res.redirect('/');
+				res.redirect('/users/register');
 			} else {
 				var firstname = req.body.firstname;
 				var lastname = req.body.lastname;

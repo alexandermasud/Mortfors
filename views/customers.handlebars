@@ -1,190 +1,95 @@
 <div class="container">
-        <div class="row">
-           
-            <img src="/img/kundregister/kundregister1.jpg" class="img-fluid" alt="Passagerare står och väntar">
-
-        
-        
-    
-           </div>
-           
-            
-{{#if test_msg}}
-
-	<div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                	<span aria-hidden="true">&times;</span>
-                </button>
- 			{{test_msg}}
-	</div>
-{{/if}}
-           
-           
-        
-           
-   <div class="row">
-           
-         
-           
-        <div class="col-lg-10">
-        <h2>Kundregister</h2>
-            
-            </div>
-               <div class="col-lg-2">
-                <button type="button" class="btn btn-success btn-block" style="float:right; margin-top: 20px; margin-bottom: 20px;;" data-toggle="modal" data-target="#formModal">Ny kund +</button>
-            </div>  
-            </div>
-         
-           
-
-
-<div class="row">
-
-         
-  <table class="table">
-     
-      
-    <thead>
-      <tr>
-        <th>KundID</th>
-        <th>Förnamn</th>
-        <th>Efternamn</th>
-        <th>Adress</th>
-        <th>Stad</th>
-        <th>Email</th>
-        <th>Telefon</th>
-      </tr>
-        
-    </thead>
-  
-    <tbody>
-     {{#kund}} 
-      <tr>
-        <td>{{kundid}}</td>
-        <td>{{fornamn}}</td>
-        <td>{{efternamn}}</td>
-        <td>{{adress}}</td>
-        <td>{{stad}}</td>
-        <td>{{epost}}</td>
-        <td>{{telefon}}</td>
-      </tr>
-    {{/kund}}
-      </tbody> 
-</table>
-
-    </div>
-</div>
-
-
-
-
-           
-
-        
-
-        
-
-
-<!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        
-        <form method="POST" action="/users/register">
-      
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Registrera ny kund</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        
-      </div>
-   
-    <div class="container">
+    <div class="row"><img alt="Passagerare står och väntar" class="img-fluid" src="/img/kundregister/kundregister1.jpg"></div>{{#if test_msg}}
+    <div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button> {{test_msg}}
+    </div>{{/if}}
     <div class="row">
-    
-   <div class="form-group col-lg-6">
-    <label>Förnamn</label>
-    <input type="text" class="form-control" placeholder="Förnamn" name="firstname" required>
-  </div>
-    <div class="form-group col-lg-6">
-    <label>Efternamn</label>
-    <input type="text" class="form-control" placeholder="Efternamn" name="lastname" required>
-  </div>
-    
-
+        <div class="col-lg-10">
+            <h2>Kundregister</h2>
         </div>
-
-    
-    <div class="row"> 
-  
-    
-    <div class="form-group col-lg-6">
-    <label>Address</label>
-    <input type="text" class="form-control" placeholder="Address" name="address" required>
-  </div>
-    <div class="form-group col-lg-6">
-    <label>Stad</label>
-    <input type="text" class="form-control" placeholder="Stad" name="city" required>
-  </div>
-    
-   
-    
-   
- </div>
-            
-            <div class="row"> 
-    
-       
-    
-    <div class="form-group col-lg-6">
-    <label>Telefon</label>
-    <input type="text" class="form-control" placeholder="0701112233" name="phone" required>
-  </div>
-    
-  <div class="form-group col-lg-6">
-    <label>E-post</label>
-    <input type="email" class="form-control" placeholder="E-post" name="email" required>
-  </div>
-        
-   
-         </div>
-
-   <div class="row">
-        
-   
-        
-    <div class="col-lg-12">
-    <label>Användarnamn</label>
-    <input type="text" class="form-control" placeholder="Användarnamn" name="username" required>
-     </div>    
-     
-        
-
+        <div class="col-lg-2">
+            <button class="btn btn-success btn-block" data-target="#formModal" data-toggle="modal" style="float:right; margin-top: 20px; margin-bottom: 20px;;" type="button">Ny kund +</button>
         </div>
-    
-   <div class="row"> 
-  
-        
-  <div class="form-group col-lg-6">
-    <label>Lösenord</label>
-    <input type="password" class="form-control" placeholder="Lösenord" name="password" required>
-  </div>
-  <div class="form-group col-lg-6">
-    <label>Lösenord</label>
-    <input type="password" class="form-control" placeholder="Lösenord" name="password2" required>
-  </div>
- </div>
-            
-            </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
-        <input type="submit" class="btn btn-primary" value="Spara" />
-      </div>
-        </form>
     </div>
-  </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>KundID</th>
+                    <th>Förnamn</th>
+                    <th>Efternamn</th>
+                    <th>Adress</th>
+                    <th>Stad</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                </tr>
+            </thead>
+            {{#kund}}
+            <tbody>
+                <tr>
+                    <td>{{kundid}}</td>
+                    <td>{{fornamn}}</td>
+                    <td>{{efternamn}}</td>
+                    <td>{{adress}}</td>
+                    <td>{{stad}}</td>
+                    <td>{{epost}}</td>
+                    <td>{{telefon}}</td>
+                </tr>
+            </tbody>
+            {{/kund}}
+        </table>
+    </div>
+    </div><!-- Modal -->
+    <div aria-labelledby="formModalLabel" class="modal fade" id="formModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/users/register" method="post">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Registrera ny kund</h4><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label>Förnamn</label> <input class="form-control" name="firstname" placeholder="Förnamn" required="" type="text">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Efternamn</label> <input class="form-control" name="lastname" placeholder="Efternamn" required="" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label>Address</label> <input class="form-control" name="address" placeholder="Address" required="" type="text">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Stad</label> <input class="form-control" name="city" placeholder="Stad" required="" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label>Telefon</label> <input class="form-control" name="phone" placeholder="0701112233" required="" type="text">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>E-post</label> <input class="form-control" name="email" placeholder="E-post" required="" type="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label>Användarnamn</label> <input class="form-control" name="username" placeholder="Användarnamn" required="" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label>Lösenord</label> <input class="form-control" name="password" placeholder="Lösenord" required="" type="password">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Lösenord</label> <input class="form-control" name="password2" placeholder="Lösenord" required="" type="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal" type="button">Avbryt</button> <input class="btn btn-primary" type="submit" value="Spara">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-   
-        
-        
-    

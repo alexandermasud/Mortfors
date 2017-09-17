@@ -1,334 +1,174 @@
-<div class="row">
-            
-            <div class= "col-lg-12">
-           
-            <img src="img/sök-resa/sok-resa1.jpg" class="img-fluid" alt="En buss"> 
-          
-  
-        </div>
-        </div>
-        
- 
-        {{#if test_msg}}
-
-	<div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                	<span aria-hidden="true">&times;</span>
-                </button>
- 			{{{test_msg}}}
-	</div>
-        
-       {{/if}}
-        
-        
-        {{#if fail_msg}}
-
-	<div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                	<span aria-hidden="true">&times;</span>
-                </button>
- 			{{{fail_msg}}}
-        </div>
-    
-        {{/if}}
-    
-        
-    
-        
-    
-     <div class="index-search-form">
-
-        
-    <form method="post" action="/search">
-        
-   <div class="row">
-       
-    <div class="col-lg-4">
-        
-   
-    <input type="text"  class="form-control" name="origin" placeholder="Från" required>
-    
-    </div>
-        
-     <div class="col-lg-4">
-        
-    <input type="text"  class="form-control" name="destination" placeholder="Till" required>
-    
-    </div>
-        <div class="col-lg-2">
-            
-             <a class="btn btn-outline-secondary btn-block" href="/">Nollställ</a>
-                  
-            </div>
-        
-         <div class="col-lg-2">
-             <button type="submit" class="btn btn-outline-success btn-block">Sök</button>
-                  
-            </div>
- 
-           </div>
-        </form> 
-   
-       
-    </div>
-             
- 
-            
+<div class="contrainer">
+    <div class="row">
+        <div class="col-lg-12"><img alt="En buss" class="img-fluid" src="img/sök-resa/sök-resa1.jpg"></div>
+    </div>{{#if test_msg}}
+    <div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button> {{{test_msg}}}
+    </div>{{/if}} {{#if fail_msg}}
+    <div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button> {{{fail_msg}}}
+    </div>{{/if}}
+    <div class="index-search-form">
+        <form action="/search" method="post">
             <div class="row">
-            <div class="col-lg-12" >
-   
-                    
-                    
-                
-        {{#if user}}
-                
-        {{#resa}} 
-                
-                <div class="row">
-            
-        <div class="col-lg-12">   
-        <div class="card card-custom">
-
-
-            <a type="button" data-toggle="collapse" data-target="#{{avgangsid}}" aria-expanded="false" aria-controls="collapseExample">
-                
-                <div class="card-header">
-                <h3>{{avgangsstad}} - {{ankomststad}}</h3>
+                <div class="col-lg-4">
+                    <input class="form-control" name="origin" placeholder="Från" required="" type="text">
                 </div>
-            </a>
-  
-  
-
-<div class="collapse" id="{{avgangsid}}">
-  <div class="card card-block card-block-custom">
-       
-     <form>
-      
-      
-      
-         
-    <div class="row">
-       
-            
-    <div class="col-lg-12">
-    <div class="card-title"><h4>{{avgangsland}} {{avgangsstad}} {{avgang}} - {{ankomstland}} {{ankomststad}} {{ankomst}}, från {{pris}} SEK</h4></div>
-        
-    </div>
-     </div>
-         <div class="row">
-    <div class="col-lg-12">
-    <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eget elit posuere, vitae maximus ante cursus. Fusce ultrices, tellus in interdum tincidunt, tortor tortor consectetur velit, id faucibus nulla ipsum sed magna. Cras nisl mi, porta eu ex eu, eleifend hendrerit libero.</p>
-     </div>        
-             
-    </div>
-    <div class="row">
-        
-        <div class="col-lg-10"></div>
-        
-        
-       <div class="col-lg-2">
-      <button data-avgangsid-id={{avgangsid}} data-avgangsland-id={{avgangsland}} data-avgangsstad-id={{avgangsstad}} data-ankomstland-id={{ankomstland}} data-ankomststad-id={{ankomststad}} data-avgang-id={{avgang}} data-ankomst-id={{ankomst}} data-pris-id={{pris}} data-orgplatser-id={{platser}} type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#formModal">
-                             Köp <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </button>
-      </div>
-        
-        </div>
-         
-         
-      </form>
-  </div>
-     
-</div>
-       
-      
-    </div>
+                <div class="col-lg-4">
+                    <input class="form-control" name="destination" placeholder="Till" required="" type="text">
                 </div>
-                
-   
-                    
-                    </div>
-        {{/resa}}         
-              
-        {{else}} 
-                
-                
-           {{#resa}} 
-                
-     <div class="card card-custom">
-
-
-            <a type="button" data-toggle="collapse" data-target="#{{avgangsid}}" aria-expanded="false" aria-controls="collapseExample">
-                
-                <div class="card-header">
-                <h3>{{avgangsstad}} - {{ankomststad}}</h3>
+                <div class="col-lg-2">
+                    <a class="btn btn-outline-secondary btn-block" href="/">Nollställ</a>
                 </div>
-            </a>
-  
-  
-
-<div class="collapse" id="{{avgangsid}}">
-  <div class="card card-block card-block-custom">
-     <form>
-      
-      
-     
-      
-    <div class="row">
-            
-    <div class="col-lg-12">
-    <div class="card-title"><h4>{{avgangsland}} {{avgangsstad}} {{avgang}} - {{ankomstland}} {{ankomststad}} {{ankomst}}, från {{pris}} SEK</h4></div>
-        
-    </div>
-     </div>
-         <div class="row">
-    <div class="col-lg-12">
-    <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eget elit posuere, vitae maximus ante cursus. Fusce ultrices, tellus in interdum tincidunt, tortor tortor consectetur velit, id faucibus nulla ipsum sed magna. Cras nisl mi, porta eu ex eu, eleifend hendrerit libero.</p>
-     </div>        
-             
-    </div>
-    <div class="row">
-        
-        <div class="col-lg-10"></div>
-        
-        
-       <div class="col-lg-2">
-       <button type="button" class="btn btn-secondary btn-block" data-container="body" data-toggle="popover" data-placement="right" data-content="Du måste vara inloggad för att köpa resor.">
-   Köp<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-</button>
-      </div>
-        
-        </div>
-      </form>
-  </div>
-</div>
-      
-      
-    </div>
-         
-         
-         
- 
-  
-        {{/resa}} 
-                  
-                
-        {{/if}}
-                
-                  
-                    
-</div>
-                       
-
-</div>
-
-
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <form method="POST" action="/purchase">
-        
-        
-        
-      <div class="modal-header">
-          
-           <h4 class="modal-title" id="myModalLabel">Avgångsinformation</h4>
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          
-      </div>
-        
-      <div class="modal-body">
-          
-           
-  
-         
-    <input type="text" class="form-control hidden-*-up" name="kundid" id="form" value="{{user.username}}"  hidden>
-    <input type="text" class="form-control hidden-*-up" name="firstname" value="{{user.firstname}}"  hidden>
-    <input type="text" class="form-control hidden-*-up" name="lastname" value="{{user.lastname}}"  hidden> 
-    <input type="text" class="form-control hidden-*-up" name="email" value="{{user.email}}"  hidden>       
-          
-    <input type="text" class="form-control hidden-*-up" name="avgangsid"  hidden>
-    <input type="text" class="form-control hidden-*-up" name="orgplatser"  hidden>
-    <input type="text" class="form-control hidden-*-up" name="avgangsland"  hidden>
-     <input type="text" class="form-control hidden-*-up" name="avgangsstad"  hidden>
-       <input type="text" class="form-control hidden-*-up" name="ankomstland"  hidden>
-     <input type="text" class="form-control hidden-*-up" name="ankomststad"  hidden>
-          
-          <input type="text" class="form-control hidden-*-up" name="avgang"  hidden>
-          <input type="text" class="form-control hidden-*-up" name="ankomst"  hidden>
-          <input type="text" class="form-control hidden-*-up" name="pris" id="pris"  hidden>
-          
-    <input type="text" class="form-control hidden-*-up" name="kostnad" id="totalt"  hidden>
-          
-         <div class="row">
-           
-          <h2 class="col-sm-6" id="avgangslandId"></h2>
-         
-          <h2 class="col-sm-6" id="ankomstlandId"></h2>
-          
-          </div>
-        
-       <div class="row">
-          <h2 class="col-sm-6 " id="avgangsstadId"></h2>
-     
-          <h2 class="col-sm-6 " id="ankomststadId"></h2>
-         </div>
-          
-         
-         
-          <div class="row">
-          <h2 class="col-sm-6 " id="avgangId"></h2>
-        
-          <h2 class="col-sm-6 " id="ankomstId"></h2>
-         
-          </div>
-              
-              <div class="row">
-          <h2 class="col-sm-6 " id="prisId"></h2>
-          
-          
-        <div class="col-sm-6">
-    
-       
-        <select class="form-control selectpicker"  name="koptaplatser" id="koptaplatser">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-        </select>
-   
-          </div>
-                  
-                   </div>  
-    
-               
-   
-        
-       <div class="modal-footer">
-           
-        <div class="row">
-            
-            <div class="col-sm-4">
-            <h2 class="text-right" id="totalt-h2"></h2>
-            </div>
-            <div class="col-sm-4">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
-                </div>
-            <div class="col-sm-4">
-        <input type="submit" class="btn btn-success" value="Köp" />
+                <div class="col-lg-2">
+                    <button class="btn btn-outline-success btn-block" type="submit">Sök</button>
                 </div>
             </div>
-      </div>
-          
-          </div>
         </form>
-      </div>
     </div>
-    </div>   
-       
-   
+    <div class="row">
+        <div class="col-lg-12">
+            {{#if user}} {{#resa}}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-custom">
+                        <a aria-controls="collapseExample" aria-expanded="false" data-target="#{{avgangsid}}" data-toggle="collapse" type="button">
+                        <div class="card-header">
+                            <h3>{{avgangsstad}} - {{ankomststad}}</h3>
+                        </div></a>
+                        <div class="collapse" id="{{avgangsid}}">
+                            <div class="card card-block card-block-custom">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card-title">
+                                                <h4>{{avgangsland}} {{avgangsstad}} {{avgang}} - {{ankomstland}} {{ankomststad}} {{ankomst}}, från {{pris}} SEK</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eget elit posuere, vitae maximus ante cursus. Fusce ultrices, tellus in interdum tincidunt, tortor tortor consectetur velit, id faucibus nulla ipsum sed magna. Cras nisl mi, porta eu ex eu, eleifend hendrerit libero.</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-10"></div>
+                                        <div class="col-lg-2">
+                                            <button class="btn btn-success btn-block" data-ankomst-id="{{ankomst}}" data-ankomstland-id="{{ankomstland}}" data-ankomststad-id="{{ankomststad}}" data-avgang-id="{{avgang}}" data-avgangsid-id="{{avgangsid}}" data-avgangsland-id="{{avgangsland}}" data-avgangsstad-id="{{avgangsstad}}" data-orgplatser-id="{{platser}}" data-pris-id="{{pris}}" data-target="#formModal" data-toggle="modal" type="button">Köp <i aria-hidden="true" class="fa fa-shopping-cart"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>{{/resa}} {{else}} {{#resa}}
+            <div class="card card-custom">
+                <a aria-controls="collapseExample" aria-expanded="false" data-target="#{{avgangsid}}" data-toggle="collapse" type="button">
+                <div class="card-header">
+                    <h3>{{avgangsstad}} - {{ankomststad}}</h3>
+                </div></a>
+                <div class="collapse" id="{{avgangsid}}">
+                    <div class="card card-block card-block-custom">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card-title">
+                                        <h4>{{avgangsland}} {{avgangsstad}} {{avgang}} - {{ankomstland}} {{ankomststad}} {{ankomst}}, från {{pris}} SEK</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eget elit posuere, vitae maximus ante cursus. Fusce ultrices, tellus in interdum tincidunt, tortor tortor consectetur velit, id faucibus nulla ipsum sed magna. Cras nisl mi, porta eu ex eu, eleifend hendrerit libero.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10"></div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-secondary btn-block" data-container="body" data-content="Du måste vara inloggad för att köpa resor." data-placement="right" data-toggle="popover" type="button">Köp<i aria-hidden="true" class="fa fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>{{/resa}} {{/if}}
+        </div>
+    </div>
+    <div aria-labelledby="formModalLabel" class="modal fade" id="formModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="/purchase" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Avgångsinformation</h4><button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <input class="form-control hidden-*-up" hidden="" id="form" name="kundid" type="text" value="{{user.username}}"> <input class="form-control hidden-*-up" hidden="" name="firstname" type="text" value="{{user.firstname}}"> <input class="form-control hidden-*-up" hidden="" name="lastname" type="text" value="{{user.lastname}}"> <input class="form-control hidden-*-up" hidden="" name="email" type="text" value="{{user.email}}"> <input class="form-control hidden-*-up" hidden="" name="avgangsid" type="text"> <input class="form-control hidden-*-up" hidden="" name="orgplatser" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgangsland" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgangsstad" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomstland" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomststad" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgang" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomst" type="text"> <input class="form-control hidden-*-up" hidden="" id="pris" name="pris" type="text"> <input class="form-control hidden-*-up" hidden="" id="totalt" name="kostnad" type="text">
+                        <div class="row">
+                            <h2 class="col-sm-6" id="avgangslandId"></h2>
+                            <h2 class="col-sm-6" id="ankomstlandId"></h2>
+                        </div>
+                        <div class="row">
+                            <h2 class="col-sm-6" id="avgangsstadId"></h2>
+                            <h2 class="col-sm-6" id="ankomststadId"></h2>
+                        </div>
+                        <div class="row">
+                            <h2 class="col-sm-6" id="avgangId"></h2>
+                            <h2 class="col-sm-6" id="ankomstId"></h2>
+                        </div>
+                        <div class="row">
+                            <h2 class="col-sm-6" id="prisId"></h2>
+                            <div class="col-sm-6">
+                                <select class="form-control selectpicker" id="koptaplatser" name="koptaplatser">
+                                    <option>
+                                        1
+                                    </option>
+                                    <option>
+                                        2
+                                    </option>
+                                    <option>
+                                        3
+                                    </option>
+                                    <option>
+                                        4
+                                    </option>
+                                    <option>
+                                        5
+                                    </option>
+                                    <option>
+                                        6
+                                    </option>
+                                    <option>
+                                        7
+                                    </option>
+                                    <option>
+                                        8
+                                    </option>
+                                    <option>
+                                        9
+                                    </option>
+                                    <option>
+                                        10
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h2 class="text-right" id="totalt-h2"></h2>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-default" data-dismiss="modal" type="button">Avbryt</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="btn btn-success" type="submit" value="Köp">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
