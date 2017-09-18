@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
-console.log('HEJ!!!!')
+
 
 router.post('/deleteTransaction', function(req, res) {
 	pg.connect(conString, function(err, client, done) {
