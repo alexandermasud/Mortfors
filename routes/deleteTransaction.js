@@ -4,23 +4,36 @@ var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 
 
-router.post('/deleteTransaction', function(req, res) {
+router.delete('/deleteTransaction/:id', function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
 		}
-		var transaktionsid = (req.body.transaktionsid)
-		var avgangsid = (req.body.avgangsid)
-		var platser = (req.body.platser)
-		var queryLine = "BEGIN; DELETE FROM kop WHERE transaktionsid ='" + (req.body.transaktionsid) + "'; UPDATE resa SET platser = platser + '" + (req.body.platser) + "' WHERE avgangsid = '" + (req.body.avgangsid) + "' ; COMMIT;"
-		client.query(queryLine, function(err, result) {
+        
+        
+       
+		client.query("SELECT * FROM resa", function(err, result, fields) {
 			if (err) {
-				return console.error('error running query', err);
+				return console.error('error while fetching client from pool', err);
 			}
-			req.flash('test_msg', '<p>Transaktion ' + (req.body.transaktionsid) + ' togs bort!</p>');
-			res.redirect('/transactions');
-			done();
+            
+            else{
+                
+                
+                
+                console.log('Resultat =' + result)
+                
+            }
+                
+                
+          
+                
+            
+                
+              
+			
 		});
 	});
 });
 module.exports = router;
+

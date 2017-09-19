@@ -26,7 +26,6 @@
 			</thead>
 			<tbody>
             {{#kund}}
-            <form action="/deleteTransaction" method="post">
 				<tr>
 					<td>{{transaktionsid}}</td>
 					<td>{{kundid}}</td>
@@ -39,9 +38,10 @@
 					<td>{{ankomst}}</td>
 					<td>{{platser}}</td>
 					<td>{{kostnad}}</td>
-					<td><input hidden="" name="transaktionsid" type="text" value="{{transaktionsid}}"> <input hidden="" name="avgangsid" type="text" value="{{avgangsid}}"> <input hidden="" name="platser" type="text" value="{{platser}}"> <button class="btn btn-danger" type="submit"><i aria-hidden="true" class="fa fa-trash"></i></button></td>
+					<td>
+                        <button data-id-del="{{transaktionsid}}" class="btn btn-danger delete-trip-button" type="submit"><i aria-hidden="true" class="fa fa-trash"></i></button></td>
 				</tr>
-            </form>
+           
             {{/kund}}
 			</tbody>
 		</table>
