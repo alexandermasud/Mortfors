@@ -1,14 +1,27 @@
 $(document).ready(function() {
 	$('.delete-trip-button').on('click', function() {
 		var id = $(this).data('id-del');
-		var url = '/deleteTransaction/' + (id);
+		var url = '/transactions/' + (id);
 		if (confirm('Ta bort resa?')) {
 			$.ajax({
+                
+                
+                
 				url: url,
 				type: 'DELETE',
+                
+                
+                
+                
+                
 				success: function(result) {
 					console.log('Tar bort resa');
 					window.location.href = "/transactions";
+                    
+                    
+                    
+                    
+                    
 				},
 				error: function(err) {
 					console.log(err);

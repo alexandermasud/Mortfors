@@ -19,23 +19,15 @@ var db = mongoose.connection;
 mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
 
 var routes = require('./routes/index');
-var search = require('./routes/search');
-var purchase = require('./routes/purchase');
+var purchase = require('./routes/index');
+
 
 var customers = require('./routes/customers');
-
 var drivers = require('./routes/drivers');
-var createDriver = require('./routes/createDriver');
-
 var cities = require('./routes/cities');
-var createCity = require('./routes/createCity');
-
 var trips = require('./routes/trips');
-var createTrip = require('./routes/createTrip');
-var tripEditDriver = require('./routes/tripEditDriver');
 
 var transactions = require('./routes/transactions');
-var deleteTransaction = require('./routes/deleteTransaction');
 
 var account = require('./routes/account');
 var users = require('./routes/users');
@@ -105,23 +97,23 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', routes);
-app.post('/search', search);
-app.post('/purchase', purchase);
+app.post('/search', routes);
+app.post('/purchase', routes);
 
 app.get('/customers', customers);
 
 app.get('/drivers', drivers);
-app.post('/createDriver', createDriver);
+app.post('/drivers', drivers);
 
 app.get('/cities', cities);
-app.post('/createCity', createCity);
+app.post('/cities', cities);
 
 app.get('/trips', trips);
-app.post('/createTrip', createTrip);
-app.post('/tripEditDriver', tripEditDriver);
+app.post('/trips', trips);
+app.post('/tripEditDriver', trips);
 
 app.get('/transactions', transactions);
-app.delete('/deleteTransaction/:id', deleteTransaction);
+app.delete('/transactions/:id', transactions);
 
 app.post('/account', account);
 app.use('/users', users);
@@ -131,6 +123,6 @@ app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function() {
 	console.log('')
-	console.log('Server started on localhost:' + app.get('port') + ' and on 10.0.1.6:' + app.get('port'));
+	console.log('Server started on localhost:' + app.get('port'));
 	console.log('')
 });

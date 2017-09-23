@@ -20,4 +20,21 @@ router.get('/cities', function(req, res) {
 		});
 	});
 });
+
+router.post('/cities', function(req, res) {
+	pg.connect(conString, function(err, client, done) {
+		if (err) {
+			return console.error('error while fetching client from pool', err);
+		}
+		client.query('INSERT INTO stad (land, stad, adress) values($1, $2, $3)', [
+			req.body.land,
+			req.body.stad,
+			req.body.adress
+		]);
+		done();
+		req.flash('test_msg', 'Ny stad skapades!');
+		res.redirect('/cities');
+	});
+});
+
 module.exports = router;
