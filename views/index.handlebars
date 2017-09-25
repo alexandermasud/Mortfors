@@ -70,7 +70,7 @@
                 </div></a>
                 <div class="collapse" id="{{avgangsid}}">
                     <div class="card card-block card-block-custom">
-                        <form>
+                        <form action="/purchase" method="post">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card-title">
@@ -98,12 +98,12 @@
     <div aria-labelledby="formModalLabel" class="modal fade" id="formModal" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form action="/purchase" method="post">
+                <form >
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">Avgångsinformation</h4><button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     </div>
                     <div class="modal-body">
-                        <input class="form-control hidden-*-up" hidden="" id="form" name="kundid" type="text" value="{{user.username}}"> <input class="form-control hidden-*-up" hidden="" name="firstname" type="text" value="{{user.firstname}}"> <input class="form-control hidden-*-up" hidden="" name="lastname" type="text" value="{{user.lastname}}"> <input class="form-control hidden-*-up" hidden="" name="email" type="text" value="{{user.email}}"> <input class="form-control hidden-*-up" hidden="" name="avgangsid" type="text"> <input class="form-control hidden-*-up" hidden="" name="orgplatser" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgangsland" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgangsstad" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomstland" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomststad" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgang" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomst" type="text"> <input class="form-control hidden-*-up" hidden="" id="pris" name="pris" type="text"> <input class="form-control hidden-*-up" hidden="" id="totalt" name="kostnad" type="text">
+                        <input class="form-control hidden-*-up" hidden="" id="form" name="kundid" type="text" value="{{user.username}}"> <input class="form-control hidden-*-up" hidden="" id="firstname" name="firstname" type="text" value="{{user.firstname}}"> <input class="form-control hidden-*-up" hidden="" name="lastname" type="text" value="{{user.lastname}}"> <input class="form-control hidden-*-up" hidden="" name="email" type="text" value="{{user.email}}"> <input class="form-control hidden-*-up" hidden="" name="avgangsid" type="text"> <input class="form-control hidden-*-up" hidden="" name="orgplatser" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgangsland" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgangsstad" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomstland" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomststad" type="text"> <input class="form-control hidden-*-up" hidden="" name="avgang" type="text"> <input class="form-control hidden-*-up" hidden="" name="ankomst" type="text"> <input class="form-control hidden-*-up" hidden="" id="pris" name="pris" type="text"> <input class="form-control hidden-*-up" hidden="" id="totalt" name="kostnad" type="text">
                         <div class="row">
                             <h2 class="col-sm-6" id="avgangslandId"></h2>
                             <h2 class="col-sm-6" id="ankomstlandId"></h2>
@@ -152,6 +152,9 @@
                                     </option>
                                 </select>
                             </div>
+                        </div>
+                        
+                        <div class="row">
                         </div>
                         <div class="modal-footer">
                             <div class="row">

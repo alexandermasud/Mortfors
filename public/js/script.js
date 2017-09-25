@@ -1,5 +1,17 @@
 $(document).ready(function() {
+    
+  
+      $('#formModal').submit(function() {
+          
+          
+       
+      
+      
+      });
+    
 	$('.delete-trip-button').on('click', function() {
+        
+        
 		var id = $(this).data('id-del');
 		var url = '/transactions/' + (id);
 		if (confirm('Ta bort resa?')) {
@@ -10,18 +22,10 @@ $(document).ready(function() {
 				url: url,
 				type: 'DELETE',
                 
-                
-                
-                
-                
+
 				success: function(result) {
-					console.log('Tar bort resa');
 					window.location.href = "/transactions";
-                    
-                    
-                    
-                    
-                    
+                
 				},
 				error: function(err) {
 					console.log(err);
@@ -37,6 +41,9 @@ $(document).ready(function() {
 	});
 	$(".alert").alert()
 	$('#formModal').on('show.bs.modal', function(e) {
+        
+      
+        
 		var avgangsidId = $(e.relatedTarget).data('avgangsid-id');
 		$(e.currentTarget).find('input[name="avgangsid"]').val(avgangsidId);
 		var orgplatserId = $(e.relatedTarget).data('orgplatser-id');
@@ -74,8 +81,11 @@ $(document).ready(function() {
 			$('#totalt').val(pris * koptaplatser);
 			$('#totalt-h2').text(pris * koptaplatser);
 		});
+
 	});
+
 });
 $(function() {
 	$('[data-toggle="popover"]').popover()
 })
+

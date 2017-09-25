@@ -45,7 +45,14 @@ router.post('/search', function(req, res) {
 });
 
 router.post('/purchase', function(req, res) {
+        
+    
+    
 	pg.connect(conString, function(err, client, done) {
+        
+       
+        
+        
 		if (err) {
 			return console.error('error while fetching client from pool', err);
 		}
