@@ -10,8 +10,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var nodemailer = require('nodemailer');
 
-var request = require('request');
-
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 
@@ -19,6 +17,8 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
+
+var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
 var purchase = require('./routes/index');
@@ -50,6 +50,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
+// MethodOverride Middleware
+
+app.use(methodOverride('_method'))
 
 app.use(cookieParser());
 
@@ -112,7 +116,7 @@ app.post('/cities', cities);
 
 app.get('/trips', trips);
 app.post('/trips', trips);
-app.post('/tripEditDriver', trips);
+app.put('/trips/:id', trips);
 
 app.get('/transactions', transactions);
 app.delete('/transactions/:id', transactions);

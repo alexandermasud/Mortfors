@@ -1,13 +1,11 @@
 $(document).ready(function() {
     
   
-      $('#formModal').submit(function() {
-          
-          
-       
-      
-      
-      });
+    
+    $('.edit-trip-button').on('click', function(){
+        
+        
+    });
     
 	$('.delete-trip-button').on('click', function() {
         
@@ -83,6 +81,24 @@ $(document).ready(function() {
 		});
 
 	});
+    
+    
+    	$('#formModalEdit').on('show.bs.modal', function(e) {
+        
+      
+        
+		var avgangsidId = $(e.relatedTarget).data('avgangsid-id');
+		$(e.currentTarget).find('input[name="avgangsid"]').val(avgangsidId);
+        var chaufforidId = $(e.relatedTarget).data('chaufforid-id');
+		$(e.currentTarget).find('input[name="chaufforid"]').val(chaufforidId);
+		
+
+
+	});
+    
+    
+    
+    
 
 });
 $(function() {
