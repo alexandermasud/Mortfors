@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
+var {ensureAuthenticated} = require('../helpers/auth');
 
 
-router.get('/cities', function(req, res) {
+
+router.get('/cities', ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -21,7 +23,7 @@ router.get('/cities', function(req, res) {
 	});
 });
 
-router.post('/cities', function(req, res) {
+router.post('/cities', ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -32,7 +34,7 @@ router.post('/cities', function(req, res) {
 			req.body.adress
 		]);
 		done();
-		req.flash('test_msg', 'Ny stad skapades!');
+		req.flash('success_msg', 'Ny stad skapades!');
 		res.redirect('/cities');
 	});
 });

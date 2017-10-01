@@ -6,7 +6,7 @@ var User = require('../models/user');
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 var nodemailer = require('nodemailer');
-
+var {ensureAuthenticated} = require('../helpers/auth');
 
 
 router.get('/register', function(req, res) {
@@ -30,7 +30,7 @@ router.post('/register', function(req, res) {
 			var usernameOccupied = (result.rows[0].countuser)
 			if (usernameOccupied == 1) {
 				req.flash('fail_msg', 'Användarnamnet är upptaget');
-				res.redirect('/users/register');
+				res.redirect('/register');
 			} else {
 				var firstname = req.body.firstname;
 				var lastname = req.body.lastname;
@@ -91,9 +91,8 @@ router.post('/register', function(req, res) {
 				req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 				var errors = req.validationErrors();
 				if (errors) {
-					res.render('register', {
-						errors: errors
-					});
+                    req.flash('fail_msg', 'Ogiltiga uppgifter')
+					res.redirect('/register');
 				} else {
 					var newUser = new User({
 						firstname: firstname,
@@ -157,7 +156,7 @@ router.post('/register', function(req, res) {
 						// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
 						// Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 					});
-					req.flash('test_msg', 'Du är nu registrerad!');
+					req.flash('success_msg', 'Du är nu registrerad!');
 					res.redirect('/');
 				}
 			}
@@ -205,16 +204,16 @@ passport.deserializeUser(function(id, done) {
 
 router.post('/login', passport.authenticate('local', {
 	successRedirect: '/',
-	failureRedirect: '/users/login',
+	failureRedirect: '/login',
 	failureFlash: true
 }), function(req, res) {
 	res.redirect('/');
 });
 
 
-router.get('/logout', function(req, res) {
+router.get('/logout',ensureAuthenticated, function(req, res) {
 	req.logout();
-	req.flash('test_msg', 'Du är nu utloggad');
+	req.flash('success_msg', 'Du är nu utloggad');
 	res.redirect('/');
 });
 module.exports = router;

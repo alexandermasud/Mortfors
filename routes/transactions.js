@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
+var {ensureAuthenticated} = require('../helpers/auth');
 
-
-router.get('/transactions', function(req, res) {
+router.get('/transactions', ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -24,7 +24,7 @@ router.get('/transactions', function(req, res) {
 
 
 
-router.delete('/transactions/:id', function(req, res) {
+router.delete('/transactions/:id',ensureAuthenticated,  function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -44,7 +44,7 @@ router.delete('/transactions/:id', function(req, res) {
                 if (err) {
                     return console.error('error running query', err);
                 }
-                req.flash('test_msg', '<p>Transaktion ' + (req.params.id) + ' togs bort!</p>');
+                req.flash('success_msg', '<p>Transaktion ' + (req.params.id) + ' togs bort!</p>');
                 res.sendStatus(200);
                 done();
 

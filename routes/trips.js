@@ -3,9 +3,9 @@ var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 var methodOverride = require('method-override');
+var {ensureAuthenticated} = require('../helpers/auth');
 
-
-router.get('/trips', function(req, res) {
+router.get('/trips',ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -22,7 +22,7 @@ router.get('/trips', function(req, res) {
 	});
 });
 
-router.post('/trips', function(req, res) {
+router.post('/trips',ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -54,7 +54,7 @@ router.post('/trips', function(req, res) {
 									req.body.chaufforid
 								]);
 								done();
-								req.flash('test_msg', 'Ny resa skapades!');
+								req.flash('success_msg', 'Ny resa skapades!');
 								res.redirect('/trips');
 							} else {
 								req.flash('fail_msg', 'Chaufför finns ej');
@@ -74,7 +74,7 @@ router.post('/trips', function(req, res) {
 	});
 });
 
-router.put('/trips/:id', function(req, res) {
+router.put('/trips/:id',ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -94,7 +94,7 @@ router.put('/trips/:id', function(req, res) {
 								return console.error('error running query', err);
 							}
 							done();
-							req.flash('test_msg', 'Chaufför redigerades!');
+							req.flash('success_msg', 'Chaufför redigerades!');
 							res.redirect('/trips');
 						});
 					} else {

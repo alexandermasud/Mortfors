@@ -3,7 +3,7 @@ var router = express.Router();
 var pg = require('pg');
 var nodemailer = require('nodemailer');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
-
+var {ensureAuthenticated} = require('../helpers/auth');
 
 router.get('/', function(req, res) {
 	pg.connect(conString, function(err, client, done) {
@@ -44,7 +44,7 @@ router.post('/search', function(req, res) {
 	});
 });
 
-router.post('/purchase', function(req, res) {
+router.post('/purchase',ensureAuthenticated , function(req, res) {
         
     
     
@@ -131,7 +131,7 @@ router.post('/purchase', function(req, res) {
 					// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
 					// Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 				});
-				req.flash('test_msg', '<p><strong>Grattis </strong> Din resa från ' + (req.body.avgangsland) + ' till ' + (req.body.ankomstland) + ' är nu bokad!</p>');
+				req.flash('success_msg', '<p><strong>Grattis </strong> Din resa från ' + (req.body.avgangsland) + ' till ' + (req.body.ankomstland) + ' är nu bokad!</p>');
 				res.redirect('/');
 			});
 		};

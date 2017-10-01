@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
+var {ensureAuthenticated} = require('../helpers/auth');
 
-
-router.get('/drivers', function(req, res) {
+router.get('/drivers',ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -22,7 +22,7 @@ router.get('/drivers', function(req, res) {
 });
 
 
-router.post('/drivers', function(req, res) {
+router.post('/drivers',ensureAuthenticated, function(req, res) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 			return console.error('error while fetching client from pool', err);
@@ -41,7 +41,7 @@ router.post('/drivers', function(req, res) {
 					req.body.hemtelefon
 				]);
 				done();
-				req.flash('test_msg', 'Ny chaufför skapades!');
+				req.flash('success_msg', 'Ny chaufför skapades!');
 				res.redirect('/drivers');
 			}
 		});
