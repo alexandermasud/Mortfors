@@ -20,13 +20,14 @@
     "express-messages": "^1.0.1",
     "express-session": "^1.15.5",
     "express-validator": "^4.1.1",
+    "method-override": "*",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.10",
+    "nodemailer": "^4.1.0",
     "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
-    "pg": "^6.4.2",
-    "nodemailer": "^4.1.0",
-    "method-override": "*"
+    "pg": "^6.4.2"
   }
 }
