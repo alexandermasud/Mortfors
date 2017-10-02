@@ -2,6 +2,30 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 
+var GoogleUserSchema = new mongoose.Schema({
+    
+    googleID:{
+        type:String,
+        required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    firstName:{
+        type: String
+    },
+    lastName:{
+        type: String
+    },
+    image:{
+        type: String
+    }
+    
+});
+
+
+
 var UserSchema = mongoose.Schema({
 	username: {
 		type: String,
@@ -29,6 +53,10 @@ var UserSchema = mongoose.Schema({
 		type: String
 	},
 });
+
+// Create google collection and add schema
+
+mongoose.model('users', UserSchema);
 
 var User = module.exports = mongoose.model('User', UserSchema);
 module.exports.createUser = function(newUser, callback) {

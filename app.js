@@ -13,10 +13,26 @@ var nodemailer = require('nodemailer');
 var pg = require('pg');
 var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.elephantsql.com:5432/mtmjbqma";
 
+// Load keys
+
+var keys = require('./config/keys')
+
+
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
+
+// Map global promises
+
+mongoose.Promise = global.Promise;
+
+// Mongoose connect
+mongoose.connect(keys.mongoURI, {
+    useMongoClient:true
+})
+
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
 
 var methodOverride = require('method-override');
 
