@@ -10,5 +10,11 @@ var {ensureAuthenticated} = require('../helpers/auth');
 router.get('/google', passport.authenticate('google', {scope: ['profile', 'email']}));
     
     
+router.get( '/google/callback', 
+    passport.authenticate( 'google', { failureRedirect: '/login'}),
+           
+        function(req,res){
+            res.redirect('/account');
+        });
 
 module.exports = router;
