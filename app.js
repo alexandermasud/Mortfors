@@ -20,6 +20,8 @@ mongoose.connect('mongodb://alex:alex@ds125914.mlab.com:25914/mortfors');
 
 var methodOverride = require('method-override');
 
+
+
 var routes = require('./routes/index');
 var purchase = require('./routes/index');
 
@@ -33,6 +35,8 @@ var transactions = require('./routes/transactions');
 
 var account = require('./routes/account');
 var users = require('./routes/users');
+
+var auth = require('./routes/auth');
 
 // Init App
 var app = express();
@@ -88,6 +92,10 @@ app.use(expressValidator({
 	}
 }));
 
+// Passport config
+
+require('./config/passport')(passport);
+
 // Connect Flash
 app.use(flash());
 
@@ -126,6 +134,8 @@ app.post('/account', account);
 app.use('/users', users);
 app.get('/register', users);
 app.get('/login', users);
+
+app.use('/auth', auth);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
