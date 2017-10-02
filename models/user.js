@@ -24,6 +24,10 @@ var GoogleUserSchema = new mongoose.Schema({
     
 });
 
+// Create google collection and add schema
+
+mongoose.model('googleUsers', GoogleUserSchema);
+
 
 
 var UserSchema = mongoose.Schema({
@@ -54,9 +58,7 @@ var UserSchema = mongoose.Schema({
 	},
 });
 
-// Create google collection and add schema
 
-mongoose.model('users', UserSchema);
 
 var User = module.exports = mongoose.model('User', UserSchema);
 module.exports.createUser = function(newUser, callback) {

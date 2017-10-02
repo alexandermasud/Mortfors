@@ -108,6 +108,9 @@ app.use(expressValidator({
 	}
 }));
 
+// Load User Model
+require('./models/user');
+
 // Passport config
 
 require('./config/passport')(passport);
