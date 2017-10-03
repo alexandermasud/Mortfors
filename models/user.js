@@ -13,10 +13,10 @@ const GoogleUserSchema = new Schema({
     type: String,
     required: true
   },
-  firstName: {
+  firstname: {
     type: String
   },
-  lastName: {
+  lastname: {
     type: String
   },
   image: {
