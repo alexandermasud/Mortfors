@@ -15,7 +15,9 @@ var conString = "postgres://mtmjbqma:FV-Pmc7MOX4BPDO_8CUE7n9lBFaFMp-d@horton.ele
 
 // Load keys
 
-var keys = require('./config/keys')
+var keys = require('./config/keys');
+
+
 
 
 var mongo = require('mongodb');
@@ -83,8 +85,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Express Session
 app.use(session({
 	secret: 'secret',
-	saveUninitialized: true,
-	resave: true
+	saveUninitialized: false,
+	resave: false
 }));
 
 // Passport init
@@ -127,6 +129,7 @@ app.use(function(req, res, next) {
 	res.locals.error = req.flash('error');
 	res.locals.user = req.user || null;
 	next();
+    
 });
 
 app.get('/', routes);
