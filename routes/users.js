@@ -213,7 +213,7 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout',ensureAuthenticated, function(req, res) {
 	req.logout();
-	req.flash('success_msg', 'Du är nu utloggad');
-	res.redirect('/');
+	
+	res.redirect('../auth/logout');
 });
 module.exports = router;
