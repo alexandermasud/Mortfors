@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row"><img alt="Två personer" class="img-fluid" src="img/transaktioner/transaktioner1.jpg"></div>
+	<div class="row">
+        
+		{{#if test_msg}}
+		<div class="alert alert-success alert-dismissible show alert-custom flash-msg col-lg-12" role="alert">
+			<button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            
+        {{{test_msg}}}
+            
+            
+		</div>{{/if}}
+	</div>
+	<div class="row">
+		<h2>Köpta Resor</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Transid</th>
+					<th>Kundid</th>
+					<th>Förnamn</th>
+					<th>Efternamn</th>
+					<th>Avgångsid</th>
+					<th>Avgångsstad</th>
+					<th>Ankomststad</th>
+					<th>Avgång</th>
+					<th>Ankomst</th>
+					<th>Platser</th>
+					<th>Kostnad</th>
+				</tr>
+			</thead>
+			<tbody>
+            {{#kund}}
+				<tr>
+					<td>{{transaktionsid}}</td>
+					<td>{{kundid}}</td>
+					<td>{{fornamn}}</td>
+					<td>{{efternamn}}</td>
+					<td>{{avgangsid}}</td>
+					<td>{{avgangsstad}}</td>
+					<td>{{ankomststad}}</td>
+					<td>{{avgang}}</td>
+					<td>{{ankomst}}</td>
+					<td>{{platser}}</td>
+					<td>{{kostnad}}</td>
+					<td>
+                        <button data-id-del="{{transaktionsid}}" class="btn btn-danger delete-trip-button" type="submit"><i aria-hidden="true" class="fa fa-trash"></i></button></td>
+				</tr>
+           
+            {{/kund}}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+

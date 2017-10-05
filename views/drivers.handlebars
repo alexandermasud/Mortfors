@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+        <img alt="En busschaufför" class="img-fluid" src="img/chauff%C3%B6rregister/chauff%C3%B6rregister1.jpg"> <!-- /.row -->
+    </div>
+    <div class="row">
+        <div class="col-lg-10">
+            <h2>Chaufförregister</h2>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-success btn-block" data-target="#formModal" data-toggle="modal" style="float:right; margin-top: 20px; margin-bottom: 20px;;" type="button">Ny chaufför +</button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Personnummer</th>
+                    <th>Förnamn</th>
+                    <th>Efternamn</th>
+                    <th>Adress</th>
+                    <th>Stad</th>
+                    <th>Hemtelefon</th>
+                </tr>
+            </thead>
+            {{#chauffor}}
+            <tbody>
+                <tr>
+                    <td>{{chaufforid}}</td>
+                    <td>{{fornamn}}</td>
+                    <td>{{efternamn}}</td>
+                    <td>{{adress}}</td>
+                    <td>{{stad}}</td>
+                    <td>{{hemtelefon}}</td>
+                </tr>
+            </tbody>
+            {{/chauffor}}
+        </table>
+    </div>
+    </div><!-- Modal -->
+    <div aria-labelledby="formModalLabel" class="modal fade" id="formModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/drivers" method="post">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Registrera ny chaufför</h4><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="fornamn">Förnamn</label> <input class="form-control" name="fornamn" placeholder="ex Johan" required="" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="efternamn">Efternamn</label> <input class="form-control" name="efternamn" placeholder="ex Persson" required="" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="adress">Adress</label> <input class="form-control" name="adress" placeholder="ex Storgatan 15" required="" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="stad">Stad</label> <input class="form-control" name="stad" placeholder="ex Stockholm" required="" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="chaufforid">Personummer</label> <input class="form-control" name="chaufforid" placeholder="ex 550122-1234" required="" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="hemtelefon">Hemtelefon</label> <input class="form-control" name="hemtelefon" placeholder="ex 040123456" required="" type="number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal" type="button">Avbryt</button> <input class="btn btn-primary" type="submit" value="Spara">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

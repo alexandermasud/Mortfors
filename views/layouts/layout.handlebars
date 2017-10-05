@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mörtfors buss</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+	<link href="/css/font-awesome.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
+    
+    
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="/"><img alt="" height="30" src="img/logo.png" width="30"></a>
+			
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Sök resor</a>
+					</li>
+					
+						{{#if user}}
+					<li class="nav-item dropdown">
+						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdownMenuLink">Register</a>
+						<div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+							<a class="dropdown-item" href="/customers">Kunder</a> <a class="dropdown-item" href="/drivers">Chaufförer</a> <a class="dropdown-item" href="/cities">Städer</a> <a class="dropdown-item" href="/trips">Resor</a> <a class="dropdown-item" href="/transactions">Köp</a>
+						</div>
+					</li>
+					
+					{{else}}{{/if}}
+				</ul>
+				<ul class="nav navbar-nav nav-pills pull-right">
+					<li style="list-style: none">{{#if user}}</li>
+					<li role="presentation">
+						<form action="/account" method="post">
+							<input class="hidden-*-up" hidden="" name="username" type="text" value="{{user.username}}"> <input class="btn btn-outline-primary account-btn btn-block" type="submit" value="{{user.firstname}}">
+						</form>
+					</li>
+					<li role="presentation">
+						<a class="btn btn-outline-secondary btn-block" href="/users/logout">Logga ut</a>
+					</li>
+					<li style="list-style: none">{{else}}</li>
+					<li role="presentation">
+						<form action="/login">
+							<input class="btn btn-outline-primary account-btn btn-block" type="submit" value="Logga in">
+						</form>
+					</li>
+					<li role="presentation">
+						<a class="btn btn-outline-secondary btn-block" href="/register">Nytt konto</a>
+					</li>
+					<li style="list-style: none">{{/if}}</li>
+				</ul>
+			</div>
+			
+			
+		</nav>
+		<div class="row">
+		
+       
+            
+			<div class="col-lg-12">
+            
+				
+				 {{#if success_msg}}
+		    <div class="alert alert-success alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            {{{success_msg}}}</div>
+        {{/if}}
+        
+				 {{#if error_msg}}
+		    <div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            {{{error_msg}}}</div>
+                    {{/if}} 
+                    
+                    
+                     {{#if fail_msg}}
+		    <div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            {{{fail_msg}}}</div>
+                    {{/if}} 
+                    
+					 {{#if error}}
+		    <div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            {{{error}}}</div>
+                    {{/if}} 
+                    
+                	 {{#if errors}}
+		    <div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            {{{errors}}}</div>
+                    {{/if}} 
+                    
+                    
+                    	 {{#if errors}}{{#each error}}
+		    <div class="alert alert-danger alert-dismissible show alert-custom flash-msg" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+            {{{error_msg}}}</div>
+                   {{/each}}
+                    {{/if}} 
+                
+				{{{body}}}
+				
+			</div>
+		</div>
+		<footer class="footer">
+			<p>&copy; 2017 Alexander Masud</p>
+		</footer>
+	</div><!-- /container -->
+	<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">
+	</script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js">
+	</script> 
+	<script src="/js/jquery.tablesorter.js">
+	</script> 
+	<script src="/js/script.js">
+	</script>
+</body>
+</html>
