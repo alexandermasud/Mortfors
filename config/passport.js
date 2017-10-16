@@ -18,7 +18,7 @@ module.exports = function(passport){
       const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
       
       const newUser = {
-        googleID: profile.id,
+        username: profile.id,
         firstname: profile.name.givenName,
         lastname: profile.name.familyName,
         email: profile.emails[0].value,
@@ -27,7 +27,7 @@ module.exports = function(passport){
 
       // Check for existing user
       User.findOne({
-        googleID: profile.id
+        username: profile.id
       }).then(user => {
         if(user){
           // Return user
