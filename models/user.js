@@ -3,6 +3,31 @@ var bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Create Shema
+const GoogleUserSchema = new Schema({
+  googleID:{
+    type:String,
+    required: true
+  },
+  email:{
+    type: String,
+    required: true
+  },
+  firstname: {
+    type: String
+  },
+  lastname: {
+    type: String
+  },
+  image: {
+    type:String
+  }
+});
+
+// Create collection and add schema
+mongoose.model('users', GoogleUserSchema);
+
+
 var UserSchema = mongoose.Schema({
 	username: {
 		type: String,
